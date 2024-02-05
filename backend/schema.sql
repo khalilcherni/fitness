@@ -20,7 +20,7 @@ USE `fitness` ;
 -- -----------------------------------------------------
 -- Table `fitness`.`fitnessformen`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `fitnessformen` (
+CREATE TABLE IF NOT EXISTS `fitness`.`fitnessformen` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `ExerciseName` VARCHAR(250) NOT NULL,
   `DurationInMinutes` INT NULL DEFAULT NULL,
@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `fitnessformen` (
   `Image` VARCHAR(250) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -75,6 +76,20 @@ CREATE TABLE IF NOT EXISTS `fitness`.`loseweight` (
   `description` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `fitness`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `fitness`.`user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 

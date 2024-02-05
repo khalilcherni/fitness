@@ -2,11 +2,13 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3001;
+const PORT = 3005;
 const accRouter = require('./Routes/MenRoute')
-app.use(express.static(__dirname + '/../client/dist'));
+
 app.use(cors());
+
 app.use(express.json());
+app.use(express.static(__dirname + '/../client/dist'));
 app.use('/api',accRouter)
 // Use the routers corr
 
