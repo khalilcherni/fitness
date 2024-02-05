@@ -21,7 +21,7 @@ const Home = () => {
           <button className="btn">Get Started</button>
         </div>
         <div className="header__image">
-          <img src="https://fitnessvolt.com/wp-content/uploads/2022/04/Superset-guide.jpg" alt="header" />
+          <img className='p' src="https://fitnessvolt.com/wp-content/uploads/2022/04/Superset-guide.jpg" alt="header" />
         </div>
       </header>
 
