@@ -179,3 +179,15 @@ body {
 }
 
 
+.header__images-container {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+}
+
+.header__image {
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.header__image:last-child {
+  margin-right: 0;
+}

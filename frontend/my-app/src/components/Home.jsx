@@ -1,5 +1,6 @@
 import React from 'react';
-import "./home.css"
+import "./home.css";
+
 const Home = () => {
   return (
     <div>
@@ -25,9 +26,23 @@ const Home = () => {
         </div>
       </header>
 
-   
+      <div className="header__images-container">
+        <div className="header__image">
+          <img src="https://img.freepik.com/premium-photo/portrait-muscular-woman-plank-position_484651-9812.jpg?size=626&ext=jpg" alt="header" />
+        </div>
+        <div className="header__image">
+          <img src="https://static.toiimg.com/thumb/msid-95450287,imgsize-1285219,width-400,resizemode-4/95450287.jpg" alt="header" />
+        </div>
+        <div className="header__image">
+          <img src="https://www.shutterstock.com/image-photo/woman-man-training-together-doing-260nw-1033122217.jpg" alt="header" />
+        </div>
+        <div className="header__image">
+          <img src="https://contents.mediadecathlon.com/p1999580/k$20477ad61d910403d68d061afdce1a31/1800x0/2738pt2054/5476xcr4107/fitness%2520quel%2520sport%2520choisir%2520%25C3%25A0%2520la%2520rentr%25C3%25A9e.jpg?format=auto" alt="header" />
+        </div>
+      </div>
+
       <footer className="section__container footer__container">
-    
+        {/* Existing footer code */}
       </footer>
 
       <div className="footer__bar">
