@@ -27,22 +27,20 @@ function BasicExample() {
               <Nav.Link href="#Home" onClick={() => handleTabClick('home')}>
                 Home 
               </Nav.Link>
-              <Nav.Link href="#Tourism">
-                Tourism
-              </Nav.Link>
-              <Nav.Link href="#Culture">
-                Culture
-              </Nav.Link>
-              <Nav.Link href="#Historic" >
-                Historic
-              </Nav.Link>
-              <NavDropdown title="Details" id="basic-nav-dropdown">
+              <NavDropdown title="Healthy living" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#ContactForm">
-                  Book
+                  Men 
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#Add" >
-                  Add
+                  Women
                 </NavDropdown.Item>
+              </NavDropdown>
+            
+              <NavDropdown title="Exercice" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#ContactForm">
+                  food 
+                </NavDropdown.Item>
+               
               </NavDropdown>
             </Nav>
       
