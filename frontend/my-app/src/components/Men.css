@@ -7,6 +7,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px;
   }
   
   .men-card:hover {
@@ -19,11 +20,13 @@
     overflow: hidden;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    height: 200px; /* Adjust the height as needed */
   }
   
   .card-img-top {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
     transition: transform 0.3s ease-in-out;
   }
   
@@ -62,16 +65,11 @@
   .text-muted {
     opacity: 0.8;
   }
-  .card-img-container {
-    position: relative;
-    overflow: hidden;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 200px; /* Adjust the height as needed */
+  
+  @media (max-width: 768px) {
+    .row-cols-md-2 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
   }
   
-  .card-img-top {
-    width: 50%;
-    height: 50%;
-
-  }
