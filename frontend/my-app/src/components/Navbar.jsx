@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 
@@ -59,3 +60,14 @@ function BasicExample() {
 }
   
   export default BasicExample;
+=======
+import React from 'react'
+
+function Navbar() {
+  return (
+    <div>Navbar</div>
+  )
+}
+
+export default Navbar
+>>>>>>> d8e9c070fb2585097eafe4239596de58a290924e
