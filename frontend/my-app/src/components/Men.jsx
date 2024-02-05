@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Men.css'; // Import your CSS file
 
 function Men() {
   const [data, setData] = useState([]);
@@ -16,7 +17,7 @@ function Men() {
       <div className="row row-cols-1 row-cols-md-2 g-4">
         {data.map((e) => (
           <div key={e.id} className="col mb-4">
-            <div className="card h-100">
+            <div className="card h-100 men-card">
               <img src={e.Image} className="card-img-top" alt="Exercise" />
               <div className="card-body">
                 <h5 className="card-title">{e.ExerciseName}</h5>
