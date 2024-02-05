@@ -1,18 +1,21 @@
-const express = require("express");
+const express = require('express');
+const cors = require('cors');
+
 const app = express();
-const PORT = 5000;
-const accRouter = require('./route/route.js')
-const cors = require('cors')
-app.use(cors())
-app.use(express.json())
+const PORT = 3000;
+const accRouter = require('./Routes/MenRoute')
+app.use(express.static(__dirname + '/../client/dist'));
+app.use(cors());
+app.use(express.json());
+app.use('/api',accRouter)
+// Use the routers corr
 
- app.use('/api',accRouter)
+app.get('/api', (req, res) => {
+  res.send('Hello from the server!');
+});
 
-
-
-
-
+// Your database connection code goes here
 
 app.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`);
-  });
+  console.log(`Server listening at http://localhost:${PORT}`);
+});

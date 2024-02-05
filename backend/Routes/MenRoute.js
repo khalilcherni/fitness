@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {get,deleted,put,posted} =require  ('../controller/controller.js')
+const {get,deleted,put,posted} =require  ('../controllers/MenController.js')
 
 
 

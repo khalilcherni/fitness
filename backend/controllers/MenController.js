@@ -1,4 +1,4 @@
-const   {getAll,post,deleteacc,updateacc} =require  ('../model/model.js')
+const   {getAll,post,deleteacc,updateacc} =require  ('../Models/MenModel.js')
 
 
 const get = function(req, res) {
