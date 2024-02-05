@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import Home from './Home';
 
 
 function BasicExample() {
-  // const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState('home');
 
-
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
 
   return (
     <div>
@@ -13,7 +16,7 @@ function BasicExample() {
       <Container>
           <Navbar.Brand href="#home">
             <img className='op' src="https://cdn-icons-png.flaticon.com/128/7006/7006898.png" alt="" height="30" />
-            Sicca Veneria
+           Fitness
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="èbasic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -21,8 +24,8 @@ function BasicExample() {
               <Nav.Link href="#home" >
               
               </Nav.Link>
-              <Nav.Link href="#weather">
-                Weather
+              <Nav.Link href="#Home" onClick={() => handleTabClick('home')}>
+                Home 
               </Nav.Link>
               <Nav.Link href="#Tourism">
                 Tourism
@@ -51,8 +54,8 @@ function BasicExample() {
       {/* Render the received data only if searchClicked is true */}
      
 
-      {/* Render components based on activeTab */}
-      {/* {activeTab === 'home' && < />} */}
+   
+      {activeTab === 'home' && <Home />}
     
     </div>
   );
