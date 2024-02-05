@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import Home from './Home';
 import "./Navbar.css"
+import Men from './Men';
 
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
@@ -27,20 +28,20 @@ function BasicExample() {
               <Nav.Link href="#Home" onClick={() => handleTabClick('home')}>
                 Home 
               </Nav.Link>
-              <NavDropdown title="Healthy living" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#ContactForm">
+              <NavDropdown title="Food" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#ContactForm">
+                Healthy living 
+                </NavDropdown.Item>
+              </NavDropdown>
+            
+              <NavDropdown title="Exercice" id="basic-nav-dropdown">
+           
+                <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
                   Men 
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#Add" >
                   Women
                 </NavDropdown.Item>
-              </NavDropdown>
-            
-              <NavDropdown title="Exercice" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#ContactForm">
-                  food 
-                </NavDropdown.Item>
-               
               </NavDropdown>
             </Nav>
       
@@ -54,7 +55,7 @@ function BasicExample() {
 
    
       {activeTab === 'home' && <Home />}
-    
+      {activeTab === 'Men' && <Men />}
     </div>
   );
 }
