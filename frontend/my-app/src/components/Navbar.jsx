@@ -3,6 +3,7 @@ import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from '
 import Home from './Home';
 import "./Navbar.css"
 import Men from './Men';
+import Register from './Register';
 
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
@@ -43,6 +44,9 @@ function BasicExample() {
                   Women
                 </NavDropdown.Item>
               </NavDropdown>
+              <Nav.Link href="#Register" onClick={() => handleTabClick('Register')}>
+                Register 
+              </Nav.Link>
             </Nav>
       
           </Navbar.Collapse>
@@ -56,6 +60,7 @@ function BasicExample() {
    
       {activeTab === 'home' && <Home />}
       {activeTab === 'Men' && <Men />}
+      {activeTab === 'Register' && <Register />}
     </div>
   );
 }
