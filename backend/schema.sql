@@ -18,6 +18,38 @@ CREATE SCHEMA IF NOT EXISTS `fitness` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8
 USE `fitness` ;
 
 -- -----------------------------------------------------
+-- Table `fitness`.`fitnessformen`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `fitnessformen` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `ExerciseName` VARCHAR(250) NOT NULL,
+  `DurationInMinutes` INT NULL DEFAULT NULL,
+  `Repetitions` INT NULL DEFAULT NULL,
+  `Description` TEXT NULL DEFAULT NULL,
+  `Image` VARCHAR(250) NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `fitness`.`fitnessforwomen`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `fitness`.`fitnessforwomen` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `ExerciseName` VARCHAR(250) NOT NULL,
+  `DurationInMinutes` INT NULL DEFAULT NULL,
+  `Repetitions` INT NULL DEFAULT NULL,
+  `Description` TEXT NULL DEFAULT NULL,
+  `Image` VARCHAR(250) NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
 -- Table `fitness`.`gainweight`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fitness`.`gainweight` (

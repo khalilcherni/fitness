@@ -3,11 +3,11 @@ const cors = require('cors');
 
 const app = express();
 const PORT = 3000;
-
+const accRouter = require('./Routes/MenRoute')
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(cors());
 app.use(express.json());
-
+app.use('/api',accRouter)
 // Use the routers corr
 
 app.get('/api', (req, res) => {
@@ -16,6 +16,6 @@ app.get('/api', (req, res) => {
 
 // Your database connection code goes here
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });
