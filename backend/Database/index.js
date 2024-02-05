@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root', //username imported from the config files
     password: 'root', //password imported from the config files
-    database: 'press' //database name imported from the config files
+    database: '' //database name imported from the config files
   });
 console.log("database is connected 👽");
 // Connect to the database and make sure to log a message related to the connection state 
