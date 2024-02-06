@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import "./home.css";
+import React,{useEffect,useState} from 'react';
+import "./home.css"
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -170,7 +170,7 @@ const Home = () => {
 
 
       </div>
-      {/* <AboutUsComponent/> */}
+      
     </div>
   );
 };
