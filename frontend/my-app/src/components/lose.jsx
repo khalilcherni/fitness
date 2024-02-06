@@ -7,7 +7,7 @@ function Lose() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/lose/getAll') // Assuming your backend endpoint for lose weights is '/api/loseweight'
+      .get('http://localhost:3005/lose/getAll') // Assuming your backend endpoint for lose weights is '/api/loseweight'
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
