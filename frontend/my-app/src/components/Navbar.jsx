@@ -3,6 +3,7 @@ import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from '
 import Home from './Home';
 import "./Navbar.css"
 import Men from './Men';
+import AboutUs from './AboutUs';
 
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
@@ -27,6 +28,9 @@ function BasicExample() {
               </Nav.Link>
               <Nav.Link href="#Home" onClick={() => handleTabClick('home')}>
                 Home 
+              </Nav.Link>
+              <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
+                AboutUs
               </Nav.Link>
               <NavDropdown title="Food" id="basic-nav-dropdown">
               <NavDropdown.Item href="#ContactForm">
@@ -55,6 +59,7 @@ function BasicExample() {
 
    
       {activeTab === 'home' && <Home />}
+      {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
     </div>
   );

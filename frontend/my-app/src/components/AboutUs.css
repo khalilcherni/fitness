@@ -1,94 +1,134 @@
-/* .about {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    gap: 8rem;
-  }
-  
-  .about .image {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 42rem;
-            flex: 1 1 42rem;
-    position: relative;
-  }
-  
-  .about .image::before,
-  .about .image::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    background: #a4af0ed2;
-    height: 15rem;
-    width: 15rem;
-  }
-  
-  .about .image::before {
-    top: 0;
-    left: 0;
-  }
-  
-  .about .image::after {
-    bottom: 0;
-    right: 0;
-  }
-  
-  .about .image img {
-    width: 100%;
-    padding: 2rem;
-  }
-  
-  .about .content {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 42rem;
-            flex: 1 1 42rem;
-  }
-  
-  .about .content span {
-    font-size: 2rem;
-    color: #a4af0ed2;
-  }
-  
-  .about .content .title {
-    font-size: 4rem;
-    color: #fff;
-    margin-top: .5rem;
-  }
-  
-  .about .content p {
-    font-size: 1.5rem;
-    color: #aaa;
-    padding: 1rem 0;
-    line-height: 2;
-  }
-  
-  .about .content .box-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 1rem;
-  }
-  
-  .about .content .box-container .box {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 20rem;
-            flex: 1 1 20rem;
-  }
-  
-  .about .content .box-container .box h3 {
-    font-size: 2rem;
-    color: #fff;
-  }
-  
-  .about .content .box-container .box h3 i {
-    padding-right: 1.5rem;
-    color: #a4af0ed2;
-  }
-   */
+/* Reset some default styles for consistency */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+/* General styling for the about section */
+.about {
+  background-color: #1b1b1b;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.coach_image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.coach-paragraph {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.box-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.box {
+  width: 45%;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.box h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.box p {
+  font-size: 1.1em;
+}
+
+/* Styling for the contact section */
+.contact {
+  background-color: #1b1b1b;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Simple form styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
