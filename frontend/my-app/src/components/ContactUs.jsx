@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import "../index.css";
+import "./Contact.css";
 
 
 const ContactForm = () => {
@@ -28,12 +28,12 @@ const ContactForm = () => {
 
   return (
     <div className="contact-form-container">
-      <div id="alert" className="alert"> <h1>Contact Us</h1></div>
+      <div id="alert" className="alert"> Contact </div>
 
       <label htmlFor="Fullname" className="form-label">Full Name:</label>
       <input
         className="form-input"
-        placeholder="text"
+   
         id="Fullname"
         value={fullname}
         onChange={(e) => setFullname(e.target.value)}
@@ -42,7 +42,7 @@ const ContactForm = () => {
       <label htmlFor="email_id" className="form-label">Email:</label>
       <input
         className="form-input"
-        placeholder="email"
+
         id="email_id"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
