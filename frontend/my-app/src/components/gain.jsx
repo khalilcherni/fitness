@@ -7,7 +7,7 @@ function Gain() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3005/api/getAll') 
+      .get('http://localhost:5000/api/getAll') 
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
