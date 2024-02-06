@@ -54,7 +54,8 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Login</h2>
+      <h2>Login if you have accout</h2>
+      
         <form>
           <div className="user-box">
             <input
@@ -83,7 +84,8 @@ const LoginPage = () => {
       </div>
 
       <div className="signup-box">
-        <h2>Signup</h2>
+        <h2>Create account</h2>
+   
         <form>
           <div className="user-box">
             <input
