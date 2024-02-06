@@ -73,6 +73,9 @@ function BasicExample() {
                   Gain Weight
                 </NavDropdown.Item>
               </NavDropdown>
+              <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
+                Contact Us
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -83,6 +86,7 @@ function BasicExample() {
       {activeTab === 'Men' && <Men />}
       {activeTab === 'Register' && <Register />}
       {activeTab === 'loss weight' && <Lose />}
+      {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'gain Weight' && <Gain />}
     </div>
   );
