@@ -1,21 +1,22 @@
-// Import necessary components and styles
 import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
 import AboutUs from './AboutUs';
-
 import Register from './Register';
-
 import './Navbar.css';
 
-
-// Component definition
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+
+    // Scroll to the element with the given ID
+    const element = document.getElementById(tab);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -47,12 +48,9 @@ function BasicExample() {
                   Women
                 </NavDropdown.Item>
               </NavDropdown>
-
               <Nav.Link href="#Register" onClick={() => handleTabClick('Register')}>
                 Register 
               </Nav.Link>
-
-              {/* Add the new NavDropdown for "Shop" with sub-menus */}
               <NavDropdown title="Shop" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Proteins" onClick={() => handleTabClick('proteins')}>
                   Proteins
@@ -61,21 +59,15 @@ function BasicExample() {
                   Accessoire Sport
                 </NavDropdown.Item>
               </NavDropdown>
-
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <hr />
-      {/* Render the received data only if searchClicked is true */}
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
-
       {activeTab === 'Register' && <Register />}
-
-      {/* Add more conditions for other tabs if needed */}
-
     </div>
   );
 }

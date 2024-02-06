@@ -1,75 +1,21 @@
-/* Men.css */
+/* ... Your existing styles ... */
 
-.men-card {
-    position: relative;
-    overflow: hidden;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    margin-bottom: 20px;
-  }
-  
-  .men-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-img-container {
-    position: relative;
-    overflow: hidden;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 200px; /* Adjust the height as needed */
-  }
-  
-  .card-img-top {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Maintain aspect ratio and cover the container */
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .card-img-container:hover .card-img-top {
-    transform: scale(1.1);
-  }
-  
-  .card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .men-card:hover .card-overlay {
-    opacity: 1;
-  }
-  
-  .card-body,
-  .card-footer {
-    color: #fff;
-  }
-  
-  .card-footer {
-    text-align: right;
-  }
-  
-  .text-muted {
-    opacity: 0.8;
-  }
-  
-  @media (max-width: 768px) {
-    .row-cols-md-2 {
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
-  }
-  
+.card {
+  border: 1px solid #ffffff;
+  padding: 10px;
+}
+
+/* New styles for "Read More" button */
+.read-more-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.read-more-button:hover {
+  background-color: #2980b9;
+}
+
+/* ... Your existing styles ... */
