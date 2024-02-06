@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
-
 import Register from './Register';
-
 import './Navbar.css';
+import Lose from './lose';
+import Gain from './gain';
 
 
 // Component definition
@@ -73,9 +73,9 @@ function BasicExample() {
       {/* Render the received data only if searchClicked is true */}
       {activeTab === 'home' && <Home />}
       {activeTab === 'Men' && <Men />}
-
       {activeTab === 'Register' && <Register />}
-      {activeTab === 'Register' && <Register />}
+      {activeTab === 'loss weight' && <Lose />}
+      {activeTab === 'gain Weight' && <Gain />}
       {/* Add more conditions for other tabs if needed */}
 
     </div>

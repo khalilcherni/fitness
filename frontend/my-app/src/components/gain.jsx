@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Gain.css'; // Import your CSS file
+import './gain.css'; // Import your CSS file
 
 function Gain() {
   const [data, setData] = useState([]);
