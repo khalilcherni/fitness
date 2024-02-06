@@ -1,3 +1,5 @@
+// AboutUs.js
+
 import React from 'react';
 import './AboutUs.css'; // Make sure to import your CSS file
 
@@ -5,22 +7,28 @@ const AboutUs = () => {
   return (
     <div>
       <section className="about" id="about">
-       
-        <img  classNament= 'coach_image' src='https://lioncoach.fr/wp-content/uploads/2021/08/Coachs_sportifs_Lioncoach-1024x671.jpg' alt="Coaches" />
-          <p className="coach-paragraph">
+        <img
+          className="coach_image"
+          src="https://lioncoach.fr/wp-content/uploads/2021/08/Coachs_sportifs_Lioncoach-1024x671.jpg"
+          alt="Coaches"
+        />
+        <div className="coach-paragraph">
+          <h1>Our team</h1>
+          <p>
             Meet our dedicated team of coaches, each specializing in a unique
             area. From strength training to mindfulness, our coaches are
             passionate about guiding you to achieve your fitness goals. Get to
             know each coach and their expertise to enhance your fitness
             experience.
           </p>
-        <div className="content">
-        <div className="image">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0_vkKeGJQYBgidBJFrRr9jKX1VtKj121tLVdVcXsBFmrHSOPe8_9gyLwM0YgHVPKzePg&usqp=CAU"
-            alt="Fitness Image"
-          />
         </div>
+        <div className="content">
+          <div className="image">
+            {/* <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0_vkKeGJQYBgidBJFrRr9jKX1VtKj121tLVdVcXsBFmrHSOPe8_9gyLwM0YgHVPKzePg&usqp=CAU"
+              alt="Fitness Image"
+            /> */}
+          </div>
           <h1 className="title">Every day is a chance to become better</h1>
           <p>
             Transform your body and mind with our fitness programs. We believe in
@@ -70,14 +78,11 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-          
           <a href="#" className="btn">
             Read More
           </a>
         </div>
       </section>
-
-   
     </div>
   );
 };
