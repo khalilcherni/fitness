@@ -1,8 +1,5 @@
-// src/components/LoginPage.js
-
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
-
+import axios from 'axios'; // Import Axios
 
 const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState('');
@@ -12,27 +9,16 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('hhttp://localhost:3005/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: loginEmail, password: loginPassword }),
+      const response = await axios.post('http://localhost:3005/api/login', {
+        email: loginEmail,
+        password: loginPassword
       });
 
-      if (response.ok) {
-        const { token } = await response.json();
-
-        // Save the token to local storage or a secure storage mechanism
+      if (response.status === 200) {
+        const { token } = response.data;
         localStorage.setItem('token', token);
-
-        // Send a welcome email (client-side logic)
-        sendWelcomeEmail(loginEmail);
-
-        // Redirect to the homepage (you can use react-router-dom or any other method)
-        window.location.href = '/'; // Change the path as needed
+        window.location.href = '/'; // Redirect to homepage
       } else {
-        // Authentication failed
         alert('Authentication failed. Please check your credentials.');
       }
     } catch (error) {
@@ -42,36 +28,21 @@ const LoginPage = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await fetch('http://localhost:3005/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: signupEmail, password: signupPassword }),
+      const response = await axios.post('http://localhost:3005/api/register', {
+        email: signupEmail,
+        password: signupPassword
       });
 
-      if (response.ok) {
-        const { token } = await response.json();
-
-        // Save the token to local storage or a secure storage mechanism
+      if (response.status === 201) {
+        const { token } = response.data;
         localStorage.setItem('token', token);
-
-        // Send a welcome email (client-side logic)
-        sendWelcomeEmail(signupEmail);
-
-        // Redirect to the homepage (you can use react-router-dom or any other method)
-        window.location.href = '/'; // Change the path as needed
+        window.location.href = '/'; // Redirect to homepage
       } else {
-        // Signup failed
         alert('Signup failed. Please try again.');
       }
     } catch (error) {
       console.error('Error during signup:', error);
     }
-  };
-
-  const sendWelcomeEmail = (userEmail) => {
-    // ... (same as before)
   };
 
   return (
