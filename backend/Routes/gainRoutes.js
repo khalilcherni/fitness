@@ -1,12 +1,19 @@
-// gainweightRoutes.js
+// gainRoutes.js
 const express = require("express");
 const router = express.Router();
-const gainweightController = require("../controllers/gainController.js"); // Update the controller import
+const gainController = require("../controllers/gainController");
 
-router.get("/getAll", gainweightController.getAllGainWeight); // Update the controller method
-router.get("/:id", gainweightController.getOneGainWeight); // Update the controller method and parameter
-router.post("/add", gainweightController.addGainWeight); // Update the controller method
-router.put("/update/:id", gainweightController.updateGainWeight); // Update the controller method and parameter
-router.delete("/delete/:id", gainweightController.deleteGainWeight); // Update the controller method and parameter
+router.get("/getAll", gainController.getAllGainWeight);
+
+router.get("/:name", gainController.getGainWeightByName);
+
+// POST create a new gain weight
+router.post("/add", gainController.createGainWeight);
+
+// PUT update an existing gain weight
+router.put("/:id", gainController.updateGainWeight);
+
+// DELETE delete an existing gain weight
+router.delete("/:id", gainController.deleteGainWeight);
 
 module.exports = router;
