@@ -6,6 +6,7 @@ import Register from './Register';
 import './Navbar.css';
 import Lose from './lose';
 import Gain from './gain';
+import ContactForm from './ContactUs';
 
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
@@ -87,7 +88,7 @@ function BasicExample() {
       {activeTab === 'Register' && <Register />}
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
-      {activeTab === 'gain Weight' && <Gain />}
+      {activeTab === 'Contact' && <ContactForm />}
     </div>
   );
 }

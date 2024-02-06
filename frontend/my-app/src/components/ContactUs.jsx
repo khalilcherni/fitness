@@ -11,7 +11,7 @@ const ContactForm = () => {
   const sendMail = () => {
     const params = { name: fullname, email, message };
     const serviceID = "service_j1ac1mr"; // Replace with your EmailJS service ID
-    const templateID = "template_p5w2pcz"; // Replace with your EmailJS template ID
+    const templateID = "template_tcrkuws"; // Replace with your EmailJS template ID
     const userID = "RXP3IH-LaqwswElZc"; // Replace with your EmailJS user ID
 
     emailjs.send(serviceID, templateID, params, userID)
