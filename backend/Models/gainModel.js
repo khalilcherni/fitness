@@ -1,6 +1,6 @@
 
 const connection = require("../Database/index2");
-const connection = require("../Database/index");
+
 
 
 module.exports = {
