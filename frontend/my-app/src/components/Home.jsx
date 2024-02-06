@@ -1,6 +1,6 @@
 import React from 'react';
 import "./home.css"
-import AboutUsComponent from './AboutUs';
+
 const Home = () => {
   return (
     <div>
@@ -34,7 +34,7 @@ const Home = () => {
       <div className="footer__bar">
         Copyright © 2024 Web fitness.
       </div>
-      {/* <AboutUsComponent/> */}
+      
     </div>
   );
 };
