@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
+
+import AboutUs from './AboutUs';
+
+
+
 import Register from './Register';
 import './Navbar.css';
 import Lose from './lose';
@@ -29,6 +34,9 @@ function BasicExample() {
             <Nav className="me-auto">
               <Nav.Link href="#home" onClick={() => handleTabClick('home')}>
                 Home
+              </Nav.Link>
+              <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
+                AboutUs
               </Nav.Link>
               <NavDropdown title="Food" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#ContactForm">
@@ -72,6 +80,7 @@ function BasicExample() {
       <hr />
       {/* Render the received data only if searchClicked is true */}
       {activeTab === 'home' && <Home />}
+      {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
       {activeTab === 'Register' && <Register />}
       {activeTab === 'loss weight' && <Lose />}
