@@ -1,6 +1,6 @@
 // userModel.js
 
-const { query } = require('../Database/');
+const { query } = require('../Database/index');
 const jwt = require('jsonwebtoken');
 const connection = require("../Database/");
 

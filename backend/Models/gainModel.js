@@ -1,4 +1,4 @@
-const connection = require("../Database");
+const connection = require("../Database/index2");
 
 module.exports = {
   getAll: function(callback) {
