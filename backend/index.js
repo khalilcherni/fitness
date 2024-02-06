@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-const PORT = 3005;
+const PORT = 3000;
 const accRouter = require('./Routes/MenRoute')
 const UserRoutes=require("./Routes/userRoutes")
 
