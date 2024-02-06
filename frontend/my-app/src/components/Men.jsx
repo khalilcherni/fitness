@@ -7,7 +7,7 @@ function Men() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/api/get')
+      .get('http://localhost:3005/api/get')
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
