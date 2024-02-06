@@ -8,13 +8,13 @@ const accRouter = require('./Routes/MenRoute')
 const menRouter = require('./Routes/MenRoute')
 const womenRouter= require ('./Routes/WomenRoute')
 
-const gainRoutes = require("./Routes/gainRoutes");
-const loseRoutes = require("./Routes/loseRoutes");
-
+app.use(express.static(__dirname + '/../client/dist'));
 app.use(cors());
 app.use(express.json());
 app.use('/api',menRouter)
 app.use('/api',womenRouter)
+app.use('/api',proteinRouter)
+app.use('/api',productsRouter)
 
 // Use the routers correctly
 app.use("/api", gainRoutes);
