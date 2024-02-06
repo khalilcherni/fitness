@@ -1,7 +1,6 @@
-// userRoutes.js
 const express = require('express');
 const userController = require('../controllers/userController');
-const { authenticateJWT } = require('../controllers/userController');
+const { authenticateJWT } = require('../controllers/userController'); // Import authenticateJWT correctly
 
 const router = express.Router();
 

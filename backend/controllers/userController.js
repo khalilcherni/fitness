@@ -1,17 +1,25 @@
-// userController.js
-const User =require ("../Models/userModel")
+const  secretKey  = require('../config');
 const jwt = require('jsonwebtoken');
+const User =require("../Models/userModel")
+// ... rest of your code ...
 
 // Function to generate a JWT token
-const generateToken = (userId) => {
-  const token = jwt.sign({ userId }, 'yourSecretKey', { expiresIn: '1h' });
-  return token;
-};
 
-// Register a new user
+
+
+// ... rest of your code ...
+
+// Function to generate a JWT token
+// const generateToken = (userId) => {
+//   const token = jwt.sign({ user._id }, secretKey, { expiresIn: '1h' });
+//   return token;
+// };
+
+// ... rest of your code ...
+
 exports.registerUser = async (req, res) => {
   try {
-    const user = await User.create(req.body);
+    const user = User.create(req.body);
     res.status(201).json(user);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -25,16 +33,16 @@ exports.loginUser = async (req, res) => {
 
     // Replace this with your actual authentication logic (e.g., verify credentials)
     // For simplicity, assuming a simple email/password check
-    const user = await User.getByCredentials(email, password);
+    const user =  User.getByCredentials(email, password);
 
     if (!user) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
-
+    const payload = { userId: user.id };
     // Generate a JWT token
-    const token = generateToken(user._id);
+    const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
 
-    res.status(200).json({ user, token });
+    res.status(200).json({ token });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -49,7 +57,7 @@ exports.authenticateJWT = (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, 'yourSecretKey');
+    const decoded = jwt.verify(token, secretKey);
     req.user = decoded;
     next();
   } catch (error) {
