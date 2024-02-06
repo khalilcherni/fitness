@@ -60,8 +60,10 @@ CREATE TABLE IF NOT EXISTS `fitness`.`gainweight` (
   `type` VARCHAR(45) NOT NULL,
   `calories` VARCHAR(45) NOT NULL,
   `description` VARCHAR(45) NOT NULL,
+  `image` VARCHAR(255) NOT NULL DEFAULT 'N/A',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -75,8 +77,10 @@ CREATE TABLE IF NOT EXISTS `fitness`.`loseweight` (
   `type` VARCHAR(45) NOT NULL,
   `calories` VARCHAR(45) NOT NULL,
   `description` VARCHAR(45) NOT NULL,
+  `image` VARCHAR(255) NOT NULL DEFAULT 'N/A',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
