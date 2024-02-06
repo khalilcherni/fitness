@@ -13,7 +13,7 @@ const AboutUs = () => {
           alt="Coaches"
         />
         <div className="coach-paragraph">
-          <h1>Our team</h1>
+          <h1 className='p'>Our team</h1>
           <p>
             Meet our dedicated team of coaches, each specializing in a unique
             area. From strength training to mindfulness, our coaches are
