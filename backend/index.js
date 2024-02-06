@@ -6,7 +6,6 @@ const PORT = 3005;
 const accRouter = require('./Routes/MenRoute')
 const UserRoutes=require("./Routes/userRoutes")
 
-const PORT = 3001;
 
 const proteinRouter=require("./Routes/proteinRouter")
 const productsRouter=require("./Routes/productsRouter")
