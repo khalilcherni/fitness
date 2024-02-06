@@ -12,9 +12,10 @@ const LoginPage = () => {
         email: loginEmail,
         password: loginPassword
       });
-
+  
       if (response.status === 200) {
         const { token } = response.data;
+        alert('Login successful!'); // Display success message
         // localStorage.setItem('token', token);
         window.location.href = '/'; // Redirect to homepage
       } else {
@@ -29,6 +30,7 @@ const LoginPage = () => {
       }
     }
   };
+  
 
   const handleSignup = async () => {
     try {
@@ -36,18 +38,18 @@ const LoginPage = () => {
         email: signupEmail,
         password: signupPassword
       });
-
+  
       if (response.status === 201) {
-        const { token } = response.data;
-        // localStorage.setItem('token', token);
-        // window.location.href = '/'; // Redirect to homepage
+        alert('Signup successful! Please login to continue.'); // Display success message
+        // Clear input fields or perform any other necessary actions
       } else {
-        alert('Signup failed. Please try again.');
+        alert('Signup failed. Please try again.'); // Display failure message
       }
     } catch (error) {
       console.error('Error during signup:', error);
     }
   };
+  
 
   return (
     <div className="login-container">
