@@ -15,7 +15,7 @@ const LoginPage = () => {
 
       if (response.status === 200) {
         const { token } = response.data;
-        localStorage.setItem('token', token);
+        // localStorage.setItem('token', token);
         window.location.href = '/'; // Redirect to homepage
       } else {
         alert('Authentication failed. Please check your credentials.');
@@ -39,8 +39,8 @@ const LoginPage = () => {
 
       if (response.status === 201) {
         const { token } = response.data;
-        localStorage.setItem('token', token);
-        window.location.href = '/'; // Redirect to homepage
+        // localStorage.setItem('token', token);
+        // window.location.href = '/'; // Redirect to homepage
       } else {
         alert('Signup failed. Please try again.');
       }
