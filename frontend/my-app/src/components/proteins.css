@@ -1,0 +1,44 @@
+/* proteins.css */
+
+/* proteins.css */
+
+.shop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    width: 80%;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px; /* Negative margin to counteract padding on columns */
+  }
+  
+  .col {
+    flex: 0 0 25%; /* Adjust the width based on your design */
+    padding: 10px;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .de {
+    padding: 10px;
+  }
+  
+  .in {
+    margin: 0;
+  }
+  

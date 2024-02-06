@@ -7,6 +7,7 @@ import Men from './Men';
 import Register from './Register';
 
 import './Navbar.css';
+import Proteine from './Proteins';
 
 
 // Component definition
@@ -68,7 +69,7 @@ function BasicExample() {
       {activeTab === 'Men' && <Men />}
 
       {activeTab === 'Register' && <Register />}
-
+      {activeTab === 'proteins' && <Proteine />}
       {/* Add more conditions for other tabs if needed */}
 
     </div>
