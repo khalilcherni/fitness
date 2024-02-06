@@ -1,0 +1,28 @@
+/* Gain.css */
+
+.container {
+    margin-top: 50px;
+  }
+  
+  .men-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Add more styling as needed */
+  

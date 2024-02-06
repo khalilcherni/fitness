@@ -3,10 +3,12 @@ const cors = require('cors');
 const app = express();
 const PORT = 3001;
 
-const accRouter = require('./Routes/MenRoute')
-
+const proteinRouter=require("./Routes/proteinRouter")
+const productsRouter=require("./Routes/productsRouter")
 const menRouter = require('./Routes/MenRoute')
 const womenRouter= require ('./Routes/WomenRoute')
+const gainRoutes=require("./Routes/gainRoutes")
+const loseRoutes=require("./Routes/loseRoutes")
 
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(cors());
