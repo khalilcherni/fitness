@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import "./home.css"
-
+import image from "../components/image/bodybuilder-puissant-elegant-tatouage-son-bras-faisant-exercices-biceps-halteres-regardez-camera-regard-confiant-isole-fond-sombre-removebg-preview.png";
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -11,7 +11,7 @@ const Home = () => {
 
   // Automatically change the slide every 3 seconds (adjust as needed)
   useEffect(() => {
-    const intervalId = setInterval(handleSlideChange, 3000);
+    const intervalId = setInterval(handleSlideChange, 3005);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -41,7 +41,7 @@ const Home = () => {
           <button className="btn">Get Started</button>
         </div>
         <div className="header__image">
-          <img className='p' src="https://fitnessvolt.com/wp-content/uploads/2022/04/Superset-guide.jpg" alt="header" />
+          <img className='p' src={image} alt="header" />
         </div>
       </header>
 

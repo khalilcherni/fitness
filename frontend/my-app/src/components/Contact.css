@@ -1,0 +1,75 @@
+/* ContactForm.css */
+.contact-form-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px var(--secondary-color);
+    transition: transform 0.3s ease; /* Add transition for movement */
+  }
+  
+  .contact-form-container:hover {
+    transform: translateY(-5px); /* Move up on hover */
+  }
+  
+  .form-label {
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 5px;
+  }
+  
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--text-light);
+    margin-bottom: 20px;
+    transition: border-bottom-color 0.3s ease;
+  }
+  
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: var(--text-light);
+  }
+  
+  .form-input:focus,
+  .form-textarea:focus {
+    border-bottom-color: var(--secondary-color);
+  }
+  
+  .form-textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .button-55 {
+    background: var(--secondary-color);
+    border: none;
+    outline: none;
+    color: var(--white);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .button-55:hover {
+    background-color: var(--secondary-color-dark);
+  }
+  
+  .alert {
+    background-color: var(--primary-color-light);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px var(--secondary-color);
+  }
+  
