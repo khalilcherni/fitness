@@ -50,7 +50,7 @@ function BasicExample() {
                 Home
               </Nav.Link>
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-                AboutUs
+           <img className='kh' src="https://cdn-icons-png.flaticon.com/128/665/665049.png" alt="" />
               </Nav.Link>
               <NavDropdown title="Food" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#ContactForm">Healthy living</NavDropdown.Item>
