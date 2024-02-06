@@ -152,7 +152,7 @@ body {
   position: relative;
 }
 
-.header__image::before {
+/* .header__image::before {
   content: "o";
   position: absolute;
   top: 0;
@@ -169,7 +169,7 @@ body {
 .header__image img {
   max-width: 350px;
   margin: auto;
-}
+} */
 
 .explore__header {
   display: flex;
@@ -179,11 +179,6 @@ body {
 }
 
 
-.header__images-container {
-  display: flex;
-  justify-content: space-between; /* Adjust as needed */
-  box-shadow:8px 8px 10px 0 rgba(255, 255, 255, 0.979);
-}
 
 .header__image {
   margin-right: 10px; /* Adjust as needed */
@@ -258,5 +253,13 @@ body {
     padding: 1rem;
     font-size: 0.8rem;
     color: var(--white);
+  }
+  .splide__slide img {
+
+    width: 98%; /* Set the width to fill the container */
+    height: 400px; /* Set the height as needed */
+   margin-right: 20pc;
+    margin-left: 20px/* Maintain aspect ratio while filling the container */
+   
   }
   

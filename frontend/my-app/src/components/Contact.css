@@ -6,11 +6,34 @@
     background-color: var(--primary-color);
     border-radius: 10px;
     box-shadow: 0px 0px 20px 0px var(--secondary-color);
-    transition: transform 0.3s ease; /* Add transition for movement */
+    position: relative;
+    overflow: hidden;
   }
   
-  .contact-form-container:hover {
-    transform: translateY(-5px); /* Move up on hover */
+  .contact-form-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1), transparent);
+    animation: animateBackground 10s linear infinite;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .contact-form-container:hover::before {
+    opacity: 1;
+  }
+  
+  @keyframes animateBackground {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
   }
   
   .form-label {
