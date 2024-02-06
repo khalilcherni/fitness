@@ -1,52 +1,65 @@
+
 const connection = require("../Database/index2");
+const connection = require("../Database/index");
+
 
 module.exports = {
-  getAll: function(callback) {
-    const sql = "SELECT * FROM `gainweight`"; // Change from `cultural_places` to `gainweight`
-    connection.query(sql, function(error, results) {
-      callback(error, results);
-    });
-  },
+    getAll: function(callback) {
+        const query = "SELECT * FROM gainweight";
+        connection.query(query, function(err, results) {
+            if (err) {
+                callback(err, null);
+                return;
+            }
+            callback(null, results);
+        });
+    },
 
-  getOneById: function(gainWeightId, callback) { // Change from getOneByName to getOneById
-    const sql = "SELECT * FROM `gainweight` WHERE id=?"; // Change from `cultural_places` to `gainweight`
-    connection.query(sql, [gainWeightId], function(error, results) {
-      callback(error, results[0]);
-    });
-  },
+    getByName: function(name, callback) {
+        const query = "SELECT * FROM gainweight WHERE name = ?";
+        connection.query(query, [name], function(err, results) {
+            if (err) {
+                callback(err, null);
+                return;
+            }
+            if (results.length === 0) {
+                callback(null, null);
+                return;
+            }
+            callback(null, results[0]);
+        });
+    },
 
-  update: function(gainWeightId, updateGainWeight, callback) { // Change from culturalId to gainWeightId
-    const {
-      name,
-      description,
-      type,
-      calories,
-      // other fields as needed
-    } = updateGainWeight;
+    create: function(data, callback) {
+        const query = "INSERT INTO gainweight SET ?";
+        connection.query(query, data, function(err, results) {
+            if (err) {
+                callback(err, null);
+                return;
+            }
+            callback(null, results);
+        });
+    },
 
-    const sql =
-      "UPDATE `gainweight` SET name=?, description=?, type=?, calories=? WHERE id=?"; // Change from `cultural_places` to `gainweight`
-    
-    connection.query(
-      sql,
-      [name, description, type, calories, gainWeightId], // Change from culturalId to gainWeightId
-      function(error, results) {
-        callback(error, results);
-      }
-    );
-  },
+    update: function(id, data, callback) {
+        const query = "UPDATE gainweight SET ? WHERE id = ?";
+        connection.query(query, [data, id], function(err, results) {
+            if (err) {
+                callback(err, null);
+                return;
+            }
+            callback(null, results);
+        });
+    },
 
-  add: function(gainWeightData, callback) {
-    const sql = "INSERT INTO `gainweight` SET ?"; // Change from `cultural_places` to `gainweight`
-    connection.query(sql, gainWeightData, function(error, results) {
-      callback(error, results);
-    });
-  },
-
-  delete: function(gainWeightId, callback) {
-    const sql = "DELETE FROM `gainweight` WHERE id=?"; // Change from `cultural_places` to `gainweight`
-    connection.query(sql, [gainWeightId], function(error, results) {
-      callback(error, results);
-    });
-  },
-};
+    delete: function(id, callback) {
+        const query = "DELETE FROM gainweight WHERE id = ?";
+        connection.query(query, [id], function(err, results) {
+            if (err) {
+                callback(err, null);
+                return;
+            }
+            callback(null, results);
+        });
+    }
+}

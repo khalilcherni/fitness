@@ -1,114 +1,76 @@
-// culturalController.js
-const cultural = require('../Models/gainModel');
+// gainController.js
+const gainmodel = require('../Models/gainmodel');
 
 module.exports = {
-  getAllCultural: function(req, res) {
-    cultural.getAll(function(err, results) {
-      if (err) res.status(500).send(err);
-      else r// gainweightController.js
-      const gainweight = require('../Models/gainModel'); // Update the model import
-      
-      module.exports = {
-        getAllGainWeight: function(req, res) {
-          gainweight.getAll(function(err, results) {
-            if (err) res.status(500).send(err);
-            else res.json(results);
-          });
-        },
-      
-        getOneGainWeight: function(req, res) {
-          const gainWeightId = req.params.id; // Change from name to id
-          gainweight.getOneById(gainWeightId, function(err, result) {
-            if (err) res.status(500).send(err);
-            else if (!result) res.status(404).send('Gainweight place not found');
-            else res.json(result);
-          });
-        },
-      
-        addGainWeight: function(req, res) {
-          const gainWeightData = req.body;
-          gainweight.add(gainWeightData, function(err, result) {
-            if (err) res.status(500).send(err);
-            else res.status(201).json(result);
-          });
-        },
-      
-        updateGainWeight: function(req, res) {
-          const gainWeightId = req.params.id; // Change from name to id
-          const updateGainWeight = req.body;
-          gainweight.update(gainWeightId, updateGainWeight, function(err, results) {
-            if (err) res.status(500).json({ error: 'Internal Server Error' });
-            else {
-              if (results.affectedRows > 0) {
-                res.status(200).json({ message: 'Gainweight place updated successfully' });
-              } else {
-                res.status(404).json({ error: 'Gainweight place not found' });
-              }
+    getAllGainWeight: function(req, res) {
+        gainmodel.getAll(function(err, results) {
+            if (err) {
+                console.error("Error fetching gain weights:", err);
+                res.status(500).json({ error: "Internal server error" });
+                return;
             }
-          });
-        },
-      
-        deleteGainWeight: function(req, res) {
-          const gainWeightId = req.params.id; // Change from name to id
-          gainweight.delete(gainWeightId, function(err, results) {
-            if (err) res.status(500).json({ error: 'Internal Server Error' });
-            else {
-              if (results.affectedRows > 0) {
-                res.status(200).json({ message: 'Gainweight place deleted successfully' });
-              } else {
-                res.status(404).json({ error: 'Gainweight place not found' });
-              }
+            res.status(200).json(results);
+        });
+    },
+
+    getGainWeightByName: function(req, res) {
+        const gainName = req.params.name;
+        gainmodel.getByName(gainName, function(err, result) {
+            if (err) {
+                console.error("Error fetching gain weight by name:", err);
+                res.status(500).json({ error: "Internal server error" });
+                return;
             }
-          });
-        },
-      };
-      es.json(results);
-    });
-  },
+            if (!result) {
+                res.status(404).json({ error: "Gain weight not found" });
+                return;
+            }
+            res.status(200).json(result);
+        });
+    },
 
-  getOneCultural: function(req, res) {
-    const culturalName = req.params.name; // Change from id to name
-    cultural.getOneByName(culturalName, function(err, result) {
-      if (err) res.status(500).send(err);
-      else if (!result) res.status(404).send('Cultural place not found');
-      else res.json(result);
-    });
-  },
+    createGainWeight: function(req, res) {
+        const { name, type, calories, description, image } = req.body;
+        gainmodel.create({ name, type, calories, description, image }, function(err, result) {
+            if (err) {
+                console.error("Error creating gain weight:", err);
+                res.status(500).json({ error: "Internal server error" });
+                return;
+            }
+            res.status(201).json({ message: "Gain weight created successfully", id: result.insertId });
+        });
+    },
 
-  addCultural: function(req, res) {
-    const culturalData = req.body;
-    cultural.add(culturalData, function(err, result) {
-      if (err) res.status(500).send(err);
-      else res.status(201).json(result);
-    });
-  },
+    updateGainWeight: function(req, res) {
+        const gainId = req.params.id;
+        const { name, type, calories, description, image } = req.body;
+        gainmodel.update(gainId, { name, type, calories, description, image }, function(err, result) {
+            if (err) {
+                console.error("Error updating gain weight:", err);
+                res.status(500).json({ error: "Internal server error" });
+                return;
+            }
+            if (result.affectedRows === 0) {
+                res.status(404).json({ error: "Gain weight not found" });
+                return;
+            }
+            res.status(200).json({ message: "Gain weight updated successfully" });
+        });
+    },
 
-  updateCultural: function(req, res) {
-    const culturalId = req.params.place_id; // Change from name to place_id
-    const updateCultural = req.body;
-    cultural.update(culturalId, updateCultural, function(err, results) {
-      if (err) res.status(500).json({ error: 'Internal Server Error' });
-      else {
-        if (results.affectedRows > 0) {
-          res.status(200).json({ message: 'Cultural place updated successfully' });
-        } else {
-          res.status(404).json({ error: 'Cultural place not found' });
-        }
-      }
-    });
-  },
-
-  deleteCultural: function(req, res) {
-    const culturalId = req.params.place_id; // Change from name to place_id
-    cultural.delete(culturalId, function(err, results) {
-      if (err) res.status(500).json({ error: 'Internal Server Error' });
-      else {
-        if (results.affectedRows > 0) {
-          res.status(200).json({ message: 'Cultural place deleted successfully' });
-        } else {
-          res.status(404).json({ error: 'Cultural place not found' });
-        }
-      }
-    });
-  },
-};
+    deleteGainWeight: function(req, res) {
+        const gainId = req.params.id;
+        gainmodel.delete(gainId, function(err, result) {
+            if (err) {
+                console.error("Error deleting gain weight:", err);
+                res.status(500).json({ error: "Internal server error" });
+                return;
+            }
+            if (result.affectedRows === 0) {
+                res.status(404).json({ error: "Gain weight not found" });
+                return;
+            }
+            res.status(200).json({ message: "Gain weight deleted successfully" });
+        });
+    }
+}
