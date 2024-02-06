@@ -29,7 +29,11 @@ CREATE TABLE IF NOT EXISTS `fitness`.`fitnessformen` (
   `Image` VARCHAR(250) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
+<<<<<<< HEAD
 AUTO_INCREMENT = 9
+=======
+AUTO_INCREMENT = 4
+>>>>>>> d70cb1cd9cc16a35b77ae73ae0c8ec05b76c2539
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -46,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `fitness`.`fitnessforwomen` (
   `Image` VARCHAR(250) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -81,6 +86,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
+<<<<<<< HEAD
 -- Table `fitness`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fitness`.`user` (
@@ -90,6 +96,31 @@ CREATE TABLE IF NOT EXISTS `fitness`.`user` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
+=======
+-- Table `fitness`.`products`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `fitness`.`products` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `Image` VARCHAR(250) NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `fitness`.`protein`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `fitness`.`protein` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `Image` VARCHAR(250) NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+>>>>>>> d70cb1cd9cc16a35b77ae73ae0c8ec05b76c2539
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -97,3 +128,4 @@ COLLATE = utf8mb4_0900_ai_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+ 

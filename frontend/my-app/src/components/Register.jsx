@@ -13,16 +13,17 @@ const LoginPage = () => {
         email: loginEmail,
         password: loginPassword
       });
-
+  
       if (response.status === 200) {
         const { token } = response.data;
         localStorage.setItem('token', token);
         window.location.href = '/'; // Redirect to homepage
       } else {
-        alert('Authentication failed. Please check your credentials.');
+        alert('Failed to log in. Incorrect email or password.');
       }
     } catch (error) {
       console.error('Error during login:', error);
+      alert('Failed to log in. Please try again later.');
     }
   };
 
