@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Gain.css'; // Import your CSS file
+import './gain.css'; // Import your CSS file
 
 function Gain() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/api/getAll') 
+      .get('http://localhost:3005/api/getAll') 
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
