@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
+
+import Register from './Register';
+
 import './Navbar.css';
+
 
 // Component definition
 function BasicExample() {
@@ -39,6 +43,11 @@ function BasicExample() {
                   Women
                 </NavDropdown.Item>
               </NavDropdown>
+
+              <Nav.Link href="#Register" onClick={() => handleTabClick('Register')}>
+                Register 
+              </Nav.Link>
+
               {/* Add the new NavDropdown for "Shop" with sub-menus */}
               <NavDropdown title="Shop" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Proteins" onClick={() => handleTabClick('proteins')}>
@@ -48,6 +57,7 @@ function BasicExample() {
                   Accessoire Sport
                 </NavDropdown.Item>
               </NavDropdown>
+
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -56,7 +66,11 @@ function BasicExample() {
       {/* Render the received data only if searchClicked is true */}
       {activeTab === 'home' && <Home />}
       {activeTab === 'Men' && <Men />}
+
+      {activeTab === 'Register' && <Register />}
+
       {/* Add more conditions for other tabs if needed */}
+
     </div>
   );
 }

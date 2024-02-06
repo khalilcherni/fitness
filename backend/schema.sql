@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `fitness`.`fitnessformen` (
   `Image` VARCHAR(250) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -86,29 +86,15 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `fitness`.`products`
+-- Table `fitness`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `fitness`.`products` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
-  `description` TEXT NULL DEFAULT NULL,
-  `Image` VARCHAR(250) NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`))
+CREATE TABLE IF NOT EXISTS `fitness`.`user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `fitness`.`protein`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `fitness`.`protein` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
-  `description` TEXT NULL DEFAULT NULL,
-  `Image` VARCHAR(250) NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
