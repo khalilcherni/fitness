@@ -1,4 +1,4 @@
-const connection =require ('../database/index.js')
+const connection=require("../Database/index2")
 
 module.exports = {
 
