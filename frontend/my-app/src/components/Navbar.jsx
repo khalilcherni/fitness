@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
-
+import AccessoirSport from './Accessoire Sport'
 import Register from './Register';
 
 import './Navbar.css';
@@ -70,6 +70,7 @@ function BasicExample() {
 
       {activeTab === 'Register' && <Register />}
       {activeTab === 'proteins' && <Proteine />}
+      {activeTab === 'accessoireSport' && <AccessoirSport />}
       {/* Add more conditions for other tabs if needed */}
 
     </div>
