@@ -58,10 +58,10 @@ function BasicExample() {
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="3eljia" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#Proteins" onClick={() => handleTabClick('proteins')}>
+                <NavDropdown.Item href="# loss weight" onClick={() => handleTabClick(' loss weight')}>
                   loss weight
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#AccessoireSport" onClick={() => handleTabClick('accessoireSport')}>
+                <NavDropdown.Item href="#gain Weight" onClick={() => handleTabClick('gain Weight')}>
                 gain Weight
                 </NavDropdown.Item>
               </NavDropdown>
@@ -75,7 +75,7 @@ function BasicExample() {
       {activeTab === 'Men' && <Men />}
 
       {activeTab === 'Register' && <Register />}
-
+      {activeTab === 'Register' && <Register />}
       {/* Add more conditions for other tabs if needed */}
 
     </div>
