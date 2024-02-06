@@ -49,12 +49,8 @@ function BasicExample() {
               <Nav.Link href="#home" onClick={() => handleTabClick('home')}>
                 Home
               </Nav.Link>
-              <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-           <img className='kh' src="https://cdn-icons-png.flaticon.com/128/665/665049.png" alt="" />
-              </Nav.Link>
-              <NavDropdown title="Food" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#ContactForm">Healthy living</NavDropdown.Item>
-              </NavDropdown>
+          
+    
               <NavDropdown title="Exercise" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
                   Men
@@ -84,6 +80,9 @@ function BasicExample() {
               </NavDropdown>
               <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
                 Contact Us
+              </Nav.Link>
+              <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
+          About Us
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
