@@ -6,24 +6,27 @@ const LoginPage = () => {
   const [loginPassword, setLoginPassword] = useState('');
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
-
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:3005/api/login', {
         email: loginEmail,
         password: loginPassword
       });
-  
+
       if (response.status === 200) {
         const { token } = response.data;
         localStorage.setItem('token', token);
         window.location.href = '/'; // Redirect to homepage
       } else {
-        alert('Failed to log in. Incorrect email or password.');
+        alert('Authentication failed. Please check your credentials.');
       }
     } catch (error) {
       console.error('Error during login:', error);
-      alert('Failed to log in. Please try again later.');
+      if (error.response && error.response.data && error.response.data.message === 'Invalid credentials') {
+        alert('Invalid email or password. Please try again.');
+      } else {
+        alert('An error occurred during login. Please try again later.');
+      }
     }
   };
 

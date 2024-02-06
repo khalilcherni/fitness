@@ -44,9 +44,11 @@ exports.loginUser = async (req, res) => {
 
     res.status(200).json({ token });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error("Error during login:", err);
+    res.status(500).json({ message: "An error occurred during login" });
   }
 };
+
 
 // Middleware to check for a valid token
 exports.authenticateJWT = (req, res, next) => {
