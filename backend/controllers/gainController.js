@@ -1,3 +1,4 @@
+// gainController.js
 const gainmodel = require('../Models/gainmodel');
 
 module.exports = {
@@ -16,7 +17,7 @@ module.exports = {
         const gainName = req.params.name;
         gainmodel.getByName(gainName, function(err, result) {
             if (err) {
-                console.error("Error fetching gain weight:", err);
+                console.error("Error fetching gain weight by name:", err);
                 res.status(500).json({ error: "Internal server error" });
                 return;
             }
@@ -29,27 +30,31 @@ module.exports = {
     },
 
     createGainWeight: function(req, res) {
-        const gainData = req.body;
-        gainmodel.create(gainData, function(err, result) {
+        const { name, type, calories, description, image } = req.body;
+        gainmodel.create({ name, type, calories, description, image }, function(err, result) {
             if (err) {
                 console.error("Error creating gain weight:", err);
                 res.status(500).json({ error: "Internal server error" });
                 return;
             }
-            res.status(201).json(result);
+            res.status(201).json({ message: "Gain weight created successfully", id: result.insertId });
         });
     },
 
     updateGainWeight: function(req, res) {
         const gainId = req.params.id;
-        const newData = req.body;
-        gainmodel.update(gainId, newData, function(err, result) {
+        const { name, type, calories, description, image } = req.body;
+        gainmodel.update(gainId, { name, type, calories, description, image }, function(err, result) {
             if (err) {
                 console.error("Error updating gain weight:", err);
                 res.status(500).json({ error: "Internal server error" });
                 return;
             }
-            res.status(200).json(result);
+            if (result.affectedRows === 0) {
+                res.status(404).json({ error: "Gain weight not found" });
+                return;
+            }
+            res.status(200).json({ message: "Gain weight updated successfully" });
         });
     },
 
@@ -61,7 +66,11 @@ module.exports = {
                 res.status(500).json({ error: "Internal server error" });
                 return;
             }
-            res.status(204).end();
+            if (result.affectedRows === 0) {
+                res.status(404).json({ error: "Gain weight not found" });
+                return;
+            }
+            res.status(200).json({ message: "Gain weight deleted successfully" });
         });
     }
 }

@@ -14,7 +14,7 @@ module.exports = {
     },
 
     getByName: function(name, callback) {
-        const query = "SELECT * FROM loseweight WHERE Name = ?";
+        const query = "SELECT * FROM loseweight WHERE name = ?";
         connection.query(query, [name], function(err, results) {
             if (err) {
                 callback(err, null);

@@ -1,3 +1,4 @@
+// gainModel.js
 const connection = require("../Database/index");
 
 module.exports = {
