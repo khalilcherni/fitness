@@ -1,0 +1,83 @@
+/* LoginPage.css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box,
+.signup-box {
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px var(--secondary-color);
+    padding: 40px;
+    margin: 70px;
+    margin-top: -70px;
+    width: 500px;
+    height: 500px;
+    transition: transform 0.3s ease;
+}
+
+.user-box {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--white);
+    border: none;
+    border-bottom: 1px solid var(--text-light);
+    background: transparent;
+    outline: none;
+    transition: border-bottom-color 0.3s ease;
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: var(--secondary-color);
+    font-size: 14px;
+}
+
+button {
+    background: var(--secondary-color);
+    border: none;
+    outline: none;
+    color: var(--white);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    color: rgb(210, 84, 37);
+}
+
+button:hover {
+    background: var(--secondary-color-dark);
+}
+
+/* Hover Effects */
+.login-box:hover,
+.signup-box:hover {
+    transform: translateY(-10px);
+}
+
+.user-box:hover input:focus ~ label,
+.user-box:hover input:valid ~ label {
+    top: -30px;
+    color: var(--primary-color-light);
+}
