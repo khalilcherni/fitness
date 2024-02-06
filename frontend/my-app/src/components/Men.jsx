@@ -4,6 +4,7 @@ import './Men.css'; // Import your CSS file
 
 function Men() {
   const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     axios
@@ -12,10 +13,21 @@ function Men() {
       .catch((err) => console.log(err));
   }, []);
 
+  const filteredData = data.filter((e) =>
+    e.ExerciseName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container mt-5">
+      <input
+  className="search-input"
+  type="text"
+  placeholder="Search by exercise name"
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+/>
       <div className="row row-cols-1 row-cols-md-2 g-4">
-        {data.map((e) => (
+        {filteredData.map((e) => (
           <div key={e.id} className="col mb-4">
             <div className="card h-100 men-card">
               <img src={e.Image} className="card-img-top" alt="Exercise" />
