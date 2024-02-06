@@ -69,3 +69,7 @@
   background: linear-gradient(to right, rgba(63, 20, 25, 0.252), rgba(26, 32, 38, 0.95)); /* Add the gradient background */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add the box shadow */
 }
+.kh{
+  width: 40px;
+  height:40px;
+}
