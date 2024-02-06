@@ -57,7 +57,14 @@ function BasicExample() {
                   Accessoire Sport
                 </NavDropdown.Item>
               </NavDropdown>
-
+              <NavDropdown title="3eljia" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#Proteins" onClick={() => handleTabClick('proteins')}>
+                  loss weight
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#AccessoireSport" onClick={() => handleTabClick('accessoireSport')}>
+                gain Weight
+                </NavDropdown.Item>
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
