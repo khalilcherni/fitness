@@ -1,4 +1,3 @@
-// LoginPage.js
 import React, { useState } from 'react';
 import axios from 'axios'; // Import Axios
 import "./Register.css"
@@ -55,71 +54,73 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
-     {!isLoggedIn ? (
-        <div className="login-box">
-          <h2>Login if you have an account</h2>
-          <hr />
-          <form>
-            <div className="user-box">
-              <input
-                type="text"
-                name="loginEmail"
-                required
-                value={loginEmail}
-                onChange={(e) => setLoginEmail(e.target.value)}
-              />
-              <label>Email</label>
-            </div>
-            <div className="user-box">
-              <input
-                type="password"
-                name="loginPassword"
-                required
-                value={loginPassword}
-                onChange={(e) => setLoginPassword(e.target.value)}
-              />
-              <label>Password</label>
-            </div>
-            <button type="button" onClick={handleLogin}>
-              Login
-            </button>
-          </form>
-        </div>
-      ) : (
+      {isLoggedIn ? (
         <ProfilePage />
+      ) : (
+        <>
+          <div className="login-box">
+            <h2>Login if you have an account</h2>
+            <hr />
+            <form>
+              <div className="user-box">
+                <input
+                  type="text"
+                  name="loginEmail"
+                  required
+                  value={loginEmail}
+                  onChange={(e) => setLoginEmail(e.target.value)}
+                />
+                <label>Email</label>
+              </div>
+              <div className="user-box">
+                <input
+                  type="password"
+                  name="loginPassword"
+                  required
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                />
+                <label>Password</label>
+              </div>
+              <button type="button" onClick={handleLogin}>
+                Login
+              </button>
+            </form>
+          </div>
+      
+          <div className="signup-box">
+            <h2>Create an account</h2>
+            <hr />
+            <form>
+              <div className="user-box">
+                <input
+                  type="text"
+                  name="signupEmail"
+                  required
+                  value={signupEmail}
+                  onChange={(e) => setSignupEmail(e.target.value)}
+                />
+                <label>Email</label>
+              </div>
+              <div className="user-box">
+                <input
+                  type="password"
+                  name="signupPassword"
+                  required
+                  value={signupPassword}
+                  onChange={(e) => setSignupPassword(e.target.value)}
+                />
+                <label>Password</label>
+              </div>
+              <button type="button" onClick={handleSignup}>
+                Signup
+              </button>
+            </form>
+          </div>
+        </>
       )}
-  
-      <div className="signup-box">
-        <h2>Create an account</h2>
-        <hr />
-        <form>
-          <div className="user-box">
-            <input
-              type="text"
-              name="signupEmail"
-              required
-              value={signupEmail}
-              onChange={(e) => setSignupEmail(e.target.value)}
-            />
-            <label>Email</label>
-          </div>
-          <div className="user-box">
-            <input
-              type="password"
-              name="signupPassword"
-              required
-              value={signupPassword}
-              onChange={(e) => setSignupPassword(e.target.value)}
-            />
-            <label>Password</label>
-          </div>
-          <button type="button" onClick={handleSignup}>
-            Signup
-          </button>
-        </form>
-      </div>
     </div>
   );
-      }
+}
 
 export default LoginPage;

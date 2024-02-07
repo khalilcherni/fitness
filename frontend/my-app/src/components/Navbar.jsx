@@ -83,9 +83,9 @@ function BasicExample() {
               <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('Register')}>
               <img className="op" src="https://cdn-icons-png.flaticon.com/128/1771/1771013.png" alt="" height="30" />
 </Nav.Link>
-<Nav.Link href="#ProfilePage" onClick={() => handleTabClick('ProfilePage')}>
+{/* <Nav.Link href="#ProfilePage" onClick={() => handleTabClick('ProfilePage')}>
 ProfilePage 
-              </Nav.Link>
+              </Nav.Link> */}
     
             </Nav>
           </Navbar.Collapse>
@@ -100,7 +100,7 @@ ProfilePage
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
-      {activeTab === 'ProfilePage' && <ProfilePage />}
+      {/* {activeTab === 'ProfilePage' && <ProfilePage />} */}
 
       {/* {activeTab === 'User' && <Register />} */}
     </div>
