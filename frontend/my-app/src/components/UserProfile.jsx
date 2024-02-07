@@ -33,8 +33,8 @@ export default function ProfilePage() {
                   className="rounded-circle"
                   style={{ width: '150px' }}
                   fluid />
-                <p className="text-muted mb-1">Full Stack Developer</p>
-                <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                <p className="m">Full Stack Developer</p>
+                <p className="m">Bay Area, San Francisco, CA</p>
                 <div className="d-flex justify-content-center mb-2">
                   <MDBBtn>Follow</MDBBtn>
                   <MDBBtn outline className="ms-1">Message</MDBBtn>
@@ -47,23 +47,23 @@ export default function ProfilePage() {
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="pp">
                     <MDBIcon fas icon="globe fa-lg text-warning" />
-                    <MDBCardText>https://mdbootstrap.com</MDBCardText>
+                    <MDBCardText className="m">https://mdbootstrap.com</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="pp">
                     <MDBIcon fab icon="github fa-lg"  />
-                    <MDBCardText>mdbootstrap</MDBCardText>
+                    <MDBCardText className="m">mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="pp">
                     <MDBIcon fab icon="twitter fa-lg"  />
-                    <MDBCardText>@mdbootstrap</MDBCardText>
+                    <MDBCardText className="m">@mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="pp">
                     <MDBIcon fab icon="instagram fa-lg" />
-                    <MDBCardText>mdbootstrap</MDBCardText>
+                    <MDBCardText className="m">mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="pp">
                     <MDBIcon fab icon="facebook fa-lg" />
-                    <MDBCardText>mdbootstrap</MDBCardText>
+                    <MDBCardText className="m">mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
                 </MDBListGroup>
               </MDBCardBody>
@@ -74,10 +74,10 @@ export default function ProfilePage() {
               <MDBCardBody>
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText>Full Name</MDBCardText>
+                    <MDBCardText className="m">Full Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Johnatan Smith</MDBCardText>
+                    <MDBCardText className="m">Johnatan Smith</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
