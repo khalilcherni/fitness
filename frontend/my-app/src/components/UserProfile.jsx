@@ -35,6 +35,7 @@ export default function ProfilePage() {
                   className="rounded-circle"
                   style={{ width: '150px' }}
                   fluid />
+                  <hr />
                 <p className="m">Full Stack Developer</p>
                 <p className="m">Bay Area, San Francisco, CA</p>
                 <div className="d-flex justify-content-center mb-2">
@@ -43,8 +44,7 @@ export default function ProfilePage() {
                 </div>
               </MDBCardBody>
             </MDBCard>
-
-            <MDBCard className="mb-4">
+            <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
               <MDBCardBody className="p-0">
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="pp">
@@ -72,7 +72,7 @@ export default function ProfilePage() {
             </MDBCard>
           </MDBCol>
           <MDBCol lg="8">
-            <MDBCard className="mb-4">
+          <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
               <MDBCardBody>
                 <MDBRow>
                   <MDBCol sm="3">
@@ -123,7 +123,7 @@ export default function ProfilePage() {
 
             <MDBRow>
               <MDBCol md="6">
-                <MDBCard className="mb-4 mb-md-0">
+              <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
                   <MDBCardBody>
                     <MDBCardText className="m"><span className="m">assigment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Web Design</MDBCardText>
@@ -157,7 +157,7 @@ export default function ProfilePage() {
               </MDBCol>
 
               <MDBCol md="6">
-                <MDBCard className="mb-4 mb-md-0">
+              <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
                   <MDBCardBody>
                     <MDBCardText className="m"><span className="m">assigment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Web Design</MDBCardText>
