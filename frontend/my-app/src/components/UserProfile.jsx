@@ -126,7 +126,9 @@ export default function ProfilePage() {
                     <MDBCardText className="m"><span className="m">assigment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Web Design</MDBCardText>
                     <MDBProgress className="rounded">
-                      <MDBProgressBar className="lm" width={80} valuemin={0} valuemax={100} />
+                    <MDBProgressBar width={80} valuemin={0} valuemax={100} style={{ backgroundColor: '#f9ac54' }} />
+
+
                     </MDBProgress>
 
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Website Markup</MDBCardText>
