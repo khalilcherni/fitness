@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
-
-import AboutUs from './AboutUs';
-
-
-
+import AccessoirSport from './Accessoire Sport'
 import Register from './Register';
 import './Navbar.css';
 import Lose from './lose';
