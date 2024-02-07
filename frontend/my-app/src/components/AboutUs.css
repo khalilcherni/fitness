@@ -1,25 +1,3 @@
-/* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
-/* Define colors and variables */
-:root {
-  --primary-color: #111317;
-  --primary-color-light: #1f2125;
-  --primary-color-extra-light: #35373b;
-  --secondary-color: #f9ac54;
-  --secondary-color-dark: #d79447;
-  --text-light: #d1d5db;
-  --white: #ffffff;
-  --max-width: 1200px;
-}
-
-/* Reset styles */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 /* Apply styles to the AboutUs component */
 .about {
   position: relative;
@@ -34,12 +12,32 @@
 .coach_image {
   width: 40%; /* Adjust the width for responsiveness */
   margin: auto; /* Center the coach image horizontally */
+  transition: transform 0.3s; /* Apply transition to the transform property */
+  animation: floatAnimation 3s infinite alternate; /* Apply animation for floating effect */
+  border-radius: 40px;
 }
 
 .coach_image img {
   width: 100%; /* Make the image fill its container */
-  border-radius: 15px 15px 0 0;
+  border-radius: 40px;
   clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
+}
+
+.coach_image:hover {
+  transform: scale(1.1) translateY(-10px);
+  border-radius: 40px; /* Scale and move the image on hover */
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .coach-paragraph {
@@ -59,6 +57,7 @@
   margin-top: 2rem;
   font-size: 2.5rem;
   font-weight: 600;
+  color: #f9ac54;
 }
 
 .box-container {
@@ -73,6 +72,11 @@
   background-color: var(--primary-color-light);
   padding: 2rem;
   border-radius: 5px;
+  transition: transform 0.3s ease; /* Apply transition for smooth movement */
+}
+
+.box:hover {
+  transform: translateY(-5px); /* Move the box 5 pixels up on hover */
 }
 
 .box h3 {
@@ -87,6 +91,7 @@
   line-height: 1.5;
   color: var(--text-light);
 }
+
 
 .btn {
   margin-top: 2rem;
@@ -103,6 +108,6 @@
 .btn:hover {
   background-color: var(--secondary-color-dark);
 }
- h1{
-    color: #a86110;
- }
+.p{
+  color: #f9ac54;
+}

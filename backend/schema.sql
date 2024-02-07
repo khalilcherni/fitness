@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `fitness`.`gainweight` (
   `name` VARCHAR(45) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
   `calories` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(250) NOT NULL,
   `image` VARCHAR(255) NOT NULL DEFAULT 'N/A',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `fitness`.`loseweight` (
   `Name` VARCHAR(45) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
   `calories` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(250) NOT NULL,
   `image` VARCHAR(255) NOT NULL DEFAULT 'N/A',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
