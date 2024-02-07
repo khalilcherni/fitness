@@ -143,12 +143,12 @@ export default function ProfilePage() {
 
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Mobile Template</MDBCardText>
                     <MDBProgress className="rounded">
-                      <MDBProgressBar width={55} valuemin={0} valuemax={100} />
+                    <MDBProgressBar width={80} valuemin={0} valuemax={100} style={{ backgroundColor: '#f9ac54' }} />
                     </MDBProgress>
 
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Backend API</MDBCardText>
                     <MDBProgress className="rounded">
-                      <MDBProgressBar width={66} valuemin={0} valuemax={100} />
+                    <MDBProgressBar width={80} valuemin={0} valuemax={100} style={{ backgroundColor: '#f9ac54' }} />
                     </MDBProgress>
                   </MDBCardBody>
                 </MDBCard>
@@ -160,7 +160,7 @@ export default function ProfilePage() {
                     <MDBCardText className="m"><span className="m">assigment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Web Design</MDBCardText>
                     <MDBProgress className="rounded">
-                      <MDBProgressBar width={80} valuemin={0} valuemax={100} />
+                    <MDBProgressBar width={80} valuemin={0} valuemax={100} style={{ backgroundColor: '#f9ac54' }} />
                     </MDBProgress>
 
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Website Markup</MDBCardText>
