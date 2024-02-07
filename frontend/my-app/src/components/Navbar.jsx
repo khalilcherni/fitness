@@ -9,6 +9,7 @@ import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
 import ProfilePage from './UserProfile';
+import AboutUs from './AboutUs';
 
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
