@@ -49,7 +49,7 @@ export default function ProfilePage() {
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="pp">
                     <MDBIcon fas icon="globe fa-lg text-warning" />
-                    <MDBCardText className="m">https://mdbootstrap.com</MDBCardText>
+                    <MDBCardText className="m" > <img src="" alt="" />https://mdbootstrap.com</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="pp">
                     <MDBIcon fab icon="github fa-lg"  />
