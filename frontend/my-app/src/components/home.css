@@ -92,8 +92,8 @@ body {
   transition: 0.3s;
 }
 
-.link a:hover::after {
-  width: 50%;
+.link a:hover {
+  transform: translateY(-3px); /* Move text up by 3 pixels on hover */
 }
 
 .header__container {
