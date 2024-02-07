@@ -16,7 +16,7 @@ import {
   MDBListGroup,
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
-import './UserProfile.css'
+import './ProfilePage.css'
 
 export default function ProfilePage() {
   return (

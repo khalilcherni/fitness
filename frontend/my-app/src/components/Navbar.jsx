@@ -8,7 +8,7 @@ import './Navbar.css';
 import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
-import ProfilePage from './UserProfile';
+import ProfilePage from './ProfilePage';
 import AboutUs from './AboutUs';
 
 function BasicExample() {
@@ -83,7 +83,9 @@ function BasicExample() {
               <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('Register')}>
               <img className="op" src="https://cdn-icons-png.flaticon.com/128/1771/1771013.png" alt="" height="30" />
 </Nav.Link>
-
+<Nav.Link href="#ProfilePage" onClick={() => handleTabClick('ProfilePage')}>
+ProfilePage 
+              </Nav.Link>
     
             </Nav>
           </Navbar.Collapse>
@@ -98,6 +100,8 @@ function BasicExample() {
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
+      {activeTab === 'ProfilePage' && <ProfilePage />}
+
       {/* {activeTab === 'User' && <Register />} */}
     </div>
   );

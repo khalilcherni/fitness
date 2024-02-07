@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Import Axios
+import { useHistory } from 'react-router-dom';
 import "./Register.css"
-import UserProfile from './UserProfile'
+import ProfilePage from './ProfilePage'
+
 
 const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
+  const history = useHistory(); // Initialize useHistory
+
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:5000/api/login', {
@@ -16,10 +20,8 @@ const LoginPage = () => {
       });
   
       if (response.status === 200) {
-        const { token } = response.data;
         alert('Login successful!'); // Display success message
-        // localStorage.setItem('token', token);
-        window.location.href = '/UseProfile'; // Redirect to homepage
+        history.push('/ProfilePage'); // Redirect to ProfilePage using useHistory
       } else {
         alert('Authentication failed. Please check your credentials.');
       }
@@ -33,7 +35,6 @@ const LoginPage = () => {
     }
   };
   
-
   const handleSignup = async () => {
     try {
       const response = await axios.post('http://localhost:5000/api/register', {
