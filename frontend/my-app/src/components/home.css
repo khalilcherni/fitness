@@ -257,7 +257,7 @@ body {
   .splide__slide img {
 
     width: 98%; /* Set the width to fill the container */
-    height: 400px; /* Set the height as needed */
+    height: 500px; /* Set the height as needed */
    margin-right: 20pc;
     margin-left: 20px/* Maintain aspect ratio while filling the container */
    
