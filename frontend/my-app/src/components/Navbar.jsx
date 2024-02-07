@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
+import Women from './Women'
 import AccessoirSport from './Accessoire Sport'
 import Register from './Register';
 import './Navbar.css';
 import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
-import ProfilePage from './UserProfile';
+import ProfilePage from './ProfilePage';
 import AboutUs from './AboutUs';
 
 function BasicExample() {
@@ -16,6 +17,12 @@ function BasicExample() {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+
+    // Scroll to the element with the given ID
+    const element = document.getElementById(tab);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
@@ -53,8 +60,14 @@ function BasicExample() {
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
                   Men
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#Add">Women</NavDropdown.Item>
+                <NavDropdown.Item href="#Women" onClick={() => handleTabClick('Women')}>
+                  women
+                </NavDropdown.Item>
               </NavDropdown>
+
+
+          
+
 
               <Nav.Link href="#Register" onClick={() => handleTabClick('Register')}>
                 Register
@@ -77,20 +90,23 @@ function BasicExample() {
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
-                Contact Us
+                Contact 
               </Nav.Link>
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-          About Us
+          About 
               </Nav.Link>
-              <Nav.Link href="#User" onClick={() => handleTabClick('User')}>
-         User
-              </Nav.Link>
+              <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('Register')}>
+              <img className="op" src="https://cdn-icons-png.flaticon.com/128/1771/1771013.png" alt="" height="30" />
+</Nav.Link>
+{/* <Nav.Link href="#ProfilePage" onClick={() => handleTabClick('ProfilePage')}>
+ProfilePage 
+              </Nav.Link> */}
+    
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <hr />
-
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
@@ -98,7 +114,14 @@ function BasicExample() {
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
+
+      {/* {activeTab === 'ProfilePage' && <ProfilePage />} */}
+
+      {/* {activeTab === 'User' && <Register />} */}
+
       {activeTab === 'User' && <ProfilePage />}
+      {activeTab === 'Women' && <Women/>}
+
     </div>
   );
 }
