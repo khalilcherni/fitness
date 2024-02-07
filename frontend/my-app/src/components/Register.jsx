@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Import Axios
-import { useHistory } from 'react-router-dom';
-import "./Register.css"
-import ProfilePage from './ProfilePage'
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import "./Register.css";
+import ProfilePage from './ProfilePage';
 
 const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
-  const history = useHistory(); // Initialize useHistory
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLogin = async () => {
     try {
@@ -20,8 +19,8 @@ const LoginPage = () => {
       });
   
       if (response.status === 200) {
-        alert('Login successful!'); // Display success message
-        history.push('/ProfilePage'); // Redirect to ProfilePage using useHistory
+        alert('Login successful!');
+        navigate('/ProfilePage'); // Redirect to ProfilePage using useNavigate
       } else {
         alert('Authentication failed. Please check your credentials.');
       }
@@ -34,7 +33,6 @@ const LoginPage = () => {
       }
     }
   };
-  
   const handleSignup = async () => {
     try {
       const response = await axios.post('http://localhost:5000/api/register', {
@@ -43,10 +41,9 @@ const LoginPage = () => {
       });
   
       if (response.status === 201) {
-        alert('Signup successful! Please login to continue.'); // Display success message
-        // Clear input fields or perform any other necessary actions
+        alert('Signup successful! Please login to continue.');
       } else {
-        alert('Signup failed. Please try again.'); // Display failure message
+        alert('Signup failed. Please try again.');
       }
     } catch (error) {
       console.error('Error during signup:', error);
