@@ -16,10 +16,11 @@ import {
   MDBListGroup,
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
+import './UserProfile.css'
 
 export default function ProfilePage() {
   return (
-    <section style={{ backgroundColor: '#eee' }}>
+    <section >
       <MDBContainer className="py-5">
    
         <MDBRow>
@@ -41,7 +42,7 @@ export default function ProfilePage() {
               </MDBCardBody>
             </MDBCard>
 
-            <MDBCard className="mb-4 mb-lg-0">
+            <MDBCard className="mb-4">
               <MDBCardBody className="p-0">
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
@@ -49,19 +50,19 @@ export default function ProfilePage() {
                     <MDBCardText>https://mdbootstrap.com</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="github fa-lg" style={{ color: '#333333' }} />
+                    <MDBIcon fab icon="github fa-lg"  />
                     <MDBCardText>mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="twitter fa-lg" style={{ color: '#55acee' }} />
+                    <MDBIcon fab icon="twitter fa-lg"  />
                     <MDBCardText>@mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="instagram fa-lg" style={{ color: '#ac2bac' }} />
+                    <MDBIcon fab icon="instagram fa-lg" />
                     <MDBCardText>mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="facebook fa-lg" style={{ color: '#3b5998' }} />
+                    <MDBIcon fab icon="facebook fa-lg" />
                     <MDBCardText>mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
                 </MDBListGroup>
