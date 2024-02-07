@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Import Axios
 import "./Register.css"
+import UserProfile from './UserProfile'
+
 const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
@@ -8,7 +10,7 @@ const LoginPage = () => {
   const [signupPassword, setSignupPassword] = useState('');
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3005/api/login', {
+      const response = await axios.post('http://localhost:5000/api/login', {
         email: loginEmail,
         password: loginPassword
       });
@@ -17,7 +19,7 @@ const LoginPage = () => {
         const { token } = response.data;
         alert('Login successful!'); // Display success message
         // localStorage.setItem('token', token);
-        window.location.href = '/'; // Redirect to homepage
+        window.location.href = '/UseProfile'; // Redirect to homepage
       } else {
         alert('Authentication failed. Please check your credentials.');
       }
@@ -34,7 +36,7 @@ const LoginPage = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post('http://localhost:3005/api/register', {
+      const response = await axios.post('http://localhost:5000/api/register', {
         email: signupEmail,
         password: signupPassword
       });
