@@ -138,7 +138,7 @@ export default function ProfilePage() {
 
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>One Page</MDBCardText>
                     <MDBProgress className="rounded">
-                      <MDBProgressBar width={89} valuemin={0} valuemax={100} />
+                    <MDBProgressBar width={80} valuemin={0} valuemax={100} style={{ backgroundColor: '#f9ac54' }} />
                     </MDBProgress>
 
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Mobile Template</MDBCardText>
