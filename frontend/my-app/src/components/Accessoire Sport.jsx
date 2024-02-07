@@ -7,7 +7,7 @@ function AssesoiresSport() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3005/api/Products')
+      .get('http://localhost:5000/api/Products')
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);

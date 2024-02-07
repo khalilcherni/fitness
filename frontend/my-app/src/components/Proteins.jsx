@@ -8,7 +8,7 @@ function Proteine() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3005/api/protein') // Adjust the API endpoint based on your server setup
+      .get('http://localhost:5000/api/protein') // Adjust the API endpoint based on your server setup
       .then((res) => {
         // Initialize expanded state for each item
         const initialExpandedState = res.data.reduce((acc, item) => {
