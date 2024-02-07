@@ -17,8 +17,26 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import './ProfilePage.css'
+import { useState } from 'react';
 
 export default function ProfilePage() {
+  const [fullName, setFullName] = useState('John Doe');
+  const [email, setEmail] = useState('johndoe@example.com');
+  const [location, setLocation] = useState('Fitness Street, Gym City, CA');
+  const [imageSrc, setImageSrc] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp');
+
+  // Functions to handle changes in user information
+  const handleFullNameChange = (event) => {
+    setFullName(event.target.value);
+  }
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+  }
+
+  const handleImageChange = (event) => {
+    setImageSrc(event.target.value);
+  }
   return (
     <section className='o'>
       <MDBContainer className="py">
@@ -28,7 +46,7 @@ export default function ProfilePage() {
             <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
               <MDBCardBody className="text-center">
                 <MDBCardImage
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  src={imageSrc}
                   alt="fitness avatar"
                   className="rounded-circle"
                   style={{ width: '150px' }}
@@ -39,6 +57,10 @@ export default function ProfilePage() {
                 <div className="d-flex justify-content-center mb-2">
                  
                 </div>
+                  <MDBCol sm="9">
+                    <input type="text" value={imageSrc} onChange={handleImageChange} />
+                    <MDBBtn onClick={() => setImageSrc('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp')} size="sm">Reset</MDBBtn>
+                  </MDBCol>
               </MDBCardBody>
             </MDBCard>
             <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
