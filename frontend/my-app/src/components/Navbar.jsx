@@ -77,14 +77,16 @@ function BasicExample() {
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
-                Contact Us
+                Contact 
               </Nav.Link>
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-          About Us
+          About 
               </Nav.Link>
-              <Nav.Link href="#User" onClick={() => handleTabClick('User')}>
-         User
-              </Nav.Link>
+              <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('User')}>
+              <img className="op" src="https://cdn-icons-png.flaticon.com/128/1771/1771013.png" alt="" height="30" />
+</Nav.Link>
+
+    
             </Nav>
           </Navbar.Collapse>
         </Container>
