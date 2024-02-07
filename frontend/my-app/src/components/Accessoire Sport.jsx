@@ -4,6 +4,8 @@ import './accessoiresport.css';
 
 function AssesoiresSport() {
   const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [expandedItems, setExpandedItems] = useState([]);
 
   useEffect(() => {
     axios
@@ -12,20 +14,32 @@ function AssesoiresSport() {
       .catch((err) => console.log(err));
   }, []);
 
-  const [expandedItems, setExpandedItems] = useState([]);
-
   const handleReadMore = (id) => {
     setExpandedItems((prev) => [...prev, id]);
   };
 
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredData = data.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="shop">
+      <input
+        type="text"
+        placeholder="Search..."
+        value={searchTerm}
+        onChange={handleChange}
+      />
       <div className="container">
         <div className="row">
-          {data.length === 0 ? (
-            <p>Loading...</p>
+          {filteredData.length === 0 ? (
+            <p>No results found.</p>
           ) : (
-            data.map((e) => (
+            filteredData.map((e) => (
               <div key={e.id} className="col">
                 <div className="card">
                   <img src={e.Image} className="img" alt="Proteine" />
