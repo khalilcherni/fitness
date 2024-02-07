@@ -12,6 +12,7 @@ import './Navbar.css';
 import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
+import ProfilePage from './UserProfile';
 
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
@@ -84,6 +85,9 @@ function BasicExample() {
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
           About Us
               </Nav.Link>
+              <Nav.Link href="#User" onClick={() => handleTabClick('User')}>
+         User
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -97,6 +101,7 @@ function BasicExample() {
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
+      {activeTab === 'User' && <ProfilePage />}
     </div>
   );
 }
