@@ -5,8 +5,12 @@ import Men from './Men';
 import AccessoirSport from './Accessoire Sport'
 import Register from './Register';
 import './Navbar.css';
-import Proteine from './Proteins';
+import Lose from './lose';
+import Gain from './gain';
+import ContactForm from './ContactUs';
+import ProfilePage from './UserProfile';
 import AboutUs from './AboutUs';
+
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -78,6 +82,9 @@ function BasicExample() {
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
           About Us
               </Nav.Link>
+              <Nav.Link href="#User" onClick={() => handleTabClick('User')}>
+         User
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -88,10 +95,10 @@ function BasicExample() {
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
       {activeTab === 'Register' && <Register />}
-      {activeTab === 'proteins' && <Proteine />}
-      {activeTab === 'accessoireSport' && <AccessoirSport />}
-      {/* Add more conditions for other tabs if needed */}
-
+      {activeTab === 'loss weight' && <Lose />}
+      {activeTab === 'gain Weight' && <Gain />}
+      {activeTab === 'Contact' && <ContactForm />}
+      {activeTab === 'User' && <ProfilePage />}
     </div>
   );
 }

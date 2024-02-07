@@ -13,9 +13,9 @@ module.exports = {
         });
     },
 
-    getByName: function(name, callback) {
-        const query = "SELECT * FROM loseweight WHERE name = ?";
-        connection.query(query, [name], function(err, results) {
+    getByName: function(Name, callback) {
+        const query = "SELECT * FROM loseweight WHERE Name = ?";
+        connection.query(query, [Name], function(err, results) {
             if (err) {
                 callback(err, null);
                 return;
