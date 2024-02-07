@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
+import Women from './Women'
 import AccessoirSport from './Accessoire Sport'
 import Register from './Register';
 import './Navbar.css';
@@ -16,6 +17,12 @@ function BasicExample() {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+
+    // Scroll to the element with the given ID
+    const element = document.getElementById(tab);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
@@ -53,10 +60,18 @@ function BasicExample() {
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
                   Men
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#Add">Women</NavDropdown.Item>
+                <NavDropdown.Item href="#Women" onClick={() => handleTabClick('Women')}>
+                  women
+                </NavDropdown.Item>
               </NavDropdown>
 
+
           
+
+
+              <Nav.Link href="#Register" onClick={() => handleTabClick('Register')}>
+                Register
+              </Nav.Link>
 
               <NavDropdown title="Shop" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Proteins" onClick={() => handleTabClick('proteins')}>
@@ -92,7 +107,6 @@ ProfilePage
         </Container>
       </Navbar>
       <hr />
-
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
@@ -100,9 +114,14 @@ ProfilePage
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
+
       {/* {activeTab === 'ProfilePage' && <ProfilePage />} */}
 
       {/* {activeTab === 'User' && <Register />} */}
+
+      {activeTab === 'User' && <ProfilePage />}
+      {activeTab === 'Women' && <Women/>}
+
     </div>
   );
 }

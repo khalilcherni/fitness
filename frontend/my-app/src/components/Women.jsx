@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Men.css'; // Import your CSS file
 
-function Men() {
+function Women() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/get')
+      .get('http://localhost:5000/api/women')
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -80,4 +80,4 @@ function Men() {
   );
 }
 
-export default Men;
+export default Women;
