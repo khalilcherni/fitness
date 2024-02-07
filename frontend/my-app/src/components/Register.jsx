@@ -1,8 +1,8 @@
 // LoginPage.js
 import React, { useState } from 'react';
 import axios from 'axios'; // Import Axios
-import "./Register.css";
-import ProfilePage from './ProfilePage';
+import "./Register.css"
+import ProfilePage from './ProfilePage'
 
 const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState('');
@@ -17,7 +17,7 @@ const LoginPage = () => {
         email: loginEmail,
         password: loginPassword
       });
-
+  
       if (response.status === 200) {
         const { token } = response.data;
         alert('Login successful!'); // Display success message
@@ -41,7 +41,7 @@ const LoginPage = () => {
         email: signupEmail,
         password: signupPassword
       });
-
+  
       if (response.status === 201) {
         alert('Signup successful! Please login to continue.'); // Display success message
         // Clear input fields or perform any other necessary actions
@@ -55,73 +55,71 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
-      {!isLoggedIn ? (
-        <div>
-          <div className="login-box">
-            <h2>Login if you have account</h2>
-            <hr />
-            <form>
-              <div className="user-box">
-                <input
-                  type="text"
-                  name="loginEmail"
-                  required
-                  value={loginEmail}
-                  onChange={(e) => setLoginEmail(e.target.value)}
-                />
-                <label>Email</label>
-              </div>
-              <div className="user-box">
-                <input
-                  type="password"
-                  name="loginPassword"
-                  required
-                  value={loginPassword}
-                  onChange={(e) => setLoginPassword(e.target.value)}
-                />
-                <label>Password</label>
-              </div>
-              <button type="button" onClick={handleLogin}>
-                Login
-              </button>
-            </form>
-          </div>
-
-          <div className="signup-box">
-            <h2>Create account</h2>
-            <hr />
-            <form>
-              <div className="user-box">
-                <input
-                  type="text"
-                  name="signupEmail"
-                  required
-                  value={signupEmail}
-                  onChange={(e) => setSignupEmail(e.target.value)}
-                />
-                <label>Email</label>
-              </div>
-              <div className="user-box">
-                <input
-                  type="password"
-                  name="signupPassword"
-                  required
-                  value={signupPassword}
-                  onChange={(e) => setSignupPassword(e.target.value)}
-                />
-                <label>Password</label>
-              </div>
-              <button type="button" onClick={handleSignup}>
-                Signup
-              </button>
-            </form>
-          </div>
+     {!isLoggedIn ? (
+        <div className="login-box">
+          <h2>Login if you have an account</h2>
+          <hr />
+          <form>
+            <div className="user-box">
+              <input
+                type="text"
+                name="loginEmail"
+                required
+                value={loginEmail}
+                onChange={(e) => setLoginEmail(e.target.value)}
+              />
+              <label>Email</label>
+            </div>
+            <div className="user-box">
+              <input
+                type="password"
+                name="loginPassword"
+                required
+                value={loginPassword}
+                onChange={(e) => setLoginPassword(e.target.value)}
+              />
+              <label>Password</label>
+            </div>
+            <button type="button" onClick={handleLogin}>
+              Login
+            </button>
+          </form>
         </div>
       ) : (
         <ProfilePage />
       )}
+  
+      <div className="signup-box">
+        <h2>Create an account</h2>
+        <hr />
+        <form>
+          <div className="user-box">
+            <input
+              type="text"
+              name="signupEmail"
+              required
+              value={signupEmail}
+              onChange={(e) => setSignupEmail(e.target.value)}
+            />
+            <label>Email</label>
+          </div>
+          <div className="user-box">
+            <input
+              type="password"
+              name="signupPassword"
+              required
+              value={signupPassword}
+              onChange={(e) => setSignupPassword(e.target.value)}
+            />
+            <label>Password</label>
+          </div>
+          <button type="button" onClick={handleSignup}>
+            Signup
+          </button>
+        </form>
+      </div>
     </div>
   );
-};
+      }
 
 export default LoginPage;
