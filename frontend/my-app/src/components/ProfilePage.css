@@ -3,6 +3,8 @@
 
 .mb-4{
     background-color:#111317; ;
+    width: 110%;
+    height: 50%;
 }
 .p-0{
     background-color:#111317; ;
@@ -18,13 +20,13 @@ color: aliceblue;
 .lm{
     color: rgb(210, 84, 37);
 }
-.py-5{
-    margin-top: -20px;
+.py{
+    margin-top: 10%;
     border-color: rgb(153, 158, 162);
     
 }
 .rounded-circle{
-    margin-left: 65px;
+    margin-left: 20px;
 }
 .mb-4 {
    
@@ -32,4 +34,12 @@ color: aliceblue;
     margin-top: -10px;
   }
   
-  
+ .nn{
+    height: 80%;
+ } 
+ .mb{
+    background-color: #111317;
+ }
+ .o{
+    margin-top: -100px;
+ }

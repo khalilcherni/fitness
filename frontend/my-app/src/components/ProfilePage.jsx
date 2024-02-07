@@ -20,10 +20,10 @@ import './ProfilePage.css'
 
 export default function ProfilePage() {
   return (
-    <section>
-      <MDBContainer className="py-5">
+    <section className='o'>
+      <MDBContainer className="py">
 
-        <MDBRow>
+        <MDBRow >
           <MDBCol lg="4">
             <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
               <MDBCardBody className="text-center">
@@ -120,8 +120,8 @@ export default function ProfilePage() {
 
             <MDBRow>
               <MDBCol md="6">
-                <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
-                  <MDBCardBody>
+                <MDBCard className="mb" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+                  <MDBCardBody className='nn'>
                     <MDBCardText className="m"><span className="m">Assignment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Muscle Building</MDBCardText>
                     <MDBProgress className="rounded">
@@ -152,7 +152,7 @@ export default function ProfilePage() {
               </MDBCol>
 
               <MDBCol md="6">
-                <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+                <MDBCard className="mb" style={{ borderColor: 'rgb(150, 150, 150)' }}>
                   <MDBCardBody>
                     <MDBCardText className="m"><span className="m">Assignment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Strength Training</MDBCardText>
