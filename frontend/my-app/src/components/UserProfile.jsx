@@ -123,10 +123,10 @@ export default function ProfilePage() {
               <MDBCol md="6">
                 <MDBCard className="mb-4 mb-md-0">
                   <MDBCardBody>
-                    <MDBCardText className="mb-4"><span className="m">assigment</span> Project Status</MDBCardText>
+                    <MDBCardText className="m"><span className="m">assigment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Web Design</MDBCardText>
                     <MDBProgress className="rounded">
-                      <MDBProgressBar width={80} valuemin={0} valuemax={100} />
+                      <MDBProgressBar className="lm" width={80} valuemin={0} valuemax={100} />
                     </MDBProgress>
 
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Website Markup</MDBCardText>
@@ -155,7 +155,7 @@ export default function ProfilePage() {
               <MDBCol md="6">
                 <MDBCard className="mb-4 mb-md-0">
                   <MDBCardBody>
-                    <MDBCardText className="mb-4"><span className="m">assigment</span> Project Status</MDBCardText>
+                    <MDBCardText className="m"><span className="m">assigment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Web Design</MDBCardText>
                     <MDBProgress className="rounded">
                       <MDBProgressBar width={80} valuemin={0} valuemax={100} />
