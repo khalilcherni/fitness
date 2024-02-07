@@ -2,17 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
-
-import AboutUs from './AboutUs';
-
-
-
+import AccessoirSport from './Accessoire Sport'
 import Register from './Register';
 import './Navbar.css';
-import Lose from './lose';
-import Gain from './gain';
-import ContactForm from './ContactUs';
-
+import Proteine from './Proteins';
+import AboutUs from './AboutUs';
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -94,9 +88,10 @@ function BasicExample() {
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
       {activeTab === 'Register' && <Register />}
-      {activeTab === 'loss weight' && <Lose />}
-      {activeTab === 'gain Weight' && <Gain />}
-      {activeTab === 'Contact' && <ContactForm />}
+      {activeTab === 'proteins' && <Proteine />}
+      {activeTab === 'accessoireSport' && <AccessoirSport />}
+      {/* Add more conditions for other tabs if needed */}
+
     </div>
   );
 }
