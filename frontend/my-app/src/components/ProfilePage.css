@@ -12,3 +12,24 @@
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
 }
+.m{
+color: aliceblue;
+}
+.lm{
+    color: rgb(210, 84, 37);
+}
+.py-5{
+    margin-top: -20px;
+    border-color: rgb(153, 158, 162);
+    
+}
+.rounded-circle{
+    margin-left: 65px;
+}
+.mb-4 {
+   
+   
+    margin-top: -10px;
+  }
+  
+  
