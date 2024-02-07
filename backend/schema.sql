@@ -198,3 +198,77 @@ VALUES (
     'It''s squatting at its most basic. Well, almost. A progression from the simple bodyweight squat, the goblet squat (which can also be done with a kettlebell) is ideal for those looking to build lower-body strength before racking plates up on a barbell. Similarly, using proper form will encourage your core, shoulders, and back to work, while your legs and glutes get a big hit. Plus, this exercise will improve your mobility and, when you move slower, become ideal for time-under-tension training.',
     'https://hips.hearstapps.com/menshealth-uk/main/assets/dumbbellgoblet.gif?crop=0.5625xw:1xh;center,top&resize=980:*'
 );
+
+
+
+
+
+
+
+INSERT INTO fitnessforwomen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Dumbbell Hip Bridge',
+    10,
+    20,
+    'Sit on the floor with a box or a bench behind you and a dumbbell over the crease of your hips (the amount of weight you go for should be informed by your goal and capability). Roll the bar so that it’s directly over your hips and lean back so that your shoulder blades rest on the bench. Drive through the heels of your feet, pushing up your hips (shoulders and feet supporting you). Squeezing your glutes, extend as high as possible. Hold for 5 seconds, then slowly lower. Do 20 reps.',
+    'https://media.hearstapps.com/loop/hip-thrust-with-dumbbell-1636130738.mp4/poster.jpg'
+);
+
+INSERT INTO fitnessforwomen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Deadbug',
+    10,
+    15,
+    'Lie on your back with your arms skywards and legs raised and bent at 90 degrees. Slowly lower your right arm behind you as you extend your left leg out in front. Exhale, then gently return to the starting position and repeat, this time extending the right leg and lowering your left arm behind you. Reduce the weight if your back arches off the floor. Do 10 reps per leg.',
+    'https://media.hearstapps.com/loop/dead-bug-edited-1627642767.mp4/poster.jpg'
+);
+
+INSERT INTO fitnessforwomen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Renegade Row',
+    10,
+    20,
+    'With a kettlebell in one hand, start in a high plank position, keeping your pelvis as stable as possible and hips lifted. Row your right arm back without twisting your shoulders, keeping your elbows tucked in to engage your lats. End with your wrist by your hip, then lower the kettlebell back to the floor. Repeat for 10 reps, then switch sides.',
+    'https://media.hearstapps.com/loop/1-1-534-1624611066.mp4/poster.jpg'
+);
+
+....
+INSERT INTO fitnessforwomen(ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Romanian Deadlift',
+    10,
+    15,
+    'Hold a dumbbell in each hand, keep your knees slightly bent, your back straight, and your core engaged. Hinge forwards at the hips, keeping your upper back and arms straight so the dumbbells lower directly in front of your legs. Hold for 3 secs, then return to the starting position by squeezing your glutes and pushing your hips forward (remember to keep your back straight). Do 10 reps per leg.',
+    'https://media.hearstapps.com/loop/romanian-deadlift-with-dumbbell-1636132132.mp4/poster.jpg'
+);
+
+
+INSERT INTO fitnessforwomen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Forearm Plank',
+    10,
+    25,
+    'Get into a plank position with your forearms on the floor, elbows stacked under shoulders, toes tucked, and hips raised so that your body forms a straight line from your head to your feet. Engage your core (it should feel as though you are tensing) and hold for 30 secs. Remember to keep your hips raised, breathe, and try not to arch your back.',
+    'https://media.hearstapps.com/loop/plank-forearm-edited-1628004168.mp4/poster.jpg'
+);
+
+...
+
+
+INSERT INTO fitnessforwomen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Dumbbell Glute Bridge',
+    5,
+    15,
+    'Lie on the floor with your knees bent and a dumbbell balanced on your hips. Keeping your chin tucked in, push up through your hips to lift your bum off the floor. Clench your bum at the top – your shoulders, hips, and knees should be in a straight line. Lower back down in a slow, controlled movement and repeat.',
+    'https://media.hearstapps.com/loop/glute-bridge-with-dumbbell-1636130081.mp4/poster.jpg'
+);
+
+INSERT INTO fitnessforwomen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Dumbbell Romanian Deadlift',
+    10,
+    20,
+    'Hold a dumbbell in each hand, keep your knees slightly bent, your back straight, and your core engaged. Hinge forwards at the hips, keeping your upper back and arms straight so the dumbbells lower directly in front of your legs. Hold for 3 secs then return to the starting position by squeezing your glutes and pushing your hips forward (remember to keep your back straight). Do 10 reps per leg.',
+    'https://media.hearstapps.com/loop/romanian-deadlift-with-dumbbell-1636132132.mp4/poster.jpg'
+);

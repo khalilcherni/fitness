@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
+import Women from './Women'
 import AccessoirSport from './Accessoire Sport'
 import Register from './Register';
 import './Navbar.css';
@@ -59,7 +60,9 @@ function BasicExample() {
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
                   Men
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#Add">Women</NavDropdown.Item>
+                <NavDropdown.Item href="#Women" onClick={() => handleTabClick('Women')}>
+                  women
+                </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="#Register" onClick={() => handleTabClick('Register')}>
                 Register
@@ -102,6 +105,8 @@ function BasicExample() {
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
       {activeTab === 'User' && <ProfilePage />}
+      {activeTab === 'Women' && <Women/>}
+
     </div>
   );
 }
