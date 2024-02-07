@@ -16,6 +16,12 @@ function BasicExample() {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+
+    // Scroll to the element with the given ID
+    const element = document.getElementById(tab);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
@@ -55,11 +61,9 @@ function BasicExample() {
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#Add">Women</NavDropdown.Item>
               </NavDropdown>
-
               <Nav.Link href="#Register" onClick={() => handleTabClick('Register')}>
                 Register
               </Nav.Link>
-
               <NavDropdown title="Shop" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Proteins" onClick={() => handleTabClick('proteins')}>
                   Proteins
@@ -90,7 +94,6 @@ function BasicExample() {
         </Container>
       </Navbar>
       <hr />
-
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
