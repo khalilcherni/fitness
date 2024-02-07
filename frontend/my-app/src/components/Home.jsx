@@ -70,12 +70,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="footer__col">
-          <h4>About Us</h4>
-          <a href="#">Blogs</a>
-          <a href="#">Security</a>
-          <a href="#">Careers</a>
-        </div>
+     
         <div className="footer__col">
           <h4>Contact</h4>
           <a href="#">Contact Us</a>
