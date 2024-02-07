@@ -26,13 +26,10 @@ color: aliceblue;
 .rounded-circle{
     margin-left: 65px;
 }
-.ot {
-    width: 80px;
-    height: 80px;
-    transition: transform 0.3s ease;
+.mb-4 {
+   
+   
     margin-top: -10px;
   }
   
-  .ot:hover {
-    transform: rotateY(180deg);
-  }
+  
