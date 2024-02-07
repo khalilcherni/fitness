@@ -45,23 +45,23 @@ export default function ProfilePage() {
             <MDBCard className="mb-4">
               <MDBCardBody className="p-0">
                 <MDBListGroup flush className="rounded-3">
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                  <MDBListGroupItem className="pp">
                     <MDBIcon fas icon="globe fa-lg text-warning" />
                     <MDBCardText>https://mdbootstrap.com</MDBCardText>
                   </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                  <MDBListGroupItem className="pp">
                     <MDBIcon fab icon="github fa-lg"  />
                     <MDBCardText>mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                  <MDBListGroupItem className="pp">
                     <MDBIcon fab icon="twitter fa-lg"  />
                     <MDBCardText>@mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                  <MDBListGroupItem className="pp">
                     <MDBIcon fab icon="instagram fa-lg" />
                     <MDBCardText>mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                  <MDBListGroupItem className="pp">
                     <MDBIcon fab icon="facebook fa-lg" />
                     <MDBCardText>mdbootstrap</MDBCardText>
                   </MDBListGroupItem>
