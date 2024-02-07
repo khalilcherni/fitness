@@ -31,12 +31,15 @@ function AssesoiresSport() {
 
   return (
     <div className="shop">
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={handleChange}
-      />
+      <div className="search-container"> {/* Added class name "search-container" */}
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleChange}
+          className="search-input"
+        />
+      </div>
       <div className="container">
         <div className="row">
           {filteredData.length === 0 ? (
