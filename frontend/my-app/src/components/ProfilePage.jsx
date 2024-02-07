@@ -43,7 +43,7 @@ export default function ProfilePage() {
             </MDBCard>
             <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
               <MDBCardBody className="p-0">
-                <MDBListGroup flush className="rounded-3">
+                <MDBListGroup flush="true" className="rounded-3">
                   <MDBListGroupItem className="pp">
                     <MDBIcon fas icon="globe fa-lg text-warning" />
                     <MDBCardText className="m" > Fitness Website</MDBCardText>
