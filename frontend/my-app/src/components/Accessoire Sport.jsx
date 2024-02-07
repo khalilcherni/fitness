@@ -5,7 +5,7 @@ import './accessoiresport.css';
 function AssesoiresSport() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [expandedItems, setExpandedItems] = useState([]);
+  const [expandedStates, setExpandedStates] = useState({});
 
   useEffect(() => {
     axios
@@ -14,8 +14,11 @@ function AssesoiresSport() {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleReadMore = (id) => {
-    setExpandedItems((prev) => [...prev, id]);
+  const toggleExpand = (id) => {
+    setExpandedStates((prev) => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
   };
 
   const handleChange = (e) => {
@@ -46,12 +49,11 @@ function AssesoiresSport() {
                   <div className="de">
                     <h3>{e.name}</h3>
                     <p className="in">
-                      {expandedItems.includes(e.id)
-                        ? e.description // Show full description if item is expanded
-                        : `${e.description.slice(0, 100)}...`} {/* Show only a part of description initially */}
+                      <strong>{e.name}</strong> -{' '}
+                      {expandedStates[e.id] ? e.description : `${e.description.slice(0, 100)}...`}
                     </p>
-                    <button onClick={() => handleReadMore(e.id)}>
-                      Read More
+                    <button onClick={() => toggleExpand(e.id)}>
+                      {expandedStates[e.id] ? 'Read Less' : 'Read More'}
                     </button>
                   </div>
                 </div>

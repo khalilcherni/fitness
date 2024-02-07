@@ -1,44 +1,53 @@
-/* proteins.css */
+/* accessoiresport.css */
 
-/* proteins.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #111317;
+  --primary-color-light: #1f2125;
+  /* ... (reuse other custom properties from home.css) */
+}
 
 .shop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .container {
-    width: 80%;
-  }
-  
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -10px; /* Negative margin to counteract padding on columns */
-  }
-  
-  .col {
-    flex: 0 0 25%; /* Adjust the width based on your design */
-    padding: 10px;
-  }
-  
-  .card {
-    border: 1px solid #000000;
-    padding: 10px;
-  }
-  
-  .img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .de {
-    padding: 10px;
-  }
-  
-  .in {
-    margin: 0;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 80%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px; /* Negative margin to counteract padding on columns */
+}
+
+.col {
+  flex: 0 0 25%; /* Adjust the width based on your design */
+  padding: 10px;
+}
+
+.card {
+  border: 1px solid #ffffff;
+  padding: 10px;
+  background-color: rgba(20, 18, 18, 0.5); /* Adjust the alpha value for transparency */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.de {
+  padding: 10px;
+}
+
+.in {
+  margin: 0;
+}
+
+/* ... (other styles specific to accessoiresport) */
