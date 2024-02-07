@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `fitness`.`fitnessformen` (
   `Image` VARCHAR(250) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -59,11 +59,9 @@ CREATE TABLE IF NOT EXISTS `fitness`.`gainweight` (
   `name` VARCHAR(45) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
   `calories` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(250) NOT NULL,
-  `image` VARCHAR(255) NOT NULL DEFAULT 'N/A',
+  `description` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -76,25 +74,39 @@ CREATE TABLE IF NOT EXISTS `fitness`.`loseweight` (
   `Name` VARCHAR(45) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
   `calories` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(250) NOT NULL,
-  `image` VARCHAR(255) NOT NULL DEFAULT 'N/A',
+  `description` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `fitness`.`user`
+-- Table `fitness`.`products`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `fitness`.`user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(100) NOT NULL,
-  `password` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id`))
+CREATE TABLE IF NOT EXISTS `fitness`.`products` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `Image` VARCHAR(250) NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `fitness`.`protein`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `fitness`.`protein` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `Image` VARCHAR(250) NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -102,4 +114,3 @@ COLLATE = utf8mb4_0900_ai_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
- 

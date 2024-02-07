@@ -4,7 +4,7 @@ import './proteins.css';
 
 function Proteine() {
   const [data, setData] = useState([]);
-  const [expandedState, setExpandedState] = useState({});
+  const [expandedStates, setExpandedStates] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -12,21 +12,20 @@ function Proteine() {
       .get('http://localhost:5000/api/protein') // Adjust the API endpoint based on your server setup
       .then((res) => {
         // Initialize expanded state for each item
-        const initialExpandedState = res.data.reduce((acc, item) => {
+        const initialExpandedStates = res.data.reduce((acc, item) => {
           acc[item.id] = false;
           return acc;
         }, {});
-        setExpandedState(initialExpandedState);
+        setExpandedStates(initialExpandedStates);
         setData(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
   const toggleExpand = (id) => {
-    setExpandedState((prevExpandedState) => ({
-      ...prevExpandedState,
-      [id]: !prevExpandedState[id],
-    }));
+    setExpandedStates((prevExpandedStates) => {
+      return { ...prevExpandedStates, [id]: !prevExpandedStates[id] };
+    });
   };
 
   const handleChange = (e) => {
@@ -54,10 +53,10 @@ function Proteine() {
                 <div className="de">
                   <p className="in">
                     <strong>{e.name}</strong> -{' '}
-                    {expandedState[e.id] ? e.description : `${e.description.slice(0, 100)}...`}
+                    {expandedStates[e.id] ? e.description : `${e.description.slice(0, 100)}...`}
                   </p>
                   <button onClick={() => toggleExpand(e.id)}>
-                    {expandedState[e.id] ? 'Read Less' : 'Read More'}
+                    {expandedStates[e.id] ? 'Read Less' : 'Read More'}
                   </button>
                 </div>
               </div>
