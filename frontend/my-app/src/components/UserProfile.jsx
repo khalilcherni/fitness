@@ -25,7 +25,9 @@ export default function ProfilePage() {
    
         <MDBRow>
           <MDBCol lg="4">
-            <MDBCard className="mb-4">
+          <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+
+
               <MDBCardBody className="text-center">
                 <MDBCardImage
                   src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
