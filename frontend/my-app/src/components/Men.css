@@ -1,21 +1,56 @@
-/* ... Your existing styles ... */
+/* Men.css */
 
-.card {
-  border: 1px solid #ffffff;
-  padding: 10px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* New styles for "Read More" button */
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.row-cols-1 {
+  flex-wrap: wrap;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card-img-top {
+  max-width: 100%;
+  height: auto;
+}
+
+.men-card {
+  padding: 1rem;
+}
+
 .read-more-button {
-  background-color: #3498db;
+  background-color: #bf6307;
   color: #fff;
+  padding: 0.5rem;
   border: none;
-  padding: 5px 10px;
   cursor: pointer;
+  margin-top: 1rem; /* Add some space between the description and the button */
+  display: inline-block; /* Ensure button is inline */
 }
 
 .read-more-button:hover {
-  background-color: #2980b9;
+  background-color: #a5771b;
 }
 
-/* ... Your existing styles ... */
+.full-description {
+  margin-top: 1rem; /* Add space between the description and the button */
+  color: #333; /* Change text color for better readability */
+  line-height: 1.5; /* Adjust line height for better spacing */
+}
+
+/* Optional: Add more styling based on your design preferences */

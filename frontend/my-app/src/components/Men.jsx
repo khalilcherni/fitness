@@ -32,10 +32,18 @@ function Men() {
             <div className="card h-100 men-card">
               <img src={e.Image} className="card-img-top" alt="Exercise" />
               <h1>{e.ExerciseName}</h1>
-              <h2>{e.DurationInMinutes}</h2>
-              <h2>{e.Repetitions}</h2>
+              <h2>{e.DurationInMinutes}min</h2>
+              <h2>{e.Repetitions} repetition</h2>
               {showFullDescriptions[index] ? (
-                <h3>{e.Description}</h3>
+                <div>
+                  <div className="full-description">{e.Description}</div>
+                  <button
+                    className="read-more-button"
+                    onClick={() => toggleDescription(index)}
+                  >
+                    Close
+                  </button>
+                </div>
               ) : (
                 <div>
                   <p>{`${e.Description.substring(0, 100)}...`}</p>

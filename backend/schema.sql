@@ -108,7 +108,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
   INSERT INTO fitnessformen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
 VALUES (
     'Farmer''s Carry',
-    15min,
+    15,
     12,
     'Who says exercise has to be complicated? Pick up something heavy and move it somewhere else — this is the idea behind the farmer''s walk. Try and use weights that add to a total of half your current bodyweight — 40kg is a good gauge for most men — to tax your grip strength, your core and your upper-back. Farmer''s walks can be fairly low-skill, too. So they make for an ideal bang-for-your-buck exercise.',
     'https://hips.hearstapps.com/hmg-prod/images/trap-bar-farmers-walk-640ddd9a8bed7.jpg?crop=1xw:1xh;center,top&resize=980:*'
@@ -117,7 +117,7 @@ VALUES (
 INSERT INTO fitnessformen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
 VALUES (
     'Weighted Sled (Prowler)',
-    10min,
+    10,
     20,
     'As with the farmer''s walks, the strength and stamina to move a heavy object at pace is a particular skill that many neglect. Pushing a weighted sled is another example of a low-skill move that requires a decent amount of effort. Load the sled up with around half of your weight, performing rounds of 20-30m runs and back, resting on a 1:2 ratio. You''ll benefit from aerobic and anaerobic gains.',
     'https://hips.hearstapps.com/hmg-prod/images/prowler1-1549553753.jpg?crop=1xw:1xh;center,top&resize=980:*'
@@ -150,5 +150,51 @@ VALUES (
     15,
     10,
     'A truly fiendish piece of fitness kit, the assault bike is one of the most threatening pieces of equipment. It''s simple really, you sit on the bike and ride like hell until you can''t anymore — then do that a few more times. The trick is, however, that the harder you push and pedal the bike, the harder the work becomes, as the resistance setting responds to your pace. Just don''t give up. Aim for quick sprints — 15 seconds, or 12 calories are ideal benchmarks — resting for a 1:2 ratio for five rounds or above.',
-    'https://hips.hearstapps.com/hmg-prod/images/airbike-1582219718.jpg?crop=1xw:1xh;center,top&resize=980:'
+    'https://hips.hearstapps.com/hmg-prod/images/airbike-1582219718.jpg?crop=1xw:1xh;center,top&resize=980:*'
+);
+
+INSERT INTO fitnessformen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Barbell Deadlifts',
+    10,
+    10,
+    'The king of compound exercises, there''s not much a well-performed deadlift can''t do. But here''s the beauty of it: as a compound exercise, the barbell deadlift will hit multiple muscle groups all at once, including your quads, hamstrings, arms, abs and grip strength. By challenging yourself with progressively heavier weights, you''ll increase your lean muscle mass, something important for improving your physique.',
+    'https://hips.hearstapps.com/menshealth-uk/main/assets/deadlift.gif?crop=0.807xw:1.00xh;0.135xw,0&resize=980:*'
+);
+
+INSERT INTO fitnessformen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Barbell Lunges',
+    10,
+    10,
+    'The classic barbell lunges engage your legs, glutes, and core muscles simultaneously, making it an excellent compound exercise. By challenging yourself with progressively heavier weights, you can effectively build lower body strength and improve balance and stability.',
+    'https://hips.hearstapps.com/menshealth-uk/main/assets/bench-press.gif?crop=0.670xw:1.00xh;0.202xw,0&resize=980:*'
+);
+INSERT INTO fitnessformen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Front Squats',
+    5,
+    10,
+    'Squats, but not as you know them — with most guys shying away from this leg-bulking variation, front squats are a great move for building strength. Generally, front squats can be safer than barbell back squats and more beginner-friendly. Your core should be fighting to keep your chest upright, while scaling the load to a weight lighter than your normal squatting strength will help you front squat at a faster pace, ramping up your fat-burn.',
+    'https://hips.hearstapps.com/menshealth-uk/main/assets/how-to-do-the-front-squat.gif?crop=0.667xw:1.00xh;0.221xw,0&resize=980:*'
+);
+
+INSERT INTO fitnessformen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Dumbbell Deadlift',
+    5,
+    15,
+    'Don''t feel comfortable with the conventional bar deadlift? No dramas — the dumbbell deadlift is an ideal scaling option for those looking to build strength before hitting the bar. It''s another good example of a full-body exercise that can be done almost anywhere — from home to hotel gyms — with a truckload of benefits including total-body strength, grip improvement, and better mobility. Thankfully, all these will transfer over to the barbell deadlift, helping you build stronger quads, glutes, traps, and core.',
+    'https://hips.hearstapps.com/hmg-prod/images/db-deadlift-1676549341.jpeg?crop=1xw:1xh;center,top&resize=980:*'
+);
+
+
+
+INSERT INTO fitnessformen (ExerciseName, DurationInMinutes, Repetitions, Description, Image)
+VALUES (
+    'Dumbbell Goblet Squat',
+    10,
+    15,
+    'It''s squatting at its most basic. Well, almost. A progression from the simple bodyweight squat, the goblet squat (which can also be done with a kettlebell) is ideal for those looking to build lower-body strength before racking plates up on a barbell. Similarly, using proper form will encourage your core, shoulders, and back to work, while your legs and glutes get a big hit. Plus, this exercise will improve your mobility and, when you move slower, become ideal for time-under-tension training.',
+    'https://hips.hearstapps.com/menshealth-uk/main/assets/dumbbellgoblet.gif?crop=0.5625xw:1xh;center,top&resize=980:*'
 );
