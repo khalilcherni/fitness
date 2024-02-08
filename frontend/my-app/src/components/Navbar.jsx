@@ -77,6 +77,13 @@ function BasicExample() {
               <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
                 Contact 
               </Nav.Link>
+              <NavDropdown title="Exercise" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
+                  Men
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#Add">Women</NavDropdown.Item>
+              </NavDropdown>
+
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
           About 
               </Nav.Link>
@@ -92,7 +99,7 @@ ProfilePage
             </Nav>
           </Navbar.Collapse>
           <Nav.Link id='a'  href="#Cart" onClick={() => handleTabClick('Cart')}>
-              <img className="op" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
+              <img className="o" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
 </Nav.Link>
         </Container>
  
