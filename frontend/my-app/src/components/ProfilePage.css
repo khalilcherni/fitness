@@ -23,34 +23,33 @@ color: aliceblue;
 .py{
     margin-top: 8%;
     border-color: rgb(153, 158, 162);
-    
+
 }
 .rounded-circle{
     margin-left: 20px;
 }
 .mb-4 {
-   
+
    margin: 10px;
     margin-top: -10px;
- 
   }
-  
+
  .nn{
     height: 80%;
  } 
  .mb{
     background-color: #111317;
  }
- .o{
-    margin-top: -50px;
+ .opp{
+    margin-top: 100px;
  }
  #l{
-    margin-left: -25px;
+    margin-left: -5px;
     margin-top: 10px;
     height: 300px;
  }
  #z{
-    margin-left: -10px;
+    margin-left: -5px;
     margin-top: 10px;
     height: 310px;
     width: 100%;
@@ -62,18 +61,9 @@ color: aliceblue;
     width:80% ;
     height: 20px;
     margin-top: 3px;
-    margin-left: 35px;
-    text-align: center;
+    margin-left: 40px;
  }
  .n{
     color: rgb(173, 91, 61);
     background-color: #111317;
-    margin-left: -26px
- }
- #a{
-   margin-left: -40px;
-   margin-top: -400px;
- }
- h6{
-  margin-top: -15%;
  }

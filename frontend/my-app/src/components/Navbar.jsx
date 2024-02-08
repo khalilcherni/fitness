@@ -103,6 +103,7 @@ ProfilePage
           <Nav.Link id='a'  href="#Cart" onClick={() => handleTabClick('Cart')}>
               <img className="o" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
 </Nav.Link>
+
         </Container>
  
       </Navbar>
@@ -113,14 +114,15 @@ ProfilePage
       {activeTab === 'Men' && <Men />}
        {activeTab === 'Register' && <Register />}
       {activeTab === 'Women' && <Women />}
-     
+        
       {activeTab === 'AddForWomen' && <AddForWomen />}
+      {activeTab === 'AddForMen' && <Add />}
     
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
       {activeTab === 'Cart' && <CartList />}
-      {activeTab === 'AddForMen' && <Add />}
+   
 
       {/* {activeTab === 'User' && <Register />} */}
     </div>

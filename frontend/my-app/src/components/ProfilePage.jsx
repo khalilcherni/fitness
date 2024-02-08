@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import {
   MDBCol,
   MDBContainer,
@@ -16,8 +17,8 @@ import {
   MDBListGroup,
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
-import './ProfilePage.css'
-import { useState } from 'react';
+import "./ProfilePage.css"
+
 
 export default function ProfilePage() {
   const [fullName, setFullName] = useState('John Doe');
@@ -38,7 +39,7 @@ export default function ProfilePage() {
     setImageSrc(event.target.value);
   }
   return (
-    <section className='o'>
+    <section className="">
       <MDBContainer className="py">
 
         <MDBRow >
