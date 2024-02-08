@@ -12,6 +12,7 @@ import ProfilePage from './ProfilePage';
 import AboutUs from './AboutUs';
 import CartList from './CartList';
 import Add from './AddForMen';
+import Women from './Women';
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -54,7 +55,7 @@ function BasicExample() {
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
                   Men
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#Add">Women</NavDropdown.Item>
+                <NavDropdown.Item href="#Women"  onClick={() => handleTabClick('Women')}>Women</NavDropdown.Item>
               </NavDropdown>
 
           
@@ -109,7 +110,8 @@ ProfilePage
 
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
-      {activeTab === 'Men' && <Men />}
+      {activeTab === 'Women' && <Women />}
+      
       {activeTab === 'Register' && <Register />}
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
