@@ -6,7 +6,7 @@ function Add() {
   const [DurationInMinutes, setDurationInMinutes] = useState(0);
   const [Repetitions, setRepetitions] = useState(0);
   const [Image, setImage] = useState('');
-
+  const [Description, setDescription] = useState('');
   const handle = () => {
     const newprod = {
       ExerciseName: ExerciseName,
@@ -46,7 +46,7 @@ function Add() {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">DurationInMinutes URL:</label>
+          <label className="form-label">DurationInMinutes </label>
           <input
             type="text"
             className="form-control"
@@ -78,7 +78,7 @@ function Add() {
         <div className="mb-3">
           <label className="form-label">Image:</label>
           <input
-            type="Image"
+            type="text"
             className="form-control"
             value={Image}
             onChange={(e) => setImage(e.target.value)}

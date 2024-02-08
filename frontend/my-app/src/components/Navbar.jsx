@@ -11,6 +11,7 @@ import ContactForm from './ContactUs';
 import ProfilePage from './ProfilePage';
 import AboutUs from './AboutUs';
 import CartList from './CartList';
+import Add from './AddForMen';
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -114,6 +115,7 @@ ProfilePage
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
       {activeTab === 'Cart' && <CartList />}
+      {activeTab === 'AddForMen' && <Add />}
 
       {/* {activeTab === 'User' && <Register />} */}
     </div>
