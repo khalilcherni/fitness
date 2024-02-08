@@ -8,6 +8,9 @@ function Men() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedExercise, setSelectedExercise] = useState(null);
+  const [updateMode, setUpdateMode] = useState(false);
+  const [updatedExercise, setUpdatedExercise] = useState({});
+  
 
   useEffect(() => {
     // Fetch data from the backend when the component mounts
@@ -17,56 +20,125 @@ function Men() {
       .catch((err) => console.log(err));
   }, []);
 
-  // Filter data based on search term
   const filteredData = data.filter((exercise) =>
     exercise.ExerciseName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleImageClick = (exercise) => {
-    // Set the selected exercise when an image is clicked
     setSelectedExercise(exercise);
   };
 
   const handleBackToList = () => {
-    // Reset selectedExercise to go back to the list view
     setSelectedExercise(null);
+    setUpdateMode(false); // Reset update mode when going back to the list
   };
 
   const handleDelete = () => {
     if (!selectedExercise) {
-      return; // Do nothing if no exercise is selected
+      return;
     }
 
-    console.log('Deleting exercise:', selectedExercise);
-
-    // Make a DELETE request to the backend to delete the selected exercise
     axios
       .delete(`http://localhost:5000/api/delete/${selectedExercise.ID}`)
       .then((response) => {
         console.log('Delete response:', response.data);
 
-        // Update the local state to remove the deleted exercise
-        setData((prevData) =>
-          prevData.filter((exercise) => exercise.id !== selectedExercise.id)
-        );
-        // Reset selectedExercise to go back to the list view
+        // Fetch updated data from the backend
+        axios
+          .get('http://localhost:5000/api/get')
+          .then((res) => setData(res.data))
+          .catch((err) => console.log(err));
+
         setSelectedExercise(null);
+        setUpdateMode(false); // Reset update mode after deleting
       })
       .catch((err) => console.log('Delete error:', err));
   };
 
   const handleUpdate = () => {
-    // Add logic to navigate to the update page if needed
-    // Example: history.push(`/men/update/${selectedExercise.id}`)
+    setUpdateMode(true);
+    setUpdatedExercise({ ...selectedExercise });
+  };
+
+  const handleCancelUpdate = () => {
+    setUpdateMode(false);
+    setUpdatedExercise({});
+  };
+
+  const handleSaveUpdate = () => {
+    axios
+      .put(`http://localhost:5000/api/put/${updatedExercise.ID}`, updatedExercise)
+      .then((response) => {
+        console.log('Update response:', response.data);
+
+        // Fetch updated data from the backend
+        axios
+          .get('http://localhost:5000/api/get')
+          .then((res) => setData(res.data))
+          .catch((err) => console.log(err));
+
+        // Reset the update mode and clear the updated exercise state
+        setUpdateMode(false);
+        setUpdatedExercise({});
+      })
+      .catch((err) => console.log('Update error:', err));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUpdatedExercise((prevExercise) => ({
+      ...prevExercise,
+      [name]: value,
+    }));
   };
 
   return (
     <div className="container mt-5">
-      {selectedExercise ? (
+      {updateMode ? (
+        <div className="update-container">
+          <h1>Update Exercise</h1>
+          <label>Exercise Name:</label>
+          <input
+            type="text"
+            name="ExerciseName"
+            value={updatedExercise.ExerciseName}
+            onChange={handleInputChange}
+          />
+          <label>Duration (in minutes):</label>
+          <input
+            type="number"
+            name="DurationInMinutes"
+            value={updatedExercise.DurationInMinutes}
+            onChange={handleInputChange}
+          />
+          <label>Repetitions:</label>
+          <input
+            type="number"
+            name="Repetitions"
+            value={updatedExercise.Repetitions}
+            onChange={handleInputChange}
+          />
+          <label>Description:</label>
+          <textarea
+            name="Description"
+            value={updatedExercise.Description}
+            onChange={handleInputChange}
+          />
+            <label>Image:</label>
+          <textarea
+            name="Description"
+            value={updatedExercise.Image}
+            onChange={handleInputChange}
+          />
+          {/* Add input for Image if needed */}
+          <button onClick={handleSaveUpdate}>Save Update</button>
+          <button onClick={handleCancelUpdate}>Cancel</button>
+        </div>
+      ) : selectedExercise ? (
         <div className="details-container">
           <h1>{selectedExercise.ExerciseName}</h1>
           <img
-            className='imageClassName'
+            className="imageClassName"
             src={selectedExercise.Image}
             alt="Exercise"
           />
@@ -86,7 +158,7 @@ function Men() {
           />
           <div className="row row-cols-1 row-cols-md-2 g-4">
             {filteredData.map((exercise) => (
-              <div key={exercise.id} className="col mb-4">
+              <div key={exercise.ID} className="col mb-4">
                 <div className="card h-100 men-card">
                   <img
                     src={exercise.Image}
