@@ -2,29 +2,30 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function Add() {
-  const [title, setTitle] = useState('');
-  const [image, setImage] = useState('');
-  const [description, setDescription] = useState('');
-  const [date, setDate] = useState('');
+  const [ExerciseName, setExerciseName] = useState('');
+  const [DurationInMinutes, setDurationInMinutes] = useState(0);
+  const [Repetitions, setRepetitions] = useState(0);
+  const [Image, setImage] = useState('');
 
   const handle = () => {
     const newprod = {
-      title: title,
-      image: image,
-      description: description,
-      date: date,
+      ExerciseName: ExerciseName,
+      DurationInMinutes: DurationInMinutes,
+      Repetitions: Repetitions,
+      Description: Description,
+      Image: Image,
     };
 
     console.log(newprod);
 
     axios
-      .post(`http://localhost:3000/api/home/add`, newprod)
+      .post(`http://localhost:5000/api/post`, newprod)
       .then((res) => {
         console.log(res.data);
-        setTitle('');
-        setImage('');
+        setExerciseName('');
+        setDurationInMinutes(0);
+        setRepetitions(0);
         setDescription('');
-        setDate('');
       })
       .catch((err) => console.log(err));
   };
@@ -34,44 +35,53 @@ function Add() {
       <h2 className="mb-4">Add New Product</h2>
       <form>
         <div className="mb-3">
-          <label className="form-label">Title:</label>
+          <label className="form-label">ExerciseName:</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            placeholder="ExerciseName"
+            value={ExerciseName}
+            onChange={(e) => setExerciseName(e.target.value)}
           />
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Image URL:</label>
+          <label className="form-label">DurationInMinutes URL:</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Image URL"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
+            placeholder="DurationInMinutes URL"
+            value={DurationInMinutes}
+            onChange={(e) => setDurationInMinutes(e.target.value)}
+          />
+        </div>
+
+        <div className="mb-3">
+          <label className="form-label">Repetitions:</label>
+          <textarea
+            className="form-control"
+            placeholder="Repetitions"
+            value={Repetitions}
+            onChange={(e) => setRepetitions(e.target.value)}
           />
         </div>
 
         <div className="mb-3">
           <label className="form-label">Description:</label>
-          <textarea
+          <input
+            type="Description"
             className="form-control"
-            placeholder="Description"
-            value={description}
+            value={Description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-
         <div className="mb-3">
-          <label className="form-label">Date:</label>
+          <label className="form-label">Image:</label>
           <input
-            type="date"
+            type="Image"
             className="form-control"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={Image}
+            onChange={(e) => setImage(e.target.value)}
           />
         </div>
 
