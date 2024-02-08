@@ -53,12 +53,12 @@ export default function ProfilePage() {
                   fluid />
                 <hr />
                 <p className="m">Fitness Enthusiast</p>
-                <p className="m">Gym Lover</p>
+             
                 <div className="d-flex justify-content-center mb-2">
                  
                 </div>
                   <MDBCol sm="9">
-                    <input type="text" value={imageSrc} onChange={handleImageChange} />
+                    <input className='n' type="text" value={imageSrc} onChange={handleImageChange} />
                     <MDBBtn id="r" onClick={() => setImageSrc('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp')} size="sm">Reset</MDBBtn>
                   </MDBCol>
               </MDBCardBody>

@@ -59,6 +59,10 @@ color: aliceblue;
  #r{
     width:80% ;
     height: 20px;
-    margin-top: -5px;
+    margin-top: 3px;
     margin-left: 40px;
+ }
+ .n{
+    color: rgb(173, 91, 61);
+    background-color: #111317;
  }
