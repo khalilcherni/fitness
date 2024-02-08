@@ -260,4 +260,10 @@ body {
    
   }
   
- 
+  .p {
+    transition: transform 0.3s ease; /* Smooth transition effect */
+  }
+  
+  .p:hover {
+    transform: translateX(20px); /* Move the image 20 pixels to the right on hover */
+  }
