@@ -12,8 +12,8 @@
 .row-cols-1 {
   display: flex;
   flex-wrap: wrap;
-  justify-content:space-between;
-  gap: 20px; /* Adjust the gap between cards */
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .card {
@@ -21,6 +21,7 @@
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s;
+  width: calc(20% - 20px); /* Adjust the width based on your design, considering gap and padding */
   margin: 10px; /* Add margin to the cards */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
@@ -36,6 +37,9 @@
 
 .men-card {
   padding: 1.5rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
 }
 
 .search-input {
@@ -68,3 +72,133 @@
   color: #555;
   line-height: 1.6;
 }
+
+/* Add new class for details box */
+.details-container {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 50px;
+}
+
+.details-container img {
+  width: 50%; /* Set the width as per your design requirements */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 400px; /* Maximum width for responsiveness */
+  display: block; /* Remove any default inline styles */
+  margin: 0 auto; /* Center the image horizontally */
+  margin-bottom: 20px; /* Add space below the image */
+}
+
+.details-container p {
+  color: #ebe4e4;
+  margin-bottom: 20px;
+}
+
+.details-container button {
+  background-color: #d79447;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.details-container button:hover {
+  background-color: #f9ac54;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  /* ContactForm.css */
+/* ... (existing styles) */
+
+.update-container {
+  background-color: black;
+  padding: 15px; /* Adjust padding to control the size */
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 0px var(--secondary-color);
+  margin-top: 20px;
+  max-width: 600px; /* Adjust the max-width to make the box smaller */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.update-container h1 {
+  color: var(--white);
+  margin-bottom: 15px; /* Adjust margin to separate from the inputs */
+}
+
+.update-container label {
+  display: block;
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+.update-container input,
+.update-container textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--text-light);
+  margin-bottom: 20px;
+  transition: border-bottom-color 0.3s ease;
+}
+
+.update-container input::placeholder,
+.update-container textarea::placeholder {
+  color: var(--text-light);
+}
+
+.update-container input:focus,
+.update-container textarea:focus {
+  border-bottom-color: var(--secondary-color);
+}
+
+.update-container textarea {
+  height: 100px;
+  resize: none;
+}
+
+.update-container button {
+  background: var(--secondary-color);
+  border: none;
+  outline: none;
+  color: var(--white);
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.update-container button:hover {
+  background-color: var(--secondary-color-dark);
+}
+
+/* ... (existing styles) */

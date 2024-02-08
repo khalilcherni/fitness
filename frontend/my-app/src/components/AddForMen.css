@@ -1,0 +1,117 @@
+/* AddForMen.css */
+
+  
+.container::before {
+   content: '';
+   position: absolute;
+   top: -50%;
+   left: -50%;
+   width: 200%;
+   height: 200%;
+   background: linear-gradient(
+     45deg,
+     rgba(255, 255, 255, 0.3),
+     rgba(255, 255, 255, 0.1),
+     transparent
+   );
+   animation: animateBackground 10s linear infinite;
+   transition: opacity 0.3s ease;
+   opacity: 0;
+ }
+ 
+ .container:hover::before {
+   opacity: 1;
+ }
+ 
+ @keyframes animateBackground {
+   0% {
+     transform: translate(-50%, -50%) rotate(0deg);
+   }
+   100% {
+     transform: translate(-50%, -50%) rotate(360deg);
+   }
+ }
+ 
+ .form-container {
+   border: 1px solid var(--text-light); /* Add border around the form elements */
+   border-radius: 10px;
+   padding: 20px; /* Add padding to separate form elements from border */
+   margin-left: 120px;
+   margin-right: 120px;
+   background-color: var(--primary-color);
+   border-radius: 10px;
+   box-shadow: 0px 0px 20px 0px var(--secondary-color);
+ }
+ 
+ .dd {
+   width: 100%;
+   padding: 10px;
+   font-size: 1rem;
+   color: var(--white);
+   background-color: transparent;
+   border: none;
+   border-bottom: 1px solid var(--text-light);
+   margin-bottom: 20px;
+   transition: border-bottom-color 0.3s ease;
+ }
+ 
+ .dd::placeholder {
+   color: var(--text-light);
+ }
+ 
+ .dd:focus {
+   border-bottom-color: var(--secondary-color);
+ }
+ 
+ .form-label {
+   font-size: 1rem;
+   color: var(--white);
+   margin-bottom: 5px;
+ }
+ 
+ .form-control {
+   border: 2px solid rgb(94 61 61 / 50%) !important;
+   color: #871c1c !important;
+   background-color: var(--primary-color);
+ }
+ 
+ .form-control::placeholder,
+ textarea::placeholder {
+   color: var(--text-light);
+ }
+ 
+ .form-control:focus,
+ textarea:focus {
+   border-bottom-color: var(--secondary-color);
+ }
+ 
+ textarea {
+   height: 100px;
+   resize: none;
+ }
+ 
+ .button-55 {
+   background: var(--secondary-color);
+   border: none;
+   outline: none;
+   color: var(--white);
+   padding: 10px 20px;
+   cursor: pointer;
+   border-radius: 5px;
+   font-size: 1rem;
+   transition: background-color 0.3s ease, color 0.3s ease;
+ }
+ 
+ .button-55:hover {
+   background-color: var(--secondary-color-dark);
+ }
+ 
+ .alert {
+   background-color: var(--primary-color-light);
+   color: var(--secondary-color);
+   text-align: center;
+   padding: 10px;
+   margin-bottom: 20px;
+   border-radius: 5px;
+   box-shadow: 0px 0px 10px 0px var(--secondary-color);
+ }
