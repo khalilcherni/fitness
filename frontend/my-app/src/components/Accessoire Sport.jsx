@@ -6,6 +6,7 @@ function AssesoiresSport() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedStates, setExpandedStates] = useState({});
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     axios
@@ -21,6 +22,10 @@ function AssesoiresSport() {
     }));
   };
 
+  const addToCart = (item) => {
+    setCart((prevCart) => [...prevCart, item]);
+  };
+
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -31,7 +36,7 @@ function AssesoiresSport() {
 
   return (
     <div className="shop">
-      <div className="search-container"> {/* Added class name "search-container" */}
+      <div className="search-container">
         <input
           type="text"
           placeholder="Search..."
@@ -53,17 +58,30 @@ function AssesoiresSport() {
                     <h3>{e.name}</h3>
                     <p className="in">
                       <strong>{e.name}</strong> -{' '}
-                      {expandedStates[e.id] ? e.description : `${e.description.slice(0, 100)}...`}
+                      {expandedStates[e.id] ? e.description : (e.description ? `${e.description.slice(0, 100)}...` : '')}
                     </p>
                     <button onClick={() => toggleExpand(e.id)}>
                       {expandedStates[e.id] ? 'Read Less' : 'Read More'}
                     </button>
+                    <button onClick={() => addToCart(e)}>Add to Cart</button>
                   </div>
                 </div>
               </div>
             ))
           )}
         </div>
+      </div>
+      <div className="cart-container">
+        <h2>Shopping Cart</h2>
+        {cart.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          <ul>
+            {cart.map((item, index) => (
+              <li key={index}>{item.name} - {item.description}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
