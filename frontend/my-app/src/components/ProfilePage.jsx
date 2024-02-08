@@ -8,8 +8,8 @@ import {
   MDBCardBody,
   MDBCardImage,
   MDBBtn,
-  // MDBBreadcrumb,
-  // MDBBreadcrumbItem,
+  MDBBreadcrumb,
+  MDBBreadcrumbItem,
   MDBProgress,
   MDBProgressBar,
   MDBIcon,
@@ -17,31 +17,59 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import './ProfilePage.css'
+import { useState } from 'react';
 
 export default function ProfilePage() {
-  return (
-    <section>
-      <MDBContainer className="py-5">
+  const [fullName, setFullName] = useState('John Doe');
+  const [email, setEmail] = useState('johndoe@example.com');
+  const [location, setLocation] = useState('Fitness Street, Gym City, CA');
+  const [imageSrc, setImageSrc] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp');
 
-        <MDBRow>
+  // Functions to handle changes in user information
+  const handleFullNameChange = (event) => {
+    setFullName(event.target.value);
+  }
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+  }
+
+  const handleImageChange = (event) => {
+    setImageSrc(event.target.value);
+  }
+  return (
+    <section className='o'>
+      <MDBContainer className="py">
+
+        <MDBRow >
           <MDBCol lg="4">
-            <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+            <MDBCard id="a" className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
               <MDBCardBody className="text-center">
                 <MDBCardImage
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                  src={imageSrc}
                   alt="fitness avatar"
                   className="rounded-circle"
                   style={{ width: '150px' }}
                   fluid />
                 <hr />
                 <p className="m">Fitness Enthusiast</p>
-                <p className="m">Gym Lover</p>
+             
                 <div className="d-flex justify-content-center mb-2">
                  
                 </div>
+                  <MDBCol sm="9">
+                    <input className='n' type="text" value={imageSrc} onChange={handleImageChange} />
+                    <MDBBtn 
+        id="r"
+      onClick={() => setImageSrc('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp')}
+        size="sm"
+><h6>Reset</h6>
+</MDBBtn>
+
+                  </MDBCol>
               </MDBCardBody>
             </MDBCard>
-            <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+            <MDBCard className="mb-4" id="l" style={{ borderColor: 'rgb(150, 150, 150)' }}>
               <MDBCardBody className="p-0">
                 <MDBListGroup flush="true" className="rounded-3">
                   <MDBListGroupItem className="pp">
@@ -73,46 +101,46 @@ export default function ProfilePage() {
               <MDBCardBody>
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText className="m">Full Name</MDBCardText>
+                    <MDBCardText id='t' className="m">Full Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="m">John Doe</MDBCardText>
+                    <MDBCardText  id='t' className="m">John Doe</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText className="m">Email</MDBCardText>
+                    <MDBCardText  id='t' className="m">Email</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="m">johndoe@example.com</MDBCardText>
+                    <MDBCardText  id='t' className="m">johndoe@example.com</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText className="m">Phone</MDBCardText>
+                    <MDBCardText  id='t' className="m">Phone</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="m">(123) 456-7890</MDBCardText>
+                    <MDBCardText  id='t' className="m">(123) 456-7890</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText className="m">Mobile</MDBCardText>
+                    <MDBCardText  id='t' className="m">Mobile</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="m">(098) 765-4321</MDBCardText>
+                    <MDBCardText  id='t' className="m">(098) 765-4321</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText className="m">Address</MDBCardText>
+                    <MDBCardText  id='t' className="m">Address</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="m">Fitness Street, Gym City, CA</MDBCardText>
+                    <MDBCardText  id='t' className="m">Fitness Street, Gym City, CA</MDBCardText>
                   </MDBCol>
                 </MDBRow>
               </MDBCardBody>
@@ -120,9 +148,9 @@ export default function ProfilePage() {
 
             <MDBRow>
               <MDBCol md="6">
-                <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
-                  <MDBCardBody>
-                    <MDBCardText className="m"><span className="m">Assignment</span> Project Status</MDBCardText>
+                <MDBCard className="mb" id="z" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+                  <MDBCardBody className='nn'>
+                    <MDBCardText  className="m"><span className="m">Assignment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Muscle Building</MDBCardText>
                     <MDBProgress className="rounded">
                       <MDBProgressBar width={80} valuemin={0} valuemax={100} style={{ backgroundColor: '#f9ac54' }} />
@@ -152,7 +180,7 @@ export default function ProfilePage() {
               </MDBCol>
 
               <MDBCol md="6">
-                <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+                <MDBCard className="mb" id="z" style={{ borderColor: 'rgb(150, 150, 150)' }}>
                   <MDBCardBody>
                     <MDBCardText className="m"><span className="m">Assignment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Strength Training</MDBCardText>

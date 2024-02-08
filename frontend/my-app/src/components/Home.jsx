@@ -52,7 +52,7 @@ const Home = () => {
         options={{
           type: 'fade', // Use fade effect
           autoplay: true,
-          interval: 3000, // Interval between slides
+          interval: 2500, // Interval between slides
           pauseOnHover: true, // Pause autoplay on hover
           rewind: true, // Rewind to first slide after the last one
         }}

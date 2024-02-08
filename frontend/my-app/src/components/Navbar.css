@@ -56,6 +56,7 @@
   width: 50px;
   height: 50px;
   transition: transform 0.3s ease;
+  margin-top: -10px;
 }
 
 .op:hover {
@@ -72,4 +73,15 @@
 .kh{
   width: 40px;
   height:40px;
+}
+#nb {
+  margin-left: 400px;
+  
+}
+
+/* .im{
+  color: beige;
+} */
+#a{
+  margin-left:  20px;
 }

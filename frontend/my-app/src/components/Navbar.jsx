@@ -5,12 +5,16 @@ import Men from './Men';
 import AccessoireSport from './Accessoire Sport';
 import Register from './Register';
 import './Navbar.css';
-import Proteine from './Proteins';
+import Lose from './lose';
+import Gain from './gain';
+import ContactForm from './ContactUs';
+import ProfilePage from './ProfilePage';
 import AboutUs from './AboutUs';
 
 
 
 
+import CartList from './CartList';
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -55,9 +59,7 @@ function BasicExample() {
                 <NavDropdown.Item href="#Add">Women</NavDropdown.Item>
               </NavDropdown>
 
-              <Nav.Link href="#Register" onClick={() => handleTabClick('Register')}>
-                Register
-              </Nav.Link>
+          
 
               <NavDropdown title="Shop" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Proteins" onClick={() => handleTabClick('proteins')}>
@@ -76,18 +78,32 @@ function BasicExample() {
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
-                Contact Us
+                Contact 
               </Nav.Link>
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
                 About Us
+          About 
               </Nav.Link>
+
+              <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('Register')}>
+              <img className="op" src="https://cdn-icons-png.flaticon.com/128/1771/1771013.png" alt="" height="30" />
+</Nav.Link>
+{/* <Nav.Link href="#ProfilePage" onClick={() => handleTabClick('ProfilePage')}>
+ProfilePage 
+              </Nav.Link> */}
+  
+    
             </Nav>
           
             <Nav className="ms-auto">
               
             </Nav>
           </Navbar.Collapse>
+          <Nav.Link id='a'  href="#Cart" onClick={() => handleTabClick('Cart')}>
+              <img className="op" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
+</Nav.Link>
         </Container>
+ 
       </Navbar>
       <hr />
 
@@ -98,8 +114,15 @@ function BasicExample() {
       {activeTab === 'proteins' && <Proteine />}
       {activeTab === 'accessoireSport' && <AccessoireSport />}
       
+      {activeTab === 'loss weight' && <Lose />}
+      {activeTab === 'gain Weight' && <Gain />}
+      {activeTab === 'Contact' && <ContactForm />}
+      {activeTab === 'Cart' && <CartList />}
+
+      {/* {activeTab === 'User' && <Register />} */}
     </div>
   );
 }
 
 export default BasicExample;
+
