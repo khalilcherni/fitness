@@ -10,7 +10,7 @@ import Gain from './gain';
 import ContactForm from './ContactUs';
 import ProfilePage from './ProfilePage';
 import AboutUs from './AboutUs';
-
+import Proteine from './Proteins';
 
 
 
@@ -81,8 +81,8 @@ function BasicExample() {
                 Contact 
               </Nav.Link>
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-                About Us
-          About 
+                About 
+           
               </Nav.Link>
 
               <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('Register')}>
