@@ -5,7 +5,6 @@ import './proteins.css';
 function Proteine() {
   const [data, setData] = useState([]);
   const [expandedState, setExpandedState] = useState({});
-  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     axios
@@ -29,25 +28,11 @@ function Proteine() {
     }));
   };
 
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
     <div className="shop">
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={handleChange}
-      />
       <div className="container">
         <div className="row">
-          {filteredData.map((e) => (
+          {data.map((e) => (
             <div key={e.id} className="col">
               <div className="card h-100 box">
                 <img src={e.Image} className="img" alt="Proteine" />
