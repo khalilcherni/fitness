@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./Star.css";
 
+
 const StarRating = ({ rating, onRatingClick }) => {
   const [hoveredRating, setHoveredRating] = useState(null);
   const [clickedRating, setClickedRating] = useState(null);

@@ -34,7 +34,9 @@ function Men() {
     if (!selectedExercise) {
       return;
     }
-
+    const handleRatingClick = (clickedRating, placeId) => {
+      setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+    };
     axios
       .delete(`http://localhost:5000/api/delete/${selectedExercise.ID}`)
       .then((response) => {
@@ -135,6 +137,7 @@ function Men() {
             alt="Exercise"
           />
           <p>{selectedExercise.Description}</p>
+          
           <button onClick={handleDelete}>Delete</button>
           <button onClick={handleUpdate}>Update</button>
           <button onClick={handleBackToList}>Back to List</button>
