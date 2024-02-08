@@ -8,7 +8,6 @@ import './Navbar.css';
 import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
-import ProfilePage from './ProfilePage';
 import AboutUs from './AboutUs';
 import CartList from './CartList';
 import Add from './AddForMen';
@@ -112,9 +111,11 @@ ProfilePage
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
+       {activeTab === 'Register' && <Register />}
       {activeTab === 'Women' && <Women />}
+     
       {activeTab === 'AddForWomen' && <AddForWomen />}
-      {activeTab === 'Register' && <Register />}
+    
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}

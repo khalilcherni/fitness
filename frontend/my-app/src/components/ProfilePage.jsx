@@ -18,14 +18,13 @@ import {
 } from 'mdb-react-ui-kit';
 import './ProfilePage.css'
 import { useState } from 'react';
-import Home from './Home'
 
 export default function ProfilePage() {
   const [fullName, setFullName] = useState('John Doe');
   const [email, setEmail] = useState('johndoe@example.com');
   const [location, setLocation] = useState('Fitness Street, Gym City, CA');
   const [imageSrc, setImageSrc] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   // Functions to handle changes in user information
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);
@@ -38,17 +37,13 @@ export default function ProfilePage() {
   const handleImageChange = (event) => {
     setImageSrc(event.target.value);
   }
-// Set isLoggedIn to true to render the Home component
-  
   return (
     <section className='o'>
-               
-
       <MDBContainer className="py">
 
         <MDBRow >
           <MDBCol lg="4">
-            <MDBCard id="a" className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+            <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
               <MDBCardBody className="text-center">
                 <MDBCardImage
                   src={imageSrc}
@@ -64,13 +59,7 @@ export default function ProfilePage() {
                 </div>
                   <MDBCol sm="9">
                     <input className='n' type="text" value={imageSrc} onChange={handleImageChange} />
-                    <MDBBtn 
-        id="r"
-      onClick={() => setImageSrc('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp')}
-        size="sm"
-><h6>Reset</h6>
-</MDBBtn>
-
+                    <MDBBtn id="r" onClick={() => setImageSrc('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp')} size="sm">Reset</MDBBtn>
                   </MDBCol>
               </MDBCardBody>
             </MDBCard>
@@ -219,10 +208,6 @@ export default function ProfilePage() {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-     
-      
-     
     </section>
-
   );
 }
