@@ -11,6 +11,7 @@ const LoginPage = () => {
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loggedInUserEmail, setLoggedInUserEmail] = useState('');
 
   const handleLogin = async () => {
     try {
@@ -20,9 +21,10 @@ const LoginPage = () => {
       });
 
       if (response.status === 200) {
-        const { token } = response.data;
+        const { token, email } = response.data; // Assuming the backend returns email along with the token
         alert('Login successful!');
         setIsLoggedIn(true);
+        setLoggedInUserEmail(email); // Set the logged-in user's email
       } else {
         alert('Authentication failed. Please check your credentials.');
       }
@@ -57,7 +59,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       {isLoggedIn ? (
-        <ProfilePage />
+  <ProfilePage email={loggedInUserEmail} />
       ) : (
         <>
           <div className="login-box">

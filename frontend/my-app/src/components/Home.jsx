@@ -50,11 +50,11 @@ const Home = () => {
 
       <Splide
         options={{
-          type: 'fade', // Use fade effect
+          type: 'fade', 
           autoplay: true,
-          interval: 1000, // Interval between slides
-          pauseOnHover: true, // Pause autoplay on hover
-          rewind: true, // Rewind to first slide after the last one
+          interval: 1000, 
+          pauseOnHover: true, 
+          rewind: true, 
         }}
       >
         {images.map((url, index) => (
