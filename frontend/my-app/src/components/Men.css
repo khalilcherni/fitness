@@ -12,8 +12,8 @@
 .row-cols-1 {
   display: flex;
   flex-wrap: wrap;
-  justify-content:space-between;
-  gap: 20px; /* Adjust the gap between cards */
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .card {
@@ -21,9 +21,9 @@
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s;
-  width: calc(20% - 20px); /* Adjust the width based on your design, considering gap and padding */
-  margin: 10px; /* Add margin to the cards */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  width: calc(20% - 20px);
+  margin: 10px;
+  box-sizing: border-box;
 }
 
 .card:hover {
@@ -37,6 +37,9 @@
 
 .men-card {
   padding: 1.5rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
 }
 
 .search-input {
@@ -70,63 +73,64 @@
   line-height: 1.6;
 }
 
-
-
-
-/* MenDetails.css */
-
+/* Add new class for details box */
 .details-container {
-    background-color: #f8f8f8;
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin: 50px;
-  }
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 50px;
+}
+
+.details-container img {
+  width: 50%; /* Set the width as per your design requirements */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 400px; /* Maximum width for responsiveness */
+  display: block; /* Remove any default inline styles */
+  margin: 0 auto; /* Center the image horizontally */
+  margin-bottom: 20px; /* Add space below the image */
+}
+
+.details-container p {
+  color: #ebe4e4;
+  margin-bottom: 20px;
+}
+
+.details-container button {
+  background-color: #d79447;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.details-container button:hover {
+  background-color: #f9ac54;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-  .details-container h1 {
-    color: #333;
-  }
-  
-  .imageClassName {
-    width: 50%; /* Set the width as per your design requirements */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 400px; /* Maximum width for responsiveness */
-    display: block; /* Remove any default inline styles */
-    margin: 0 auto; /* Center the image horizontally */
-    margin-bottom: 20px; /* Add space below the image */
-  }
-  
-  .details-container p {
-    color: #555;
-    margin-bottom: 20px;
-  }
-  
-  .details-container button {
-    background-color: #aa520e;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .details-container button:hover {
-    background-color: #bb0b1d;
-  }
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   /* ContactForm.css */
 /* ... (existing styles) */
 

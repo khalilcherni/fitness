@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Men.css';
-// import './MenDetails.css';
 
 function Men() {
   const [data, setData] = useState([]);
@@ -11,9 +10,7 @@ function Men() {
   const [updateMode, setUpdateMode] = useState(false);
   const [updatedExercise, setUpdatedExercise] = useState({});
 
-
   useEffect(() => {
-    // Fetch data from the backend when the component mounts
     axios
       .get('http://localhost:5000/api/get')
       .then((res) => setData(res.data))
@@ -30,7 +27,7 @@ function Men() {
 
   const handleBackToList = () => {
     setSelectedExercise(null);
-    setUpdateMode(false); // Reset update mode when going back to the list
+    setUpdateMode(false);
   };
 
   const handleDelete = () => {
@@ -43,14 +40,13 @@ function Men() {
       .then((response) => {
         console.log('Delete response:', response.data);
 
-        // Fetch updated data from the backend
         axios
           .get('http://localhost:5000/api/get')
           .then((res) => setData(res.data))
           .catch((err) => console.log(err));
 
         setSelectedExercise(null);
-        setUpdateMode(false); // Reset update mode after deleting
+        setUpdateMode(false);
       })
       .catch((err) => console.log('Delete error:', err));
   };
@@ -71,13 +67,11 @@ function Men() {
       .then((response) => {
         console.log('Update response:', response.data);
 
-        // Fetch updated data from the backend
         axios
           .get('http://localhost:5000/api/get')
           .then((res) => setData(res.data))
           .catch((err) => console.log(err));
 
-        // Reset the update mode and clear the updated exercise state
         setUpdateMode(false);
         setUpdatedExercise({});
       })
@@ -123,13 +117,12 @@ function Men() {
             value={updatedExercise.Description}
             onChange={handleInputChange}
           />
-            <label>Image:</label>
+          <label>Image:</label>
           <textarea
-            name="Description"
+            name="Image"
             value={updatedExercise.Image}
             onChange={handleInputChange}
           />
-          {/* Add input for Image if needed */}
           <button onClick={handleSaveUpdate}>Save Update</button>
           <button onClick={handleCancelUpdate}>Cancel</button>
         </div>
