@@ -1,24 +1,12 @@
 /* proteins.css */
 
+/* proteins.css */
+
 .shop {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-  }
-  
-  .search-container {
-    margin-bottom: 20px; /* Adjust the margin as needed */
-    text-align: center; /* Center the search input */
-  }
-  
-  .search-input {
-    padding: 7px;
-    width: 95%;
-    box-sizing: border-box;
-    font-size: 15px;
-    border: 0px solid #ccc;
-    border-radius: 39px;
   }
   
   .container {
@@ -39,13 +27,12 @@
   .card {
     border: 1px solid #ffffff;
     padding: 10px;
-    background-color: rgba(20, 18, 18, 0.5); /* Adjust the alpha value for transparency */
+    width: auto;
   }
   
-  .card img {
+  .img {
     width: 100%;
     height: auto;
-    display: block;
   }
   
   .de {
@@ -55,6 +42,4 @@
   .in {
     margin: 0;
   }
-  
-  /* ... (other styles specific to accessoiresport) */
   

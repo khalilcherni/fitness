@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Import Axios
 import "./Register.css"
+import ProfilePage from './ProfilePage'
+
 const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3005/api/login', {
+      const response = await axios.post('http://localhost:5000/api/login', {
         email: loginEmail,
         password: loginPassword
       });
@@ -16,8 +20,7 @@ const LoginPage = () => {
       if (response.status === 200) {
         const { token } = response.data;
         alert('Login successful!'); // Display success message
-        // localStorage.setItem('token', token);
-        window.location.href = '/'; // Redirect to homepage
+        setIsLoggedIn(true); // Set isLoggedIn to true
       } else {
         alert('Authentication failed. Please check your credentials.');
       }
@@ -31,10 +34,9 @@ const LoginPage = () => {
     }
   };
   
-
   const handleSignup = async () => {
     try {
-      const response = await axios.post('http://localhost:3005/api/register', {
+      const response = await axios.post('http://localhost:5000/api/register', {
         email: signupEmail,
         password: signupPassword
       });
@@ -49,73 +51,76 @@ const LoginPage = () => {
       console.error('Error during signup:', error);
     }
   };
-  
 
   return (
     <div className="login-container">
-      <div className="login-box">
-        <h2>Login if you have account</h2>
-        <hr />
-        <hr />
-        <form>
-          <div className="user-box">
-            <input
-              type="text"
-              name="loginEmail"
-              required
-              value={loginEmail}
-              onChange={(e) => setLoginEmail(e.target.value)}
-            />
-            <label>Email</label>
+      {isLoggedIn ? (
+        <ProfilePage />
+      ) : (
+        <>
+          <div className="login-box">
+            <h2>Login if you have an account</h2>
+            <hr />
+            <form>
+              <div className="user-box">
+                <input
+                  type="text"
+                  name="loginEmail"
+                  required
+                  value={loginEmail}
+                  onChange={(e) => setLoginEmail(e.target.value)}
+                />
+                <label>Email</label>
+              </div>
+              <div className="user-box">
+                <input
+                  type="password"
+                  name="loginPassword"
+                  required
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                />
+                <label>Password</label>
+              </div>
+              <button type="button" onClick={handleLogin}>
+                Login
+              </button>
+            </form>
           </div>
-          <div className="user-box">
-            <input
-              type="password"
-              name="loginPassword"
-              required
-              value={loginPassword}
-              onChange={(e) => setLoginPassword(e.target.value)}
-            />
-            <label>Password</label>
+      
+          <div className="signup-box">
+            <h2>Create an account</h2>
+            <hr />
+            <form>
+              <div className="user-box">
+                <input
+                  type="text"
+                  name="signupEmail"
+                  required
+                  value={signupEmail}
+                  onChange={(e) => setSignupEmail(e.target.value)}
+                />
+                <label>Email</label>
+              </div>
+              <div className="user-box">
+                <input
+                  type="password"
+                  name="signupPassword"
+                  required
+                  value={signupPassword}
+                  onChange={(e) => setSignupPassword(e.target.value)}
+                />
+                <label>Password</label>
+              </div>
+              <button type="button" onClick={handleSignup}>
+                Signup
+              </button>
+            </form>
           </div>
-          <button type="button" onClick={handleLogin}>
-            Login
-          </button>
-        </form>
-      </div>
-
-      <div className="signup-box">
-        <h2>Create account</h2>
-        <hr />
-        <hr />
-        <form>
-          <div className="user-box">
-            <input
-              type="text"
-              name="signupEmail"
-              required
-              value={signupEmail}
-              onChange={(e) => setSignupEmail(e.target.value)}
-            />
-            <label>Email</label>
-          </div>
-          <div className="user-box">
-            <input
-              type="password"
-              name="signupPassword"
-              required
-              value={signupPassword}
-              onChange={(e) => setSignupPassword(e.target.value)}
-            />
-            <label>Password</label>
-          </div>
-          <button type="button" onClick={handleSignup}>
-            Signup
-          </button>
-        </form>
-      </div>
+        </>
+      )}
     </div>
   );
-};
+}
 
 export default LoginPage;

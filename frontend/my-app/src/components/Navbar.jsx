@@ -2,28 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
-import AccessoireSport from './Accessoire Sport';
+import AccessoirSport from './Accessoire Sport'
 import Register from './Register';
 import './Navbar.css';
-import Lose from './lose';
-import Gain from './gain';
-import ContactForm from './ContactUs';
-import ProfilePage from './UserProfile';
+import Proteine from './Proteins';
 import AboutUs from './AboutUs';
-import Proteins from "./Proteins";
-import AssesoiresSport from './Accessoire Sport';
-import CartList from './CartList';
-
-function BasicExample({ cart, setCart }) {
+import CartList from './CartList'
+function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
-  const [isCartVisible, setCartVisible] = useState(false);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-  };
-
-  const handleToggleCart = () => {
-    setCartVisible(!isCartVisible);
   };
 
   useEffect(() => {
@@ -55,7 +44,8 @@ function BasicExample({ cart, setCart }) {
               <Nav.Link href="#home" onClick={() => handleTabClick('home')}>
                 Home
               </Nav.Link>
-
+          
+    
               <NavDropdown title="Exercise" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
                   Men
@@ -75,7 +65,6 @@ function BasicExample({ cart, setCart }) {
                   Accessoire Sport
                 </NavDropdown.Item>
               </NavDropdown>
-
               <NavDropdown title="3eljia" id="basic-nav-dropdown">
                 <NavDropdown.Item href="# loss weight" onClick={() => handleTabClick('loss weight')}>
                   Loss weight
@@ -84,39 +73,26 @@ function BasicExample({ cart, setCart }) {
                   Gain Weight
                 </NavDropdown.Item>
               </NavDropdown>
-
               <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
                 Contact Us
               </Nav.Link>
-
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-                About Us
+          About Us
               </Nav.Link>
-
-              <Nav.Link href="#User" onClick={() => handleTabClick('User')}>
-                User
-              </Nav.Link>
-
-              <Nav.Link onClick={handleToggleCart}>Cart</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
       <hr />
-
-      {isCartVisible && <CartList cart={cart} setCart={setCart} />}
 
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
       {activeTab === 'Register' && <Register />}
-      {activeTab === 'loss weight' && <Lose />}
-      {activeTab === 'gain Weight' && <Gain />}
-      {activeTab === 'Contact' && <ContactForm />}
-      {activeTab === 'User' && <ProfilePage />}
-      {activeTab === 'proteins' && <Proteins />}
-      {activeTab === 'accessoireSport' && <AssesoiresSport />}
+      {activeTab === 'proteins' && <Proteine />}
+      {activeTab === 'accessoireSport' && <AccessoirSport />}
+      {activeTab === 'cartList' && <CartList />}
+
     </div>
   );
 }
