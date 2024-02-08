@@ -13,6 +13,7 @@ import AboutUs from './AboutUs';
 import CartList from './CartList';
 import Add from './AddForMen';
 import Women from './Women';
+import AddForWomen from './AddForWomen';
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -110,8 +111,9 @@ ProfilePage
 
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
+      {activeTab === 'Men' && <Men />}
       {activeTab === 'Women' && <Women />}
-      
+      {activeTab === 'AddForWomen' && <AddForWomen />}
       {activeTab === 'Register' && <Register />}
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
