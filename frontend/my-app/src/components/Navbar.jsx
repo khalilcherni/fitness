@@ -9,7 +9,7 @@ import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
 import AboutUs from './AboutUs';
-
+import Proteine from './Proteins'
 import CartList from './CartList';
 import Add from './AddForMen';
 import Women from './Women';
