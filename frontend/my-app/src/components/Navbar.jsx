@@ -15,6 +15,9 @@ import Proteine from './Proteins';
 
 
 import CartList from './CartList';
+import Add from './AddForMen';
+import Women from './Women';
+import AddForWomen from './AddForWomen';
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -56,7 +59,7 @@ function BasicExample() {
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
                   Men
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#Add">Women</NavDropdown.Item>
+                <NavDropdown.Item href="#Women"  onClick={() => handleTabClick('Women')}>Women</NavDropdown.Item>
               </NavDropdown>
 
           
@@ -80,6 +83,13 @@ function BasicExample() {
               <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
                 Contact 
               </Nav.Link>
+              <NavDropdown title="Add" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#Men" onClick={() => handleTabClick('AddForMen')}>
+                  Men
+                </NavDropdown.Item>
+                <NavDropdown.Item  onClick={() => handleTabClick('AddForWomen')} href="#Women">Women</NavDropdown.Item>
+              </NavDropdown>
+
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
                 About 
            
@@ -100,7 +110,7 @@ ProfilePage
             </Nav>
           </Navbar.Collapse>
           <Nav.Link id='a'  href="#Cart" onClick={() => handleTabClick('Cart')}>
-              <img className="op" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
+              <img className="o" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
 </Nav.Link>
         </Container>
  
@@ -110,6 +120,8 @@ ProfilePage
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
+      {activeTab === 'Women' && <Women />}
+      {activeTab === 'AddForWomen' && <AddForWomen />}
       {activeTab === 'Register' && <Register />}
       {activeTab === 'proteins' && <Proteine />}
       {activeTab === 'accessoireSport' && <AccessoireSport />}
@@ -118,6 +130,7 @@ ProfilePage
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
       {activeTab === 'Cart' && <CartList />}
+      {activeTab === 'AddForMen' && <Add />}
 
       {/* {activeTab === 'User' && <Register />} */}
     </div>
