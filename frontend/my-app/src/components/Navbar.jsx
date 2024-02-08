@@ -80,9 +80,7 @@ function BasicExample() {
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
           About 
               </Nav.Link>
-              <Nav.Link id='a'  href="#Cart" onClick={() => handleTabClick('Cart')}>
-              <img className="op" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
-</Nav.Link>
+
               <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('Register')}>
               <img className="op" src="https://cdn-icons-png.flaticon.com/128/1771/1771013.png" alt="" height="30" />
 </Nav.Link>
@@ -93,7 +91,11 @@ ProfilePage
     
             </Nav>
           </Navbar.Collapse>
+          <Nav.Link id='a'  href="#Cart" onClick={() => handleTabClick('Cart')}>
+              <img className="op" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
+</Nav.Link>
         </Container>
+ 
       </Navbar>
       <hr />
 
