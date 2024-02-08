@@ -14,10 +14,10 @@ module.exports = {
     },
 
     getLoseWeightByName: function(req, res) {
-        const loseName = req.params.name;
+        const loseName = req.params.Name;
         losemodel.getByName(loseName, function(err, result) {
             if (err) {
-                console.error("Error fetching lose weight by name:", err);
+                console.error("Error fetching lose weight by Name:", err);
                 res.status(500).json({ error: "Internal server error" });
                 return;
             }
@@ -30,8 +30,8 @@ module.exports = {
     },
 
     createLoseWeight: function(req, res) {
-        const { name, type, calories, description, image } = req.body;
-        losemodel.create({ name, type, calories, description, image }, function(err, result) {
+        const { Name, type, calories, description, image } = req.body;
+        losemodel.create({ Name, type, calories, description, image }, function(err, result) {
             if (err) {
                 console.error("Error creating lose weight:", err);
                 res.status(500).json({ error: "Internal server error" });
@@ -43,8 +43,8 @@ module.exports = {
 
     updateLoseWeight: function(req, res) {
         const loseId = req.params.id;
-        const { name, type, calories, description, image } = req.body;
-        losemodel.update(loseId, { name, type, calories, description, image }, function(err, result) {
+        const { Name, type, calories, description, image } = req.body;
+        losemodel.update(loseId, { Name, type, calories, description, image }, function(err, result) {
             if (err) {
                 console.error("Error updating lose weight:", err);
                 res.status(500).json({ error: "Internal server error" });
