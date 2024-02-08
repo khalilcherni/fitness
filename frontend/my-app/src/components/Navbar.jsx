@@ -11,6 +11,7 @@ import ContactForm from './ContactUs';
 import ProfilePage from './ProfilePage';
 import AboutUs from './AboutUs';
 import CartList from './CartList';
+
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
