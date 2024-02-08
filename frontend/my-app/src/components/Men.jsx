@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Men.css';
+import StarRating from './StarRating';
 
 function Men() {
   const [data, setData] = useState([]);
@@ -87,6 +88,9 @@ function Men() {
       [name]: value,
     }));
   };
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
 
   return (
     <div className="container mt-5">
@@ -165,6 +169,10 @@ function Men() {
                     <h5 className="card-title">{exercise.ExerciseName}</h5>
                     <h2>{exercise.DurationInMinutes}min</h2>
                     <h2>{exercise.Repetitions} Repetitions</h2>
+                    <StarRating 
+          rating={exercise.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, exercise.place_id)} 
+        />
                   </div>
                 </div>
               </div>
