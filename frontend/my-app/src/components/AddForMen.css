@@ -1,6 +1,25 @@
 /* AddForMen.css */
 
 
+.dd {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--text-light);
+    margin-bottom: 20px;
+    transition: border-bottom-color 0.3s ease;
+  }
+  
+  .dd::placeholder {
+    color: var(--text-light);
+  }
+  
+  .dd:focus {
+    border-bottom-color: var(--secondary-color);
+  }
   
   
   .container::before {
@@ -40,27 +59,22 @@
     margin-bottom: 5px;
   }
   
-  .form-control,
-  textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    color: var(--white);
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid var(--text-light);
-    margin-bottom: 20px;
-    transition: border-bottom-color 0.3s ease;
-  }
-  
+.form-control {
+    border: 2px solid rgb(94 61 61 / 50%) !important;
+    color: #871c1c !important;
+    background-color:var(--primary-color);
+}
+
   .form-control::placeholder,
   textarea::placeholder {
     color: var(--text-light);
+    
   }
   
   .form-control:focus,
   textarea:focus {
     border-bottom-color: var(--secondary-color);
+
   }
   
   textarea {
@@ -93,4 +107,3 @@
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px var(--secondary-color);
   }
-  

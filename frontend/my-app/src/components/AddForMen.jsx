@@ -38,7 +38,7 @@ function Add() {
           <label className="form-label">ExerciseName:</label>
           <input
             type="text"
-            className="form-control"
+            className="dd"
             placeholder="ExerciseName"
             value={ExerciseName}
             onChange={(e) => setExerciseName(e.target.value)}
@@ -49,7 +49,7 @@ function Add() {
           <label className="form-label">DurationInMinutes </label>
           <input
             type="text"
-            className="form-control"
+            className="dd"
             placeholder="DurationInMinutes URL"
             value={DurationInMinutes}
             onChange={(e) => setDurationInMinutes(e.target.value)}
@@ -59,7 +59,7 @@ function Add() {
         <div className="mb-3">
           <label className="form-label">Repetitions:</label>
           <textarea
-            className="form-control"
+         className="dd"
             placeholder="Repetitions"
             value={Repetitions}
             onChange={(e) => setRepetitions(e.target.value)}
@@ -70,7 +70,7 @@ function Add() {
           <label className="form-label">Description:</label>
           <input
             type="Description"
-            className="form-control"
+            className="dd"
             value={Description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -79,7 +79,7 @@ function Add() {
           <label className="form-label">Image:</label>
           <input
             type="text"
-            className="form-control"
+            className="dd"
             value={Image}
             onChange={(e) => setImage(e.target.value)}
           />
