@@ -229,6 +229,7 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--white);
+    margin-left: 450px;
   }
   
   .footer__col > a {
@@ -236,6 +237,7 @@ body {
     margin-bottom: 1rem;
     color: var(--text-light);
     transition: 0.3s;
+    margin-left:450px;
   }
   
   .footer__col > a:hover {
@@ -258,3 +260,4 @@ body {
    
   }
   
+ 

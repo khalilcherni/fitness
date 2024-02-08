@@ -11,32 +11,34 @@ const LoginPage = () => {
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loggedInUserEmail, setLoggedInUserEmail] = useState('');
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/api/login', {
-        email: loginEmail,
-        password: loginPassword
-      });
 
-      if (response.status === 200) {
-        const { token, email } = response.data; // Assuming the backend returns email along with the token
-        alert('Login successful!');
-        setIsLoggedIn(true);
-        setLoggedInUserEmail(email); // Set the logged-in user's email
-      } else {
-        alert('Authentication failed. Please check your credentials.');
-      }
-    } catch (error) {
-      console.error('Error during login:', error);
-      if (error.response && error.response.data && error.response.data.message === 'Invalid password') {
-        alert('Invalid email or password. Please try again.');
-      } else {
-        alert('An error occurred during login. Please try again later.');
-      }
+  // LoginPage.js
+
+const handleLogin = async () => {
+  try {
+    const response = await axios.post('http://localhost:5000/api/login', {
+      email: loginEmail,
+      password: loginPassword
+    });
+
+    if (response.status === 200) {
+      const { token, email } = response.data;
+      alert('Login successful!');
+      setIsLoggedIn(true);
+
+    } else {
+      alert('Authentication failed. Please check your credentials.');
     }
-  };
+  } catch (error) {
+    console.error('Error during login:', error);
+    if (error.response && error.response.data && error.response.data.message === 'Invalid password') {
+      alert('Invalid email or password. Please try again.');
+    } else {
+      alert('An error occurred during login. Please try again later.');
+    }
+  }
+};
 
   const handleSignup = async () => {
     try {
@@ -59,7 +61,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       {isLoggedIn ? (
-  <ProfilePage email={loggedInUserEmail} />
+  <ProfilePage/>
       ) : (
         <>
           <div className="login-box">
