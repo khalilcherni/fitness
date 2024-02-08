@@ -1,26 +1,5 @@
 /* AddForMen.css */
 
-
-.dd {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    color: var(--white);
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid var(--text-light);
-    margin-bottom: 20px;
-    transition: border-bottom-color 0.3s ease;
-  }
-  
-  .dd::placeholder {
-    color: var(--text-light);
-  }
-  
-  .dd:focus {
-    border-bottom-color: var(--secondary-color);
-  }
-  
   
   .container::before {
     content: '';
@@ -53,28 +32,57 @@
     }
   }
   
+  .form-container {
+    border: 1px solid var(--text-light); /* Add border around the form elements */
+    border-radius: 10px;
+    padding: 20px; /* Add padding to separate form elements from border */
+    margin-left: 120px;
+    margin-right: 120px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px var(--secondary-color);
+  }
+  
+  .dd {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--text-light);
+    margin-bottom: 20px;
+    transition: border-bottom-color 0.3s ease;
+  }
+  
+  .dd::placeholder {
+    color: var(--text-light);
+  }
+  
+  .dd:focus {
+    border-bottom-color: var(--secondary-color);
+  }
+  
   .form-label {
     font-size: 1rem;
     color: var(--white);
     margin-bottom: 5px;
   }
   
-.form-control {
+  .form-control {
     border: 2px solid rgb(94 61 61 / 50%) !important;
     color: #871c1c !important;
-    background-color:var(--primary-color);
-}
-
+    background-color: var(--primary-color);
+  }
+  
   .form-control::placeholder,
   textarea::placeholder {
     color: var(--text-light);
-    
   }
   
   .form-control:focus,
   textarea:focus {
     border-bottom-color: var(--secondary-color);
-
   }
   
   textarea {
@@ -107,3 +115,4 @@
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px var(--secondary-color);
   }
+  

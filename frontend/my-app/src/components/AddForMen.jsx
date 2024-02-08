@@ -31,15 +31,18 @@ function Add() {
   };
 
   return (
-    <div className="container mt-5">
-      <h2 className="mb-4">Add New Product</h2>
+    <div className="form-container">
+        <hr />
+      <h2 className="alert">Add New Product</h2>
+      <hr />
+      <hr />
       <form>
         <div className="mb-3">
           <label className="form-label">ExerciseName:</label>
           <input
             type="text"
             className="dd"
-            placeholder="ExerciseName"
+        
             value={ExerciseName}
             onChange={(e) => setExerciseName(e.target.value)}
           />
