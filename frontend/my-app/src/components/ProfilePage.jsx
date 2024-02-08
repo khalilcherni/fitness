@@ -95,46 +95,46 @@ export default function ProfilePage() {
               <MDBCardBody>
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText className="m">Full Name</MDBCardText>
+                    <MDBCardText id='t' className="m">Full Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="m">John Doe</MDBCardText>
+                    <MDBCardText  id='t' className="m">John Doe</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText className="m">Email</MDBCardText>
+                    <MDBCardText  id='t' className="m">Email</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="m">johndoe@example.com</MDBCardText>
+                    <MDBCardText  id='t' className="m">johndoe@example.com</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText className="m">Phone</MDBCardText>
+                    <MDBCardText  id='t' className="m">Phone</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="m">(123) 456-7890</MDBCardText>
+                    <MDBCardText  id='t' className="m">(123) 456-7890</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText className="m">Mobile</MDBCardText>
+                    <MDBCardText  id='t' className="m">Mobile</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="m">(098) 765-4321</MDBCardText>
+                    <MDBCardText  id='t' className="m">(098) 765-4321</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
                   <MDBCol sm="3">
-                    <MDBCardText className="m">Address</MDBCardText>
+                    <MDBCardText  id='t' className="m">Address</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="m">Fitness Street, Gym City, CA</MDBCardText>
+                    <MDBCardText  id='t' className="m">Fitness Street, Gym City, CA</MDBCardText>
                   </MDBCol>
                 </MDBRow>
               </MDBCardBody>
@@ -144,7 +144,7 @@ export default function ProfilePage() {
               <MDBCol md="6">
                 <MDBCard className="mb" id="z" style={{ borderColor: 'rgb(150, 150, 150)' }}>
                   <MDBCardBody className='nn'>
-                    <MDBCardText className="m"><span className="m">Assignment</span> Project Status</MDBCardText>
+                    <MDBCardText  className="m"><span className="m">Assignment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Muscle Building</MDBCardText>
                     <MDBProgress className="rounded">
                       <MDBProgressBar width={80} valuemin={0} valuemax={100} style={{ backgroundColor: '#f9ac54' }} />
