@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
-import AccessoirSport from './Accessoire Sport'
+import AccessoireSport from './Accessoire Sport';
 import Register from './Register';
 import './Navbar.css';
 import Proteine from './Proteins';
 import AboutUs from './AboutUs';
-import CartList from './CartList'
+
+
+
+
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -44,7 +47,6 @@ function BasicExample() {
               <Nav.Link href="#home" onClick={() => handleTabClick('home')}>
                 Home
               </Nav.Link>
-          
     
               <NavDropdown title="Exercise" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
@@ -77,8 +79,12 @@ function BasicExample() {
                 Contact Us
               </Nav.Link>
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-          About Us
+                About Us
               </Nav.Link>
+            </Nav>
+          
+            <Nav className="ms-auto">
+              
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -90,9 +96,8 @@ function BasicExample() {
       {activeTab === 'Men' && <Men />}
       {activeTab === 'Register' && <Register />}
       {activeTab === 'proteins' && <Proteine />}
-      {activeTab === 'accessoireSport' && <AccessoirSport />}
-      {activeTab === 'cartList' && <CartList />}
-
+      {activeTab === 'accessoireSport' && <AccessoireSport />}
+      
     </div>
   );
 }

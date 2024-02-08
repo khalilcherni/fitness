@@ -5,12 +5,12 @@ import './proteins.css';
 function Proteine() {
   const [data, setData] = useState([]);
   const [expandedState, setExpandedState] = useState({});
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/protein') // Adjust the API endpoint based on your server setup
+      .get('http://localhost:5000/api/protein')
       .then((res) => {
-        // Initialize expanded state for each item
         const initialExpandedState = res.data.reduce((acc, item) => {
           acc[item.id] = false;
           return acc;
@@ -21,6 +21,10 @@ function Proteine() {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   const toggleExpand = (id) => {
     setExpandedState((prevExpandedState) => ({
       ...prevExpandedState,
@@ -28,11 +32,24 @@ function Proteine() {
     }));
   };
 
+  const filteredData = data.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="shop">
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleChange}
+          className="search-input"
+        />
+      </div>
       <div className="container">
         <div className="row">
-          {data.map((e) => (
+          {filteredData.map((e) => (
             <div key={e.id} className="col">
               <div className="card h-100 box">
                 <img src={e.Image} className="img" alt="Proteine" />
