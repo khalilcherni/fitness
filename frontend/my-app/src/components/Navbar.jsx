@@ -93,6 +93,8 @@ function BasicExample() {
       {activeTab === 'accessoireSport' && <AccessoirSport />}
       {activeTab === 'cartList' && <CartList />}
 
+
+
     </div>
   );
 }
