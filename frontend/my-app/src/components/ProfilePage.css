@@ -21,7 +21,7 @@ color: aliceblue;
     color: rgb(210, 84, 37);
 }
 .py{
-    margin-top: 10%;
+    margin-top: 8%;
     border-color: rgb(153, 158, 162);
     
 }
@@ -30,7 +30,7 @@ color: aliceblue;
 }
 .mb-4 {
    
-   
+   margin: 10px;
     margin-top: -10px;
   }
   
@@ -41,5 +41,10 @@ color: aliceblue;
     background-color: #111317;
  }
  .o{
-    margin-top: -100px;
+    margin-top: -50px;
+ }
+ #l{
+    margin-left: -5px;
+    margin-top: 10px;
+    height: 300px;
  }

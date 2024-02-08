@@ -63,7 +63,7 @@ export default function ProfilePage() {
                   </MDBCol>
               </MDBCardBody>
             </MDBCard>
-            <MDBCard className="mb-4" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+            <MDBCard className="mb-4" id="l" style={{ borderColor: 'rgb(150, 150, 150)' }}>
               <MDBCardBody className="p-0">
                 <MDBListGroup flush="true" className="rounded-3">
                   <MDBListGroupItem className="pp">
