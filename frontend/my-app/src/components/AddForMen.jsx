@@ -46,7 +46,7 @@ function Add() {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">DurationInMinutes </label>
+          <label className="form-label">DurationInMinutes: </label>
           <input
             type="text"
             className="dd"
@@ -58,7 +58,7 @@ function Add() {
 
         <div className="mb-3">
           <label className="form-label">Repetitions:</label>
-          <textarea
+          <input
          className="dd"
             placeholder="Repetitions"
             value={Repetitions}
