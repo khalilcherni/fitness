@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Men.css';
-import './MenDetails.css';
+// import './MenDetails.css';
 
 function Men() {
   const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ function Men() {
   const [selectedExercise, setSelectedExercise] = useState(null);
   const [updateMode, setUpdateMode] = useState(false);
   const [updatedExercise, setUpdatedExercise] = useState({});
-  
+
 
   useEffect(() => {
     // Fetch data from the backend when the component mounts
@@ -96,7 +96,6 @@ function Men() {
     <div className="container mt-5">
       {updateMode ? (
         <div className="update-container">
-          <h1>Update Exercise</h1>
           <label>Exercise Name:</label>
           <input
             type="text"
