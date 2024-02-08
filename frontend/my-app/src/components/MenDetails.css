@@ -1,0 +1,40 @@
+/* MenDetails.css */
+
+.details-container {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 50px;
+  }
+  
+  .details-container h1 {
+    color: #333;
+  }
+  
+  .imageClassName {
+    width: 50%; /* Set the width as per your design requirements */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 400px; /* Maximum width for responsiveness */
+    display: block; /* Remove any default inline styles */
+    margin: 0 auto; /* Center the image horizontally */
+    margin-bottom: 20px; /* Add space below the image */
+  }
+  
+  .details-container p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .details-container button {
+    background-color: #aa520e;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .details-container button:hover {
+    background-color: #bb0b1d;
+  }
+  
