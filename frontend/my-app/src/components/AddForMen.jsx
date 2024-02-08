@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import './AddForMen.css'
 function Add() {
   const [ExerciseName, setExerciseName] = useState('');
   const [DurationInMinutes, setDurationInMinutes] = useState(0);
