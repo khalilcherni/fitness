@@ -32,6 +32,7 @@ color: aliceblue;
    
    margin: 10px;
     margin-top: -10px;
+ 
   }
   
  .nn{
@@ -61,9 +62,13 @@ color: aliceblue;
     width:80% ;
     height: 20px;
     margin-top: 3px;
-    margin-left: -50px;
+    margin-left: 35px;
  }
  .n{
     color: rgb(173, 91, 61);
     background-color: #111317;
+    margin-left: -26px
+ }
+ #a{
+   margin-left: -40px;
  }
