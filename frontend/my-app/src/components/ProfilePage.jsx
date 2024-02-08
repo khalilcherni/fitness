@@ -142,7 +142,7 @@ export default function ProfilePage() {
 
             <MDBRow>
               <MDBCol md="6">
-                <MDBCard className="mb" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+                <MDBCard className="mb" id="z" style={{ borderColor: 'rgb(150, 150, 150)' }}>
                   <MDBCardBody className='nn'>
                     <MDBCardText className="m"><span className="m">Assignment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Muscle Building</MDBCardText>
@@ -174,7 +174,7 @@ export default function ProfilePage() {
               </MDBCol>
 
               <MDBCol md="6">
-                <MDBCard className="mb" style={{ borderColor: 'rgb(150, 150, 150)' }}>
+                <MDBCard className="mb" id="z" style={{ borderColor: 'rgb(150, 150, 150)' }}>
                   <MDBCardBody>
                     <MDBCardText className="m"><span className="m">Assignment</span> Project Status</MDBCardText>
                     <MDBCardText className="m" style={{ fontSize: '.77rem' }}>Strength Training</MDBCardText>
