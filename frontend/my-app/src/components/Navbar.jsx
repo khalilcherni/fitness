@@ -77,11 +77,11 @@ function BasicExample() {
               <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
                 Contact 
               </Nav.Link>
-              <NavDropdown title="Exercise" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
+              <NavDropdown title="Add" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#Men" onClick={() => handleTabClick('AddForMen')}>
                   Men
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#Add">Women</NavDropdown.Item>
+                <NavDropdown.Item  onClick={() => handleTabClick('AddForWomen')} href="#Women">Women</NavDropdown.Item>
               </NavDropdown>
 
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
