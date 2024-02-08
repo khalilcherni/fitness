@@ -1,0 +1,37 @@
+/* ... Your existing styles ... */
+
+/* Cart styles */
+
+.cart-container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 2rem 1rem;
+  }
+  
+  .cart-container h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  
+  .cart-container p {
+    color: var(--text-light);
+  }
+  
+  .cart-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cart-container li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--white);
+  }
+  
+  /* Add any additional styles for your cart component here */
+  
+  /* ... Remaining styles ... */
+  
