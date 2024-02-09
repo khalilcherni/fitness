@@ -89,7 +89,7 @@ function BasicExample() {
                 </NavDropdown.Item>
                 <NavDropdown.Item  onClick={() => handleTabClick('AddForWomen')} href="#Women">Women</NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown className='khalil' title="Healty">
+              <NavDropdown className='khalil' title="Healthy">
               <NavDropdown.Item href="#loss weight" onClick={() => handleTabClick('Add loss weight')}>
               loss weight
                 </NavDropdown.Item>
