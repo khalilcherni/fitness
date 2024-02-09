@@ -14,7 +14,7 @@ function ProteinCalculator() {
 
   return (
     <div className="protein-calculator-container">
-      <h2>Protein Intake Calculator</h2>
+      <h2 className='azert'>Protein Intake Calculator</h2>
       <div>
         <label className="form-label">Height (cm):</label>
         <input
