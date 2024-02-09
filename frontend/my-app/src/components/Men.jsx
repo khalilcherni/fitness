@@ -98,11 +98,18 @@ function Men() {
   };
 
   const handleRatingClick = (clickedRating, placeId) => {
-    setData((prevData) =>
-      prevData.map((exercise) =>
-        exercise.place_id === placeId ? { ...exercise, rating: clickedRating } : exercise
-      )
-    );
+    axios
+      .put(`http://localhost:5000/api/put/${placeId}`, { rating: clickedRating })
+      .then((response) => {
+        console.log('Rating update response:', response.data);
+
+        setData((prevData) =>
+          prevData.map((exercise) =>
+            exercise.ID === placeId ? { ...exercise, rating: clickedRating } : exercise
+          )
+        );
+      })
+      .catch((err) => console.log('Rating update error:', err));
   };
 
   return (
@@ -142,6 +149,11 @@ function Men() {
             value={updatedExercise.Image}
             onChange={handleInputChange}
           />
+          <label>Rating:</label>
+          <StarRating
+            rating={updatedExercise.rating}
+            onRatingClick={(clickedRating) => handleRatingClick(clickedRating, updatedExercise.ID)}
+          />
           <button onClick={handleSaveUpdate}>Save Update</button>
           <button onClick={handleCancelUpdate}>Cancel</button>
         </div>
@@ -154,6 +166,12 @@ function Men() {
             alt="Exercise"
           />
           <p>{selectedExercise.Description}</p>
+          <h2>{selectedExercise.DurationInMinutes}min</h2>
+          <h2>{selectedExercise.Repetitions} Repetitions</h2>
+          <StarRating
+            rating={selectedExercise.rating}
+            onRatingClick={(clickedRating) => handleRatingClick(clickedRating, selectedExercise.ID)}
+          />
           <button onClick={handleDelete}>Delete</button>
           <button onClick={handleUpdate}>Update</button>
           <button onClick={handleBackToList}>Back to List</button>
@@ -186,9 +204,10 @@ function Men() {
                     <StarRating
                       rating={exercise.rating}
                       onRatingClick={(clickedRating) =>
-                        handleRatingClick(clickedRating, exercise.place_id)
+                        handleRatingClick(clickedRating, exercise.ID)
                       }
                     />
+                    <button onClick={() => addToCart(selectedExercise)}>Add to Cart</button>
                   </div>
                 </div>
               </div>

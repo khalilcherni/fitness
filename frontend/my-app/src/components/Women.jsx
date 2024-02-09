@@ -1,7 +1,7 @@
 // Women.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Men.css'; // Import your CSS file
+import './Men.css';
 import StarRating from './StarRating';
 
 function Women() {
@@ -84,12 +84,19 @@ function Women() {
     }));
   };
 
-  const handleRatingClick = (clickedRating, placeId) => {
-    setData((prevData) =>
-      prevData.map((exercise) =>
-        exercise.place_id === placeId ? { ...exercise, rating: clickedRating } : exercise
-      )
-    );
+  const handleRatingClick = (clickedRating, exerciseId) => {
+    axios
+      .put(`http://localhost:5000/api/women/${exerciseId}`, { rating: clickedRating })
+      .then((response) => {
+        console.log('Rating update response:', response.data);
+
+        setData((prevData) =>
+          prevData.map((exercise) =>
+            exercise.ID === exerciseId ? { ...exercise, rating: clickedRating } : exercise
+          )
+        );
+      })
+      .catch((err) => console.log('Rating update error:', err));
   };
 
   const handleChange = (e) => {
@@ -138,6 +145,11 @@ function Women() {
             value={updatedExercise.Image}
             onChange={handleInputChange}
           />
+          <label>Rating:</label>
+          <StarRating
+            rating={updatedExercise.rating}
+            onRatingClick={(clickedRating) => handleRatingClick(clickedRating, updatedExercise.ID)}
+          />
           <button onClick={handleSaveUpdate}>Save Update</button>
           <button onClick={handleCancelUpdate}>Cancel</button>
         </div>
@@ -154,6 +166,10 @@ function Women() {
           <button onClick={handleDelete}>Delete</button>
           <button onClick={handleUpdate}>Update</button>
           <button onClick={handleBackToList}>Back to List</button>
+          <StarRating
+            rating={selectedExercise.rating}
+            onRatingClick={(clickedRating) => handleRatingClick(clickedRating, selectedExercise.ID)}
+          />
         </div>
       ) : (
         <>
@@ -180,10 +196,10 @@ function Women() {
                     <h5 className="card-title">{exercise.ExerciseName}</h5>
                     <h2>{exercise.DurationInMinutes}min</h2>
                     <h2>{exercise.Repetitions} Repetitions</h2>
-                    <StarRating 
+                    <StarRating
                       rating={exercise.rating}
                       onRatingClick={(clickedRating) =>
-                        handleRatingClick(clickedRating, exercise.place_id)
+                        handleRatingClick(clickedRating, exercise.ID)
                       }
                     />
                   </div>
