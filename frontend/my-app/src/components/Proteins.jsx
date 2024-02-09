@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './proteins.css';
+import StarRating from './StarRating'; // Assuming you have a StarRating component
 
 function Proteins() {
   const [data, setData] = useState([]);
@@ -23,7 +24,7 @@ function Proteins() {
 
   const handleImageClick = (protein) => {
     setSelectedProtein(protein);
-    setUpdateMode(false); // Ensure update mode is set to false when clicking on a new image
+    setUpdateMode(false);
   };
 
   const handleBackToList = () => {
@@ -86,9 +87,27 @@ function Proteins() {
       [name]: value,
     }));
   };
-  const handleRatingClick = (clickedRating, placeId) => {
-    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+
+  const handleRatingClick = (clickedRating, proteinId) => {
+    axios
+      .put(`http://localhost:5000/api/protein/${proteinId}`, { rating: clickedRating })
+      .then((response) => {
+        console.log('Rating update response:', response.data);
+
+        setData((prevData) =>
+          prevData.map((protein) =>
+            protein.id === proteinId ? { ...protein, rating: clickedRating } : protein
+          )
+        );
+      })
+      .catch((err) => console.log('Rating update error:', err));
   };
+
+  // Modify the filteredData variable to include the "name" field
+  const filteredData = data.filter((protein) =>
+    protein.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container mt-5">
       {updateMode ? (
@@ -132,39 +151,56 @@ function Proteins() {
           />
           <p>{selectedProtein.description}</p>
           <p>Price: ${selectedProtein.price}</p>
+          <StarRating
+            rating={selectedProtein.rating}
+            onRatingClick={(clickedRating) =>
+              handleRatingClick(clickedRating, selectedProtein.id)
+            }
+          />
           <button onClick={handleDelete}>Delete</button>
           <button onClick={handleUpdate}>Update</button>
           <button onClick={handleBackToList}>Back to List</button>
         </div>
       ) : (
         <>
-          <input
-            className="search-input"
-            type="text"
-            placeholder="Search by protein name"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          <div className="search-container">
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search by protein name"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
           <div className="row row-cols-1 row-cols-md-2 g-4">
-            {data.map((protein) => (
-              <div key={protein.id} className="col mb-4">
-                <div className="card h-100 men-card">
-                  <img
-                    src={protein.Image}
-                    className="card-img-top"
-                    alt="Protein"
-                    onClick={() => handleImageClick(protein)}
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{protein.name}</h5>
-                    {protein.description && <p>{protein.description}</p>}
-                    <p>Price: {protein.price}</p>
-                   
-          <button onClick={() => addToCart(selectedProtein)}>Add to Cart</button>
+            {filteredData.length === 0 ? (
+              <p>No results found.</p>
+            ) : (
+              filteredData.map((protein) => (
+                <div key={protein.id} className="col mb-4">
+                  <div className="card h-100 men-card">
+                    <img
+                      src={protein.Image}
+                      className="card-img-top"
+                      alt="Protein"
+                      onClick={() => handleImageClick(protein)}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">{protein.name}</h5>
+                      {protein.description && <p>{protein.description}</p>}
+                      <p>Price: {protein.price}</p>
+                      <StarRating
+                        rating={protein.rating}
+                        onRatingClick={(clickedRating) =>
+                          handleRatingClick(clickedRating, protein.id)
+                        }
+                      />
+                      <button onClick={() => addToCart(selectedProtein)}>Add to Cart</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </>
       )}

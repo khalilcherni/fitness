@@ -33,7 +33,7 @@ function AccessoiresSport() {
 
   const handleImageClick = (item) => {
     setSelectedItem(item);
-    setUpdateMode(false); // Ensure update mode is set to false when clicking on a new image
+    setUpdateMode(false);
   };
 
   const handleBackToList = () => {
@@ -96,9 +96,22 @@ function AccessoiresSport() {
       [name]: value,
     }));
   };
-  const handleRatingClick = (clickedRating, placeId) => {
-    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+
+  const handleRatingClick = (clickedRating, itemId) => {
+    axios
+      .put(`http://localhost:5000/api/Products/${itemId}`, { rating: clickedRating })
+      .then((response) => {
+        console.log('Rating update response:', response.data);
+
+        setData((prevData) =>
+          prevData.map((item) =>
+            item.id === itemId ? { ...item, rating: clickedRating } : item
+          )
+        );
+      })
+      .catch((err) => console.log('Rating update error:', err));
   };
+
   return (
     <div className="shop">
       {updateMode ? (
@@ -127,6 +140,12 @@ function AccessoiresSport() {
           <img src={selectedItem.Image} className="img" alt="Item" />
           <p>{selectedItem.description}</p>
           <p>Price: ${selectedItem.price}</p>
+          <StarRating
+            rating={selectedItem.rating}
+            onRatingClick={(clickedRating) =>
+              handleRatingClick(clickedRating, selectedItem.id)
+            }
+          />
           <div className="button-container">
             <button onClick={handleDelete}>Delete</button>
             <button onClick={handleUpdate}>Update</button>
@@ -162,6 +181,12 @@ function AccessoiresSport() {
                       <p className="in">
                         <strong>{item.name}</strong> - {item.description}
                       </p>
+                      <StarRating
+                        rating={item.rating}
+                        onRatingClick={(clickedRating) =>
+                          handleRatingClick(clickedRating, item.id)
+                        }
+                      />
                       <button onClick={() => addToCart(item)}>Add to Cart</button>
                     </div>
                   </div>
@@ -171,7 +196,6 @@ function AccessoiresSport() {
           </div>
         </div>
       )}
-     
     </div>
   );
 }
