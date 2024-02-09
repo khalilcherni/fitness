@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './proteins.css';
+import './proteins.css'; // Assuming you have a Proteine.css file for styling
 
 function Proteine() {
   const [data, setData] = useState([]);
-  const [expandedState, setExpandedState] = useState({});
-  const [cart, setCart] = useState([]); // Local cart state for Proteine component
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProteine, setSelectedProteine] = useState(null);
   const [updateMode, setUpdateMode] = useState(false);
@@ -14,30 +12,21 @@ function Proteine() {
   useEffect(() => {
     axios
       .get('http://localhost:5000/api/protein')
-      .then((res) => {
-        const initialExpandedState = res.data.reduce((acc, item) => {
-          acc[item.id] = false;
-          return acc;
-        }, {});
-        setExpandedState(initialExpandedState);
-        setData(res.data);
-      })
+      .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
 
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
+  const filteredData = data.filter((proteine) =>
+    proteine.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleImageClick = (proteine) => {
+    setSelectedProteine(proteine);
   };
 
-  const toggleExpand = (id) => {
-    setExpandedState((prevExpandedState) => ({
-      ...prevExpandedState,
-      [id]: !prevExpandedState[id],
-    }));
-  };
-
-  const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
+  const handleBackToList = () => {
+    setSelectedProteine(null);
+    setUpdateMode(false);
   };
 
   const handleDelete = () => {
@@ -46,10 +35,15 @@ function Proteine() {
     }
 
     axios
-      .delete(`http://localhost:5000/api/protein/delete/${selectedProteine.id}`)
+      .delete(`http://localhost:5000/api/protein/${selectedProteine.ID}`)
       .then((response) => {
         console.log('Delete response:', response.data);
-        setData((prevData) => prevData.filter((item) => item.id !== selectedProteine.id));
+
+        axios
+          .get('http://localhost:5000/api/Protein')
+          .then((res) => setData(res.data))
+          .catch((err) => console.log(err));
+
         setSelectedProteine(null);
         setUpdateMode(false);
       })
@@ -68,77 +62,97 @@ function Proteine() {
 
   const handleSaveUpdate = () => {
     axios
-      .put(`http://localhost:5000/api/protein/update/${updatedProteine.id}`, updatedProteine)
+      .put(`http://localhost:5000/api/Protein/${updatedProteine.ID}`, updatedProteine)
       .then((response) => {
         console.log('Update response:', response.data);
-        setData((prevData) =>
-          prevData.map((item) => (item.id === updatedProteine.id ? updatedProteine : item))
-        );
+
+        axios
+          .get('http://localhost:5000/api/Protein')
+          .then((res) => setData(res.data))
+          .catch((err) => console.log(err));
+
         setUpdateMode(false);
         setUpdatedProteine({});
       })
       .catch((err) => console.log('Update error:', err));
   };
 
-  const handleImageClick = (proteine) => {
-    setSelectedProteine(proteine);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUpdatedProteine((prevProteine) => ({
+      ...prevProteine,
+      [name]: value,
+    }));
   };
 
   return (
-    <div className="shop">
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={handleChange}
-          className="search-input"
-        />
-      </div>
-      <div className="container">
-        <div className="row">
-          {selectedProteine ? (
-            <div className="update-container">
-              {/* Add your update form inputs here */}
-              <button onClick={handleSaveUpdate}>Save Update</button>
-              <button onClick={handleCancelUpdate}>Cancel</button>
-            </div>
-          ) : (
-            filteredData.map((e) => (
-              <div key={e.id} className="col">
-                <div className="card h-100 box">
+    <div className="container mt-5">
+      {updateMode ? (
+        <div className="update-container">
+          <label>Proteine Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={updatedProteine.name}
+            onChange={handleInputChange}
+          />
+          <label>Description:</label>
+          <textarea
+            name="description"
+            value={updatedProteine.description}
+            onChange={handleInputChange}
+          />
+          <label>Image:</label>
+          <textarea
+            name="Image"
+            value={updatedProteine.Image}
+            onChange={handleInputChange}
+          />
+          <button onClick={handleSaveUpdate}>Save Update</button>
+          <button onClick={handleCancelUpdate}>Cancel</button>
+        </div>
+      ) : selectedProteine ? (
+        <div className="details-container">
+          <h1>{selectedProteine.name}</h1>
+          <img
+            className="imageClassName"
+            src={selectedProteine.Image}
+            alt="Proteine"
+          />
+          <p>{selectedProteine.description}</p>
+          <button onClick={handleDelete}>Delete</button>
+          <button onClick={handleUpdate}>Update</button>
+          <button onClick={handleBackToList}>Back to List</button>
+        </div>
+      ) : (
+        <>
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Search by proteine name"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <div className="row row-cols-1 row-cols-md-2 g-4">
+            {filteredData.map((proteine) => (
+              <div key={proteine.id} className="col mb-4">
+                <div className="card h-100 men-card">
                   <img
-                    src={e.Image}
-                    className="img"
+                    src={proteine.Image}
+                    className="card-img-top"
                     alt="Proteine"
-                    onClick={() => handleImageClick(e)}
+                    onClick={() => handleImageClick(proteine)}
                   />
-                  <div className="de">
-                    <p className="in">
-                      <strong>{e.name}</strong> -{' '}
-                      {expandedState[e.id]
-                        ? e.description
-                          ? e.description
-                          : 'No description available'
-                        : e.description
-                        ? `${e.description.slice(0, 100)}...`
-                        : 'No description available'}
-                    </p>
-                    {selectedProteine ? (
-                      <>
-                        <button onClick={handleDelete}>Delete</button>
-                        <button onClick={handleUpdate}>Update</button>
-                      </>
-                    ) : (
-                      <button onClick={() => addToCart(e)}>Add to Cart</button>
-                    )}
+                  <div className="card-body">
+                    <h5 className="card-title">{proteine.name}</h5>
+                    {proteine.description && <p>{proteine.description}</p>}
                   </div>
                 </div>
               </div>
-            ))
-          )}
-        </div>
-      </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

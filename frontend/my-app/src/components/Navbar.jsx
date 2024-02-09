@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
-import AccessoirSport from './Accessoire Sport'
+import AccessoireSport from './Accessoire Sport';
 import Register from './Register';
 import './Navbar.css';
 import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
 import AboutUs from './AboutUs';
+import Proteine from './Proteins';
+
+
+
 import CartList from './CartList';
 import Add from './AddForMen';
 import Women from './Women';
@@ -49,7 +53,6 @@ function BasicExample() {
               <Nav.Link href="#home" onClick={() => handleTabClick('home')}>
                 Home
               </Nav.Link>
-          
     
               <NavDropdown title="Exercise" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
@@ -87,7 +90,8 @@ function BasicExample() {
               </NavDropdown>
 
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-          About 
+                About 
+           
               </Nav.Link>
 
               <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('Register')}>
@@ -98,6 +102,10 @@ ProfilePage
               </Nav.Link> */}
   
     
+            </Nav>
+          
+            <Nav className="ms-auto">
+              
             </Nav>
           </Navbar.Collapse>
           <Nav.Link id='a'  href="#Cart" onClick={() => handleTabClick('Cart')}>
@@ -116,8 +124,15 @@ ProfilePage
       {activeTab === 'Women' && <Women />}
         
       {activeTab === 'AddForWomen' && <AddForWomen />}
+
       {activeTab === 'AddForMen' && <Add />}
     
+
+      {activeTab === 'Register' && <Register />}
+      {activeTab === 'proteins' && <Proteine />}
+      {activeTab === 'accessoireSport' && <AccessoireSport />}
+      
+
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
@@ -130,3 +145,4 @@ ProfilePage
 }
 
 export default BasicExample;
+
