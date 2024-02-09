@@ -10,9 +10,9 @@ const ContactForm = () => {
 
   const sendMail = () => {
     const params = { name: fullname, email, message };
-    const serviceID = "service_j1ac1mr"; // Replace with your EmailJS service ID
+    const serviceID = "service_93fpb45"; // Replace with your EmailJS service ID
     const templateID = "template_tcrkuws"; // Replace with your EmailJS template ID
-    const userID = "RXP3IH-LaqwswElZc"; // Replace with your EmailJS user ID
+    const userID = "-uM95XGMrZmH69wXi"; // Replace with your EmailJS user ID
 
     emailjs.send(serviceID, templateID, params, userID)
       .then(res => {

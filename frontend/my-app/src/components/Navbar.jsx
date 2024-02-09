@@ -17,6 +17,8 @@ import Women from "./Women"
 import AddForWomen from './AddForWomen';
 import AddLose from './AddLose';
 import AddGain from './AddGain';
+import Advices from './Advices';
+
 
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
@@ -82,6 +84,9 @@ function BasicExample() {
                 <NavDropdown.Item href="#gain Weight" onClick={() => handleTabClick('gain Weight')}>
                   Gain Weight
                 </NavDropdown.Item>
+                <NavDropdown.Item href="#Radio" onClick={() => handleTabClick('Advices')}>
+           Advices
+                </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
                 Contact
@@ -134,6 +139,8 @@ function BasicExample() {
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
+      {activeTab === 'Advices' && <Advices />}
+
     </div>
   );
 }
