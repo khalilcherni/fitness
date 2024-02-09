@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './Advices.css'
 function Advices() {
   return (
-    <div className='popo'>
+    <div className=''>
          <div className="box-container">
             <div className="box">
               <h3>
