@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import './privateCoach.css';
 
 const PrivateCoach = () => {
@@ -15,9 +16,33 @@ const PrivateCoach = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const sendMail = () => {
+    const params = {
+      fullName: formData.fullName,
+      email: formData.email,
+      fitnessGoals: formData.fitnessGoals,
+      preferredCoach: formData.preferredCoach,
+      sessionDuration: formData.sessionDuration,
+      schedulePreference: formData.schedulePreference,
+    };
+
+   
+    const serviceID = "service_ll9dgys"; // Replace with your EmailJS service ID
+    const templateID = "template_phqrn0s"; // Replace with your EmailJS template ID
+    const userID = "euC6e9oE6ozxavlMB";
+
+    emailjs.send(serviceID, templateID, params, userID)
+      .then(res => {
+        console.log(res);
+        alert("Your request has been submitted successfully!!");
+      })
+      .catch(err => console.log(err));
+  };
+
   const handleSubmit = () => {
     // Implement logic to send form data to the server
     console.log('Form data submitted:', formData);
+    sendMail(); // Call the sendMail function to send the email
     // You would typically make an API call here to handle form submission on the server
   };
 
@@ -69,10 +94,8 @@ const PrivateCoach = () => {
             onChange={handleChange}
             className="form-input"
           >
-            {/* Populate this dropdown dynamically with coach options */}
             <option value="coach1">Coach 1</option>
             <option value="coach2">Coach 2</option>
-            {/* Add more options as needed */}
           </select>
         </label>
 
