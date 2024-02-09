@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './AddLose.css'; // Import the new CSS file
+import './Lose.css';
+import './StarRating'
 import StarRating from './StarRating';
-
 function Lose() {
   const [data, setData] = useState([]);
-  const [updateData, setUpdateData] = useState({
+  const [selectedFood, setSelectedFood] = useState(null);
+  const [updateMode, setUpdateMode] = useState(false);
+  const [updatedFood, setUpdatedFood] = useState({
     id: null,
     name: '',
     calories: '',
@@ -14,7 +16,6 @@ function Lose() {
     image: '',
   });
   const [searchTerm, setSearchTerm] = useState('');
-  const [showAddForm, setShowAddForm] = useState(false);
 
   useEffect(() => {
     axios
@@ -28,24 +29,37 @@ function Lose() {
       .delete(`http://localhost:5000/lose/${id}`)
       .then(() => {
         setData(data.filter((item) => item.id !== id));
+        setSelectedFood(null);
+        setUpdateMode(false);
       })
       .catch((err) => console.log(err));
   };
 
-  const handleUpdate = (item) => {
-    setUpdateData(item);
+  const handleUpdate = (food) => {
+    setSelectedFood(null);
+    setUpdateMode(true);
+    setUpdatedFood(food);
   };
 
-  const handleInputChange = (e) => {
-    setUpdateData({ ...updateData, [e.target.name]: e.target.value });
+  const handleCancelUpdate = () => {
+    setUpdateMode(false);
+    setUpdatedFood({
+      id: null,
+      name: '',
+      calories: '',
+      description: '',
+      type: '',
+      image: '',
+    });
   };
 
-  const handleUpdateSubmit = () => {
+  const handleSaveUpdate = () => {
     axios
-      .put(`http://localhost:5000/lose/${updateData.id}`, updateData)
+      .put(`http://localhost:5000/lose/${updatedFood.id}`, updatedFood)
       .then(() => {
-        setData(data.map((item) => (item.id === updateData.id ? updateData : item)));
-        setUpdateData({
+        setData(data.map((item) => (item.id === updatedFood.id ? updatedFood : item)));
+        setUpdateMode(false);
+        setUpdatedFood({
           id: null,
           name: '',
           calories: '',
@@ -57,8 +71,13 @@ function Lose() {
       .catch((err) => console.log(err));
   };
 
-  const handleRatingClick = (clickedRating, placeId) => {
-    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  const handleImageClick = (food) => {
+    setSelectedFood(food);
+    setUpdateMode(false);
+  };
+
+  const handleInputChange = (e) => {
+    setUpdatedFood({ ...updatedFood, [e.target.name]: e.target.value });
   };
 
   const filteredData = data.filter((lose) => {
@@ -68,92 +87,108 @@ function Lose() {
       (lose.type && lose.type.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   });
+  ////////////////////
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
 
   return (
     <div className="container mt-5">
-      <div className="search-bar">
-        <input
-          className="gainsearch"
-          type="text"
-          placeholder="Search Food name"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+      {updateMode ? (
+        <div className="update-container">
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={updatedFood.name}
+            onChange={handleInputChange}
+          />
+          <input
+            type="text"
+            placeholder="Calories"
+            name="calories"
+            value={updatedFood.calories}
+            onChange={handleInputChange}
+          />
+          <input
+            type="text"
+            placeholder="Description"
+            name="description"
+            value={updatedFood.description}
+            onChange={handleInputChange}
+          />
+          <input
+            type="text"
+            placeholder="Type"
+            name="type"
+            value={updatedFood.type}
+            onChange={handleInputChange}
+          />
+          <input
+            type="text"
+            placeholder="Image"
+            name="image"
+            value={updatedFood.image}
+            onChange={handleInputChange}
+          />
+          
+          <button onClick={handleSaveUpdate}>Save Update</button>
+          <button onClick={handleCancelUpdate}>Cancel</button>
+        </div>
+      ) : selectedFood ? (
+        <div className="details-container">
+          <h5 className="card-title">{selectedFood.name}</h5>
+          <img className="card-text" src= {selectedFood.image}/>
+          <p className="card-text">Type: {selectedFood.type}</p>
+          <p className="card-text">Calories: {selectedFood.calories}</p>
+          <p className="card-text">Description: {selectedFood.description}</p>
+          <StarRating 
+          rating={selectedFood.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, selectedFood.place_id)} 
         />
-      </div>
+          <button onClick={() => handleDelete(selectedFood.id)}>Delete</button>
+          <button onClick={() => handleUpdate(selectedFood)}>Update</button>
+          <button onClick={() => setSelectedFood(null)}>Back to List</button>
+        </div>
+      ) : (
+        <>
+          <input
+            className="gainsearch"
+            type="text"
+            placeholder="Search Food name"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
 
-      <div className="row row-cols-1 row-cols-md-2 g-4">
-        {filteredData.map((lose) => (
-          <div key={lose.id} className="col mb-4">
-            <div className="card h-100 lose-card">
-              <img src={lose.image} className="card-img-top" alt="Lose Weight" />
-              <div className="card-body">
-                <h5 className="card-title">{lose.name}</h5>
-                <p className="card-text">Type: {lose.type}</p>
-                <p className="card-text">Calories: {lose.calories}</p>
-                <p className="card-text">Description: {lose.description}</p>
-                <StarRating 
-                  rating={lose.rating}
-                  onRatingClick={(clickedRating) => handleRatingClick(clickedRating, lose.place_id)} 
-                />
-                {updateData.id === lose.id ? (
-                  <div className="update-form">
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      name="name"
-                      value={updateData.name}
-                      onChange={handleInputChange}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Calories"
-                      name="calories"
-                      value={updateData.calories}
-                      onChange={handleInputChange}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Description"
-                      name="description"
-                      value={updateData.description}
-                      onChange={handleInputChange}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Type"
-                      name="type"
-                      value={updateData.type}
-                      onChange={handleInputChange}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Image"
-                      name="image"
-                      value={updateData.image}
-                      onChange={handleInputChange}
-                    />
-                    <button onClick={handleUpdateSubmit}>Submit</button>
+          <div className="row row-cols-1 row-cols-md-2 g-4">
+            {filteredData.map((lose) => (
+              <div key={lose.id} className="col mb-4">
+                <div className="card h-100 lose-card">
+                  <img
+                    src={lose.image}
+                    className="card-img-top"
+                    alt="Lose Weight"
+                    onClick={() => handleImageClick(lose)}
+                  />
+            
+                  <div className="card-body">
+                    <h5 className="card-title">{lose.Name}</h5>
+                    <p className="card-text">Type: {lose.type}</p>
+                    <p className="card-text">Calories: {lose.calories}</p>
+                    {/* Add any additional details you want to display */}
+                    <StarRating 
+          rating={lose.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, lose.place_id)} 
+        />
+                   
                   </div>
-                ) : (
-                  <div>
-                    <button className="btn btn-danger" onClick={() => handleDelete(lose.id)}>
-                      Delete
-                    </button>
-                    <button className="btn btn-primary" onClick={() => handleUpdate(lose)}>
-                      Update
-                    </button>
-                  </div>
-                )}
+                </div>
               </div>
-            </div>
+            ))}
+            
           </div>
-        ))}
-      </div>
-
-      <button className="add-food-btn" onClick={() => setShowAddForm(true)}>
-        Add Food
-      </button>
-
+        </>
+      )}
     </div>
   );
 }

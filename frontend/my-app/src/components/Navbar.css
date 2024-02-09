@@ -93,15 +93,3 @@ margin-top: -9px;
 .khalil .dropdown-toggle {
   color: black !important; /* Sets the color of the dropdown title to black */
 }
-/* Add this to your existing CSS */
-.dark-mode .switch input:checked + .slider {
-  background-color: #2196F3;
-}
-
-.dark-mode .slider {
-  background-color: #ccc;
-}
-
-.dark-mode .slider:before {
-  background-color: white;
-}

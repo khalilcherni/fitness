@@ -74,7 +74,7 @@ const Home = () => {
             unbeatable pricing plans. Let's sweat, achieve, and conquer together!
           </p>
           <div className="footer__socials">
-            <a href="#"><i className="ri-facebook-fill"></i></a>
+            <a href="#"><i className="ri-facebook-fill"><img className='ml' src="https://cdn-icons-png.flaticon.com/128/216/216502.png" alt="" /></i></a>
             <a href="#"><i className="ri-instagram-line"></i></a>
             <a href="#"><i className="ri-twitter-fill"></i></a>
           </div>
