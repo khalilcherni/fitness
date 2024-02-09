@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Men.css'; // Import your CSS file
-
+import StarRating from './StarRating';
 function Women() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -33,6 +33,7 @@ function Women() {
     if (!selectedExercise) {
       return;
     }
+
 
     axios
       .delete(`http://localhost:5000/api/women/${selectedExercise.ID}`)
@@ -83,6 +84,9 @@ function Women() {
       ...prevExercise,
       [name]: value,
     }));
+  };
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
   };
 
   return (
