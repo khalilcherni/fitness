@@ -15,6 +15,7 @@ import Add from './AddForMen';
 import Women from './Women';
 import AddForWomen from './AddForWomen';
 import AddLose from './AddLose';
+import AddGain from './AddGain';
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -92,7 +93,7 @@ function BasicExample() {
               <NavDropdown.Item href="#loss weight" onClick={() => handleTabClick('Add loss weight')}>
               loss weight
                 </NavDropdown.Item>
-                <NavDropdown.Item  onClick={() => handleTabClick('gain Weight')} href="#gain Weight">gain Weight</NavDropdown.Item>
+                <NavDropdown.Item  onClick={() => handleTabClick('Add gain Weight')} href="#gain Weight">gain Weight</NavDropdown.Item>
               </NavDropdown>
               </NavDropdown>
 
@@ -133,6 +134,7 @@ ProfilePage
       {activeTab === 'AddForWomen' && <AddForWomen />}
 
       {activeTab === 'Add loss weight' && <AddLose />}
+      {activeTab === 'Add gain Weight' && <AddGain />}
     
       {activeTab === 'AddForMen' && <Add />}
       {activeTab === 'Register' && <Register />}
