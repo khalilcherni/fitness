@@ -9,10 +9,7 @@ import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
 import AboutUs from './AboutUs';
-import Proteine from './Proteins';
-
-
-
+import Proteine from './Proteins'
 import CartList from './CartList';
 import Add from './AddForMen';
 import Women from './Women';
@@ -136,8 +133,7 @@ ProfilePage
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
-      {activeTab === 'Cart' && <CartList />}
-   
+      {/* {activeTab === 'ProfilePage' && <ProfilePage />} */}
 
       {/* {activeTab === 'User' && <Register />} */}
     </div>

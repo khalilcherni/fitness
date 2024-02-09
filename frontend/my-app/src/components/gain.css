@@ -1,5 +1,15 @@
 /* Gain.css */
 
+.shop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+    margin-top: 50px;
+  }
   
   .men-card {
     border: 1px solid #ccc;
