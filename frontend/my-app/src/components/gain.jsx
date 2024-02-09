@@ -169,10 +169,10 @@ function Gain() {
                     <p className="card-text">Type: {gain.type}</p>
                     <p className="card-text">Calories: {gain.calories}</p>
                     {/* Add any additional details you want to display */}
-                    {/* <StarRating 
+                    <StarRating 
           rating={gain.rating}
           onRatingClick={(clickedRating) => handleRatingClick(clickedRating, gain.place_id)} 
-        /> */}
+        />
                     
                   </div>
                 </div>
