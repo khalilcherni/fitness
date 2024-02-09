@@ -42,4 +42,7 @@
   .in {
     margin: 0;
   }
-  
+  .card-title,
+  .card-text {
+    color: white;
+  }

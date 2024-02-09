@@ -2,17 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Home from './Home';
 import Men from './Men';
-import AccessoireSport from './Accessoire Sport';
+import AccessoirSport from './Accessoire Sport'
 import Register from './Register';
 import './Navbar.css';
 import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
+import ProfilePage from './ProfilePage';
 import AboutUs from './AboutUs';
 import Proteine from './Proteins'
 import CartList from './CartList';
 import Add from './AddForMen';
-import Women from './Women';
+import Women from "./Women"
 import AddForWomen from './AddForWomen';
 import AddLose from './AddLose';
 import AddGain from './AddGain';
@@ -52,6 +53,7 @@ function BasicExample() {
               <Nav.Link href="#home" onClick={() => handleTabClick('home')}>
                 Home
               </Nav.Link>
+          
     
               <NavDropdown title="Exercise" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
@@ -98,8 +100,7 @@ function BasicExample() {
               </NavDropdown>
 
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-                About 
-           
+          About 
               </Nav.Link>
 
               <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('Register')}>
@@ -111,15 +112,10 @@ ProfilePage
   
     
             </Nav>
-          
-            <Nav className="ms-auto">
-              
-            </Nav>
           </Navbar.Collapse>
           <Nav.Link id='a'  href="#Cart" onClick={() => handleTabClick('Cart')}>
               <img className="o" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
 </Nav.Link>
-
         </Container>
  
       </Navbar>
@@ -128,9 +124,7 @@ ProfilePage
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
-       {activeTab === 'Register' && <Register />}
       {activeTab === 'Women' && <Women />}
-        
       {activeTab === 'AddForWomen' && <AddForWomen />}
 
       {activeTab === 'Add loss weight' && <AddLose />}
@@ -138,10 +132,6 @@ ProfilePage
     
       {activeTab === 'AddForMen' && <Add />}
       {activeTab === 'Register' && <Register />}
-      {activeTab === 'proteins' && <Proteine />}
-      {activeTab === 'accessoireSport' && <AccessoireSport />}
-      
-
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
@@ -153,4 +143,3 @@ ProfilePage
 }
 
 export default BasicExample;
-
