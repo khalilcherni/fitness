@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './accessoiresport.css';
+import StarRating from './StarRating';
 
 function AssesoiresSport() {
   const [data, setData] = useState([]);
@@ -94,7 +95,9 @@ function AssesoiresSport() {
       [name]: value,
     }));
   };
-
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
   return (
     <div className="shop">
       {updateMode ? (
@@ -150,6 +153,11 @@ function AssesoiresSport() {
                       <p className="in">
                         <strong>{item.name}</strong> - {item.description}
                       </p>
+                      
+                    <StarRating 
+          rating={item.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, item.place_id)} 
+        />
                       <button onClick={() => addToCart(item)}>Add to Cart</button>
                     </div>
                   </div>
