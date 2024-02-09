@@ -18,10 +18,6 @@ function Men() {
       .catch((err) => console.log(err));
   }, []);
 
-  const addToCart = (exercise) => {
-    // Implement your addToCart logic here
-    console.log('Added to cart:', exercise);
-  };
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -207,7 +203,7 @@ function Men() {
                         handleRatingClick(clickedRating, exercise.ID)
                       }
                     />
-                    <button onClick={() => addToCart(selectedExercise)}>Add to Cart</button>
+                   
                   </div>
                 </div>
               </div>
