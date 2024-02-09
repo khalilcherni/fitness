@@ -5,18 +5,80 @@ import './AddGain.css'; // Import your CSS file
 function AddGain() {
   const [formData, setFormData] = useState({
     name: '',
-    age: '',
-    email: '',
+    type: '',
+    calories: '',
+    description: '',
   });
+  const [file, setFile] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const uploadImage = async () => {
+    const formDataCloudinary = new FormData();
+    formDataCloudinary.append('file', file);
+    formDataCloudinary.append('upload_preset', 'hibahiba11');
+
+    try {
+      const responseCloudinary = await axios.post(
+        'https://api.cloudinary.com/v1_1/dsrcopz7v/upload',
+        formDataCloudinary
+      );
+
+      setImageUrl(responseCloudinary.data.secure_url);
+      setFormData({ ...formData, image: responseCloudinary.data.secure_url });
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Your form submission logic here
-    console.log(formData);
+
+    if (!formData.name.trim()) { 
+      console.error('Name field is required.');
+      return;
+    }
+
+    if (!file) {
+      console.error('Image is required.');
+      return;
+    }
+
+    try {
+      const formDataCloudinary = new FormData();
+      formDataCloudinary.append('file', file);
+      formDataCloudinary.append('upload_preset', 'hibahiba11');
+
+      const responseCloudinary = await axios.post(
+        'https://api.cloudinary.com/v1_1/dsrcopz7v/upload',
+        formDataCloudinary
+      );
+
+      const imageUrl = responseCloudinary.data.secure_url;
+
+      const postData = {
+        name: formData.name,
+        type: formData.type,
+        calories: formData.calories,
+        description: formData.description,
+        image: imageUrl
+      };
+
+      const response = await axios.post('http://localhost:5000/api/add', postData);
+
+      console.log('Gain added successfully:', response.data);
+      setFormData({ name: '', type: '', calories: '', description: '', image: '' });
+      setImageUrl('');
+    } catch (error) {
+      console.error('Error adding gain:', error);
+    }
   };
 
   return (
@@ -33,41 +95,69 @@ function AddGain() {
             value={formData.name}
             onChange={handleChange}
             className="dd"
-            placeholder="Enter your name"
+            placeholder="Enter name"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="age" className="form-label">
-            Age
+          <label htmlFor="type" className="form-label">
+            Type
           </label>
           <input
             type="text"
-            id="age"
-            name="age"
-            value={formData.age}
+            id="type"
+            name="type"
+            value={formData.type}
             onChange={handleChange}
             className="dd"
-            placeholder="Enter your age"
+            placeholder="Enter type"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email" className="form-label">
-            Email
+          <label htmlFor="calories" className="form-label">
+            Calories
           </label>
           <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
+            type="text"
+            id="calories"
+            name="calories"
+            value={formData.calories}
             onChange={handleChange}
             className="dd"
-            placeholder="Enter your email"
+            placeholder="Enter calories"
           />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description" className="form-label">
+            Description
+          </label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            className="dd"
+            placeholder="Enter description"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="image" className="form-label">
+            Image
+          </label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            onChange={handleFileChange}
+            className="dd"
+          />
+          <button type="button" onClick={uploadImage}>Upload Image</button>
         </div>
         <button type="submit" className="button-55">
           Submit
         </button>
       </form>
+      {imageUrl && <img src={imageUrl} alt="Uploaded" />}
     </div>
   );
 }

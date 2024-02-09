@@ -32,5 +32,8 @@
     margin: 10px;
     box-sizing: border-box;
     width: 150px;
-}  /* Add more styling as needed */
-  
+}  Add more styling as needed
+.card-title,
+.card-text {
+  color: white;
+}

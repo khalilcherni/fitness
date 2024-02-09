@@ -1,0 +1,93 @@
+/* ProteinCalculator.css */
+.protein-calculator-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .protein-calculator-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1), transparent);
+    animation: animateBackground 10s linear infinite;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .protein-calculator-container:hover::before {
+    opacity: 1;
+  }
+  
+  @keyframes animateBackground {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
+  .form-label {
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 5px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--text-light);
+    margin-bottom: 20px;
+    transition: border-bottom-color 0.3s ease;
+  }
+  
+  .form-input::placeholder {
+    color: var(--text-light);
+  }
+  
+  .form-input:focus {
+    border-bottom-color: var(--secondary-color);
+  }
+  
+  .button-calculate {
+    background: var(--secondary-color);
+    border: none;
+    outline: none;
+    color: var(--white);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .button-calculate:hover {
+    background-color: var(--secondary-color-dark);
+  }
+  
+  .protein-result {
+    color: var(--white);
+    margin-top: 20px;
+  }
+.azert{
+    background-color: var(--primary-color-light);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px var(--secondary-color);
+}
