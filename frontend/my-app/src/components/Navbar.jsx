@@ -9,18 +9,24 @@ import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
 import AboutUs from './AboutUs';
-import Proteine from './Proteins'
+import Proteine from './Proteins';
 import CartList from './CartList';
 import Add from './AddForMen';
 import Women from './Women';
 import AddForWomen from './AddForWomen';
 import AddLose from './AddLose';
 import AddGain from './AddGain';
-function BasicExample() {
+
+function NavbarComponent() {
   const [activeTab, setActiveTab] = useState('home');
+  const [cartItems, setCartItems] = useState([]);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+  };
+
+  const handleAddToCart = (item) => {
+    setCartItems((prevCart) => [...prevCart, item]);
   };
 
   useEffect(() => {
@@ -60,8 +66,6 @@ function BasicExample() {
                 <NavDropdown.Item href="#Women"  onClick={() => handleTabClick('Women')}>Women</NavDropdown.Item>
               </NavDropdown>
 
-          
-
               <NavDropdown title="Shop" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Proteins" onClick={() => handleTabClick('proteins')}>
                   Proteins
@@ -83,74 +87,56 @@ function BasicExample() {
               </Nav.Link>
 
               <NavDropdown title="Add" id="basic-nav-dropdown">
-              <NavDropdown className='khalil' title="Exercice">
-              <NavDropdown.Item href="#Men" onClick={() => handleTabClick('AddForMen')}>
-                  Men
-                </NavDropdown.Item>
-                <NavDropdown.Item  onClick={() => handleTabClick('AddForWomen')} href="#Women">Women</NavDropdown.Item>
-              </NavDropdown>
-              <NavDropdown className='khalil' title="Healthy">
-              <NavDropdown.Item href="#loss weight" onClick={() => handleTabClick('Add loss weight')}>
-              loss weight
-                </NavDropdown.Item>
-                <NavDropdown.Item  onClick={() => handleTabClick('Add gain Weight')} href="#gain Weight">gain Weight</NavDropdown.Item>
-              </NavDropdown>
+                <NavDropdown className='khalil' title="Exercice">
+                  <NavDropdown.Item href="#Men" onClick={() => handleTabClick('AddForMen')}>
+                    Men
+                  </NavDropdown.Item>
+                  <NavDropdown.Item  onClick={() => handleTabClick('AddForWomen')} href="#Women">Women</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown className='khalil' title="Healthy">
+                  <NavDropdown.Item href="#loss weight" onClick={() => handleTabClick('Add loss weight')}>
+                    loss weight
+                  </NavDropdown.Item>
+                  <NavDropdown.Item  onClick={() => handleTabClick('Add gain Weight')} href="#gain Weight">gain Weight</NavDropdown.Item>
+                </NavDropdown>
               </NavDropdown>
 
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
                 About 
-           
               </Nav.Link>
 
               <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('Register')}>
-              <img className="op" src="https://cdn-icons-png.flaticon.com/128/1771/1771013.png" alt="" height="30" />
-</Nav.Link>
-{/* <Nav.Link href="#ProfilePage" onClick={() => handleTabClick('ProfilePage')}>
-ProfilePage 
-              </Nav.Link> */}
-  
-    
+                <img className="op" src="https://cdn-icons-png.flaticon.com/128/1771/1771013.png" alt="" height="30" />
+              </Nav.Link>
             </Nav>
           
             <Nav className="ms-auto">
-              
             </Nav>
           </Navbar.Collapse>
-          <Nav.Link id='a'  href="#Cart" onClick={() => handleTabClick('Cart')}>
-              <img className="o" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
-</Nav.Link>
-
+          <Nav.Link id='a' href="#Cart" onClick={() => handleTabClick('Cart')}>
+            <img className="o" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
+          </Nav.Link>
         </Container>
- 
       </Navbar>
       <hr />
 
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
-       {activeTab === 'Register' && <Register />}
+      {activeTab === 'Register' && <Register />}
       {activeTab === 'Women' && <Women />}
-        
       {activeTab === 'AddForWomen' && <AddForWomen />}
-
       {activeTab === 'Add loss weight' && <AddLose />}
       {activeTab === 'Add gain Weight' && <AddGain />}
-    
-      {activeTab === 'AddForMen' && <Add />}
+      {activeTab === 'AddForMen' && <Add onAddToCart={handleAddToCart} />}
       {activeTab === 'Register' && <Register />}
-      {activeTab === 'proteins' && <Proteine />}
-      {activeTab === 'accessoireSport' && <AccessoireSport />}
-      
-
+      {activeTab === 'proteins' && <Proteine onAddToCart={handleAddToCart} />}
+      {activeTab === 'accessoireSport' && <AccessoireSport onAddToCart={handleAddToCart} />}
+      {activeTab === 'Cart' && <CartList cart={cartItems} />}
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
-      {/* {activeTab === 'ProfilePage' && <ProfilePage />} */}
-
-      {/* {activeTab === 'User' && <Register />} */}
     </div>
   );
 }
-
-export default BasicExample;
-
+export default NavbarComponent;

@@ -1,20 +1,19 @@
-// import React from 'react'
+import React from 'react';
+import { useCart } from './CartContext';
 
-// export default function CartList() {
-//   return (
-//     <div className="cart-container">
-//     <h2>Shopping Cart</h2>
-//     {cart.length === 0 ? (
-//       <p>Your cart is empty.</p>
-//     ) : (
-//       <ul>
-//         {cart.map((item, index) => (
-//           <li key={index}>
-//             {item.name} - {item.description} - ${item.price}
-//           </li>
-//         ))}
-//       </ul>
-//     )}
-//   </div>
-//   )
-// }
+function CartList() {
+    const { cart } = useCart();
+
+    return (
+        <div>
+          <h2>Cart</h2>
+          <ul>
+            {cart.map((item) => (
+              <li key={item.id}>{item.name}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+
+export default CartList;

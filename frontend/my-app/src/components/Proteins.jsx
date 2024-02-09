@@ -1,9 +1,14 @@
+// Proteins.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './proteins.css';
-import StarRating from './StarRating'; // Assuming you have a StarRating component
+import StarRating from './StarRating';
+import CartList from './CartList';
+import { useCart } from './CartContext.js'
+
 
 function Proteins() {
+  const { addToCart } = useCart();
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
@@ -18,9 +23,14 @@ function Proteins() {
       .catch((err) => console.log(err));
   }, []);
 
-  const addToCart = (protein) => {
-    setCart((prevCart) => [...prevCart, protein]);
+  // const addToCart = (protein) => {
+  //   // Use the functional update to ensure the correct state is set
+  //   setCart((prevCart) => [...prevCart, protein]);
+  // };
+  const handleAddToCart = (protein) => {
+    addToCart(protein);
   };
+
 
   const handleImageClick = (protein) => {
     setSelectedProtein(protein);
@@ -103,7 +113,6 @@ function Proteins() {
       .catch((err) => console.log('Rating update error:', err));
   };
 
-  // Modify the filteredData variable to include the "name" field
   const filteredData = data.filter((protein) =>
     protein.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -195,7 +204,7 @@ function Proteins() {
                           handleRatingClick(clickedRating, protein.id)
                         }
                       />
-                      <button onClick={() => addToCart(selectedProtein)}>Add to Cart</button>
+                      <button onClick={() => addToCart(protein)}>Add to Cart</button>
                     </div>
                   </div>
                 </div>
