@@ -17,9 +17,8 @@ import Women from "./Women"
 import AddForWomen from './AddForWomen';
 import AddLose from './AddLose';
 import AddGain from './AddGain';
-import Advices from './Advices';
-
-
+import PrivateCoach from './Private Coach'
+import Advices from './Advices'
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
   const [theme, setTheme] = useState('light');
@@ -61,6 +60,10 @@ function BasicExample() {
               <Nav.Link href="#home" onClick={() => handleTabClick('home')}>
                 Home
               </Nav.Link>
+              <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
+          About 
+              </Nav.Link>
+    
               <NavDropdown title="Exercise" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
                   Men
@@ -109,8 +112,8 @@ function BasicExample() {
                   </NavDropdown.Item>
                 </NavDropdown>
               </NavDropdown>
-              <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-                About
+              <Nav.Link href="#Private Coach" onClick={() => handleTabClick('Private Coach')}>
+                private_Coach
               </Nav.Link>
               <Nav.Link id="nb" href="#User" onClick={() => handleTabClick('Register')}>
                 <img className="op" src="https://cdn-icons-png.flaticon.com/128/1771/1771013.png" alt="" height="30" />
@@ -141,6 +144,8 @@ function BasicExample() {
       {activeTab === 'Contact' && <ContactForm />}
       {activeTab === 'Advices' && <Advices />}
 
+      {/* {activeTab === 'User' && <Register />} */}
+      {activeTab === 'Private Coach' && <PrivateCoach />}
     </div>
   );
 }

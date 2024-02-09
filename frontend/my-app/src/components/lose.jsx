@@ -87,7 +87,7 @@ function Lose() {
       (lose.type && lose.type.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   });
-  ////////////////////
+ 
   const handleRatingClick = (clickedRating, placeId) => {
     setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
   };
