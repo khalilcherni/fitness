@@ -1,99 +1,75 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
+import React, { useState } from 'react';
+import axios from 'axios';
+import './AddForGain.css'; // Import your CSS file
 
-// function AddGain() {
-//   const [ExerciseName, setExerciseName] = useState('');
-//   const [DurationInMinutes, setDurationInMinutes] = useState(0);
-//   const [Repetitions, setRepetitions] = useState(0);
-//   const [Image, setImage] = useState('');
-//   const [Description, setDescription] = useState('');
-//   const handle = () => {
-//     const newprod = {
-//       ExerciseName: ExerciseName,
-//       DurationInMinutes: DurationInMinutes,
-//       Repetitions: Repetitions,
-//       Description: Description,
-//       Image: Image,
-//     };
+function AddGain() {
+  const [formData, setFormData] = useState({
+    name: '',
+    age: '',
+    email: '',
+  });
 
-//     console.log(newprod);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-//     axios
-//       .post(`http://localhost:5000/api/women`, newprod)
-//       .then((res) => {
-//         console.log(res.data);
-//         setExerciseName('');
-//         setDurationInMinutes(0);
-//         setRepetitions(0);
-//         setDescription('');
-//       })
-//       .catch((err) => console.log(err));
-//   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Your form submission logic here
+    console.log(formData);
+  };
 
-//   return (
-//     <div className="form-container">
-//         <hr />
-//       <h2 className="alert">Add New Product</h2>
-//       <hr />
-//       <hr />
-//       <form>
-//         <div className="mb-3">
-//           <label className="form-label">ExerciseName:</label>
-//           <input
-//             type="text"
-//             className="dd"
-        
-//             value={ExerciseName}
-//             onChange={(e) => setExerciseName(e.target.value)}
-//           />
-//         </div>
+  return (
+    <div className="form-container">
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="dd"
+            placeholder="Enter your name"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="age" className="form-label">
+            Age
+          </label>
+          <input
+            type="text"
+            id="age"
+            name="age"
+            value={formData.age}
+            onChange={handleChange}
+            className="dd"
+            placeholder="Enter your age"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="dd"
+            placeholder="Enter your email"
+          />
+        </div>
+        <button type="submit" className="button-55">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+}
 
-//         <div className="mb-3">
-//           <label className="form-label">DurationInMinutes: </label>
-//           <input
-//             type="text"
-//             className="dd"
-//             placeholder="DurationInMinutes URL"
-//             value={DurationInMinutes}
-//             onChange={(e) => setDurationInMinutes(e.target.value)}
-//           />
-//         </div>
-
-//         <div className="mb-3">
-//           <label className="form-label">Repetitions:</label>
-//           <input
-//          className="dd"
-//             placeholder="Repetitions"
-//             value={Repetitions}
-//             onChange={(e) => setRepetitions(e.target.value)}
-//           />
-//         </div>
-
-//         <div className="mb-3">
-//           <label className="form-label">Description:</label>
-//           <input
-//             type="Description"
-//             className="dd"
-//             value={Description}
-//             onChange={(e) => setDescription(e.target.value)}
-//           />
-//         </div>
-//         <div className="mb-3">
-//           <label className="form-label">Image:</label>
-//           <input
-//             type="text"
-//             className="dd"
-//             value={Image}
-//             onChange={(e) => setImage(e.target.value)}
-//           />
-//         </div>
-
-//         <button className='button-55' type="button"  onClick={handle}>
-//           ADD
-//         </button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default AddGain;
+export default AddGain;
