@@ -19,6 +19,7 @@ import AddLose from './AddLose';
 import AddGain from './AddGain';
 import PrivateCoach from './Private Coach'
 import Advices from './Advices'
+import ProteinCalculator from './ProteinCalculator';
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
   const [theme, setTheme] = useState('light');
@@ -78,6 +79,9 @@ function BasicExample() {
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#AccessoireSport" onClick={() => handleTabClick('accessoireSport')}>
                   Accessoire Sport
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#ProteinCalculator" onClick={() => handleTabClick('ProteinCalculator')}>
+                  Proteins you need
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Healthy" id="basic-nav-dropdown">
@@ -143,7 +147,7 @@ function BasicExample() {
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
       {activeTab === 'Advices' && <Advices />}
-
+      {activeTab === 'ProteinCalculator' && <ProteinCalculator />}
       {/* {activeTab === 'User' && <Register />} */}
       {activeTab === 'Private Coach' && <PrivateCoach />}
     </div>
