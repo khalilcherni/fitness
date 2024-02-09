@@ -161,7 +161,7 @@ function Lose() {
                     onClick={() => handleImageClick(lose)}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">{lose.name}</h5>
+                    <h5 className="card-title">{lose.Name}</h5>
                     <p className="card-text">Type: {lose.type}</p>
                     <p className="card-text">Calories: {lose.calories}</p>
                     {/* Add any additional details you want to display */}
