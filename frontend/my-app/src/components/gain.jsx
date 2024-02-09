@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './gain.css';
+import StarRating from './StarRating';
 
 function Gain() {
   const [data, setData] = useState([]);
@@ -86,7 +87,9 @@ function Gain() {
       (gain.type && gain.type.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   });
-
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
   return (
     <div className="container mt-5">
       {updateMode ? (
@@ -166,6 +169,11 @@ function Gain() {
                     <p className="card-text">Type: {gain.type}</p>
                     <p className="card-text">Calories: {gain.calories}</p>
                     {/* Add any additional details you want to display */}
+                    {/* <StarRating 
+          rating={gain.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, gain.place_id)} 
+        /> */}
+                    
                   </div>
                 </div>
               </div>

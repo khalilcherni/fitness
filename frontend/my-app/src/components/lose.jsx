@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Lose.css';
-
+import './StarRating'
+import StarRating from './StarRating';
 function Lose() {
   const [data, setData] = useState([]);
   const [selectedFood, setSelectedFood] = useState(null);
@@ -86,6 +87,10 @@ function Lose() {
       (lose.type && lose.type.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   });
+  ////////////////////
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
 
   return (
     <div className="container mt-5">
@@ -126,6 +131,7 @@ function Lose() {
             value={updatedFood.image}
             onChange={handleInputChange}
           />
+          
           <button onClick={handleSaveUpdate}>Save Update</button>
           <button onClick={handleCancelUpdate}>Cancel</button>
         </div>
@@ -136,6 +142,10 @@ function Lose() {
           <p className="card-text">Type: {selectedFood.type}</p>
           <p className="card-text">Calories: {selectedFood.calories}</p>
           <p className="card-text">Description: {selectedFood.description}</p>
+          <StarRating 
+          rating={selectedFood.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, selectedFood.place_id)} 
+        />
           <button onClick={() => handleDelete(selectedFood.id)}>Delete</button>
           <button onClick={() => handleUpdate(selectedFood)}>Update</button>
           <button onClick={() => setSelectedFood(null)}>Back to List</button>
@@ -160,15 +170,22 @@ function Lose() {
                     alt="Lose Weight"
                     onClick={() => handleImageClick(lose)}
                   />
+            
                   <div className="card-body">
                     <h5 className="card-title">{lose.Name}</h5>
                     <p className="card-text">Type: {lose.type}</p>
                     <p className="card-text">Calories: {lose.calories}</p>
                     {/* Add any additional details you want to display */}
+                    <StarRating 
+          rating={lose.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, lose.place_id)} 
+        />
+                   
                   </div>
                 </div>
               </div>
             ))}
+            
           </div>
         </>
       )}

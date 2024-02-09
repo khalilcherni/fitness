@@ -13,7 +13,7 @@ import AboutUs from './AboutUs';
 import Proteine from './Proteins'
 import CartList from './CartList';
 import Add from './AddForMen';
-import Women from './Women';
+import Women from "./Women"
 import AddForWomen from './AddForWomen';
 import AddLose from './AddLose';
 import AddGain from './AddGain';
@@ -91,7 +91,7 @@ function BasicExample() {
                 </NavDropdown.Item>
                 <NavDropdown.Item  onClick={() => handleTabClick('AddForWomen')} href="#Women">Women</NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown className='khalil' title="Healty">
+              <NavDropdown className='khalil' title="Healthy">
               <NavDropdown.Item href="#loss weight" onClick={() => handleTabClick('Add loss weight')}>
               loss weight
                 </NavDropdown.Item>

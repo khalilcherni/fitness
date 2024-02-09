@@ -35,9 +35,7 @@ function Men() {
     if (!selectedExercise) {
       return;
     }
-    const handleRatingClick = (clickedRating, placeId) => {
-      setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
-    };
+
     axios
       .delete(`http://localhost:5000/api/delete/${selectedExercise.ID}`)
       .then((response) => {
