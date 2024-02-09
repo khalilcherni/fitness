@@ -1,56 +1,63 @@
-import React from 'react'
-import './Advices.css'
+import React from 'react';
+import './Advices.css';
+
 function Advices() {
   return (
     <div className=''>
-         <div className="box-container">
-            <div className="box">
-              <h3>
-                <i className="fas fa-check"></i> Body and Mind
-              </h3>
-              <p>
-                Achieve balance in your life by nurturing both your body and mind.
-                Our programs are designed to promote overall well-being,
-                encompassing physical fitness and mental strength.
-              </p>
-            </div>
-            <div className="box">
-              <h3>
-                <i className="fas fa-check"></i> Healthy Life
-              </h3>
-              <p>
-                Embrace a healthy lifestyle that goes beyond just working out. We
-                provide guidance on nutrition, habits, and sustainable practices
-                to help you lead a fulfilling and healthy life.
-              </p>
-            </div>
-            <div className="box">
-              <h3>
-                <i className="fas fa-check"></i> Strategies
-              </h3>
-              <p>
-                Our expert trainers employ effective strategies that are tailored
-                to your fitness goals. We believe in a personalized approach to
-                ensure you get the most out of your fitness journey.
-              </p>
-            </div>
-            <div className="box">
-              <h3>
-                <i className="fas fa-check"></i> Workout
-              </h3>
-              <p>
-                Engage in invigorating workouts designed to challenge and inspire.
-                Whether you're a beginner or an experienced fitness enthusiast,
-                our diverse workout programs cater to all levels.
-              </p>
-            </div>
-          </div>
-        
+      <div className="box-container">
+        <div className="box">
+          <h3>
+            <i className="fas fa-check"></i> Fitness
+          </h3>
+          <p>
+            Incorporate a variety of exercises into your routine, including cardio, strength training, and flexibility exercises. Aim for at least 150 minutes of moderate-intensity exercise per week to improve your fitness levels.
+          </p>
         </div>
-
-  
-  
-  )
+        <div className="box">
+          <h3>
+            <i className="fas fa-check"></i> Weight Loss
+          </h3>
+          <p>
+            Focus on creating a calorie deficit by combining regular exercise with a balanced diet. Choose nutrient-dense foods, control portion sizes, and avoid processed foods and sugary snacks to support your weight loss journey.
+          </p>
+        </div>
+        <div className="box">
+          <h3>
+            <i className="fas fa-check"></i> Weight Gain
+          </h3>
+          <p>
+            Increase your calorie intake with nutrient-rich foods to promote weight gain. Incorporate healthy fats, lean proteins, and complex carbohydrates into your meals. Combine strength training exercises to build muscle mass and support healthy weight gain.
+          </p>
+        </div>
+      </div>
+      <div className="box-container">
+        <div className="box">
+          <h3>
+            <i className="fas fa-check"></i> Fitness
+          </h3>
+          <p>
+            Incorporate a variety of exercises into your routine, including cardio, strength training, and flexibility exercises. Aim for at least 150 minutes of moderate-intensity exercise per week to improve your fitness levels.
+          </p>
+        </div>
+        <div className="box">
+          <h3>
+            <i className="fas fa-check"></i> Weight Loss
+          </h3>
+          <p>
+            Focus on creating a calorie deficit by combining regular exercise with a balanced diet. Choose nutrient-dense foods, control portion sizes, and avoid processed foods and sugary snacks to support your weight loss journey.
+          </p>
+        </div>
+        <div className="box">
+          <h3>
+            <i className="fas fa-check"></i> Weight Gain
+          </h3>
+          <p>
+            Increase your calorie intake with nutrient-rich foods to promote weight gain. Incorporate healthy fats, lean proteins, and complex carbohydrates into your meals. Combine strength training exercises to build muscle mass and support healthy weight gain.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Advices
+export default Advices;
