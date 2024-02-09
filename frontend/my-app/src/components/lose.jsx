@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AddLose.css'; // Import the new CSS file
 import StarRating from './StarRating';
+
 function Lose() {
   const [data, setData] = useState([]);
   const [updateData, setUpdateData] = useState({
@@ -56,6 +57,10 @@ function Lose() {
       .catch((err) => console.log(err));
   };
 
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
+
   const filteredData = data.filter((lose) => {
     return (
       (lose.name && lose.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
@@ -63,9 +68,7 @@ function Lose() {
       (lose.type && lose.type.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   });
-  const handleRatingClick = (clickedRating, placeId) => {
-    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
-  };
+
   return (
     <div className="container mt-5">
       <div className="search-bar">
@@ -89,9 +92,9 @@ function Lose() {
                 <p className="card-text">Calories: {lose.calories}</p>
                 <p className="card-text">Description: {lose.description}</p>
                 <StarRating 
-          rating={lose.rating}
-          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, lose.place_id)} 
-        />
+                  rating={lose.rating}
+                  onRatingClick={(clickedRating) => handleRatingClick(clickedRating, lose.place_id)} 
+                />
                 {updateData.id === lose.id ? (
                   <div className="update-form">
                     <input
@@ -147,15 +150,10 @@ function Lose() {
         ))}
       </div>
 
-      
-          setShowAddForm={setShowAddForm}
-          setData={setData}
-          data={data}
+      <button className="add-food-btn" onClick={() => setShowAddForm(true)}>
+        Add Food
+      </button>
 
-        <button className="add-food-btn" onClick={() => setShowAddForm(true)}>
-          Add Food
-        </button>
-      
     </div>
   );
 }
