@@ -60,7 +60,7 @@ export default function ProfilePage() {
                 </div>
                   <MDBCol sm="9">
                     <input className='n' type="text" value={imageSrc} onChange={handleImageChange} />
-                    <MDBBtn id="r" onClick={() => setImageSrc('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp')} size="sm">Reset</MDBBtn>
+                    <MDBBtn id="r" onClick={() => setImageSrc('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp')} size="sm"> <h6 className='bnv'>Reset</h6></MDBBtn>
                   </MDBCol>
               </MDBCardBody>
             </MDBCard>
