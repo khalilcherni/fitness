@@ -75,8 +75,8 @@ const Home = () => {
           </p>
           <div className="footer__socials">
             <a href="https://www.facebook.com/groups/751722548865084/"><i className="ri-facebook-fill"><img className='ml' src="https://cdn-icons-png.flaticon.com/128/216/216502.png" alt="" /></i></a>
-            <a href="#"><i className="ri-instagram-line"><img className='ml' src="https://cdn-icons-png.flaticon.com/128/733/733558.png" alt="" /></i></a>
-            <a href="#"><i className="ri-twitter-fill"></i></a>
+            <a href="https://www.instagram.com/fitnesspark_kef/"><i className="ri-instagram-line"><img className='ml' src="https://cdn-icons-png.flaticon.com/128/733/733558.png" alt="" /></i></a>
+            <a href="#"><i className="ri-twitter-fill"><img className='ml' src="https://cdn-icons-png.flaticon.com/128/216/216516.png" alt="" /></i></a>
           </div>
         </div>
 
