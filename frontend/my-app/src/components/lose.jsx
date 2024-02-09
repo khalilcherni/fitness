@@ -87,7 +87,7 @@ function Lose() {
       (lose.type && lose.type.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   });
-  ////////////////////
+  
   const handleRatingClick = (clickedRating, placeId) => {
     setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
   };
@@ -187,8 +187,23 @@ function Lose() {
             ))}
             
           </div>
+
         </>
       )}
+
+        ))}
+      </div>
+
+      
+          setShowAddForm={setShowAddForm}
+          setData={setData}
+          data={data}
+
+        <button className="add-food-btn" onClick={() => setShowAddForm(true)}>
+          Add Food
+        </button>
+      
+
     </div>
   );
 }
