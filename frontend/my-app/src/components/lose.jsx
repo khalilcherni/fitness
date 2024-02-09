@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AddLose.css'; // Import the new CSS file
-import AddLose from './AddForLose'; // Import the AddLose component
+import AddLose from './AddLose'; // Import the AddLose component
 
 function Lose() {
   const [data, setData] = useState([]);

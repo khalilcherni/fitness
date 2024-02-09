@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './AddGain.css'; // Import your CSS file
+import './AddLose.css'; // Import your CSS file
 
-function AddGain() {
+function AddLose() {
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -72,4 +72,4 @@ function AddGain() {
   );
 }
 
-export default AddGain;
+export default AddLose;
