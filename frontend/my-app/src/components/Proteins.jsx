@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './proteins.css'; // Assuming you have a Proteine.css file for styling
-
+import StarRating from './StarRating';
 function Proteine() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -84,7 +84,9 @@ function Proteine() {
       [name]: value,
     }));
   };
-
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
   return (
     <div className="container mt-5">
       {updateMode ? (
@@ -146,6 +148,10 @@ function Proteine() {
                   <div className="card-body">
                     <h5 className="card-title">{proteine.name}</h5>
                     {proteine.description && <p>{proteine.description}</p>}
+                    <StarRating 
+          rating={proteine.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, proteine.place_id)} 
+        />
                   </div>
                 </div>
               </div>
