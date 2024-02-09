@@ -17,6 +17,7 @@ import Women from "./Women"
 import AddForWomen from './AddForWomen';
 import AddLose from './AddLose';
 import AddGain from './AddGain';
+import PrivateCoach from './Private Coach'
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -53,7 +54,9 @@ function BasicExample() {
               <Nav.Link href="#home" onClick={() => handleTabClick('home')}>
                 Home
               </Nav.Link>
-          
+              <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
+          About 
+              </Nav.Link>
     
               <NavDropdown title="Exercise" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#Men" onClick={() => handleTabClick('Men')}>
@@ -99,10 +102,10 @@ function BasicExample() {
               </NavDropdown>
               </NavDropdown>
 
-              <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
-          About 
+             
+              <Nav.Link href="#Private Coach" onClick={() => handleTabClick('Private Coach')}>
+              Private_Coach
               </Nav.Link>
-
               <Nav.Link id='nb' href="#User" onClick={() => handleTabClick('Register')}>
               <img className="op" src="https://cdn-icons-png.flaticon.com/128/1771/1771013.png" alt="" height="30" />
 </Nav.Link>
@@ -138,6 +141,7 @@ ProfilePage
       {/* {activeTab === 'ProfilePage' && <ProfilePage />} */}
 
       {/* {activeTab === 'User' && <Register />} */}
+      {activeTab === 'Private Coach' && <PrivateCoach />}
     </div>
   );
 }
