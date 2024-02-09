@@ -1,7 +1,9 @@
+// LoginPage.js
+
 import React, { useState } from 'react';
-import axios from 'axios'; // Import Axios
-import "./Register.css"
-import ProfilePage from './ProfilePage'
+import axios from 'axios';
+import ProfilePage from './ProfilePage';
+import './Register.css';
 
 const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState('');
@@ -10,52 +12,56 @@ const LoginPage = () => {
   const [signupPassword, setSignupPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/api/login', {
-        email: loginEmail,
-        password: loginPassword
-      });
-  
-      if (response.status === 200) {
-        const { token } = response.data;
-        alert('Login successful!'); // Display success message
-        setIsLoggedIn(true); // Set isLoggedIn to true
-      } else {
-        alert('Authentication failed. Please check your credentials.');
-      }
-    } catch (error) {
-      console.error('Error during login:', error);
-      if (error.response && error.response.data && error.response.data.message === 'Invalid credentials') {
-        alert('Invalid email or password. Please try again.');
-      } else {
-        alert('An error occurred during login. Please try again later.');
-      }
+
+  // LoginPage.js
+
+const handleLogin = async () => {
+  try {
+    const response = await axios.post('http://localhost:5000/api/login', {
+      email: loginEmail,
+      password: loginPassword
+    });
+
+    if (response.status === 200) {
+      const { token, email } = response.data;
+      alert('Login successful!');
+      setIsLoggedIn(true);
+
+    } else {
+      alert('Authentication failed. Please check your credentials.');
     }
-  };
-  
+  } catch (error) {
+    console.error('Error during login:', error);
+    if (error.response && error.response.data && error.response.data.message === 'Invalid password') {
+      alert('Invalid email or password. Please try again.');
+    } else {
+      alert('An error occurred during login. Please try again later.');
+    }
+  }
+};
+
   const handleSignup = async () => {
     try {
       const response = await axios.post('http://localhost:5000/api/register', {
         email: signupEmail,
         password: signupPassword
       });
-  
+
       if (response.status === 201) {
-        alert('Signup successful! Please login to continue.'); // Display success message
-        // Clear input fields or perform any other necessary actions
+        alert('Signup successful! Please login to continue.');
       } else {
-        alert('Signup failed. Please try again.'); // Display failure message
+        alert('Signup failed. Please try again.');
       }
     } catch (error) {
       console.error('Error during signup:', error);
+      alert('An error occurred during signup. Please try again later.');
     }
   };
 
   return (
     <div className="login-container">
       {isLoggedIn ? (
-        <ProfilePage />
+  <ProfilePage/>
       ) : (
         <>
           <div className="login-box">
@@ -87,7 +93,7 @@ const LoginPage = () => {
               </button>
             </form>
           </div>
-      
+
           <div className="signup-box">
             <h2>Create an account</h2>
             <hr />
@@ -121,6 +127,6 @@ const LoginPage = () => {
       )}
     </div>
   );
-}
+};
 
 export default LoginPage;

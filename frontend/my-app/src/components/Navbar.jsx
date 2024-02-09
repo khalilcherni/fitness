@@ -8,7 +8,6 @@ import './Navbar.css';
 import Lose from './lose';
 import Gain from './gain';
 import ContactForm from './ContactUs';
-import ProfilePage from './ProfilePage';
 import AboutUs from './AboutUs';
 import Proteine from './Proteins';
 
@@ -112,6 +111,7 @@ ProfilePage
           <Nav.Link id='a'  href="#Cart" onClick={() => handleTabClick('Cart')}>
               <img className="o" src="https://cdn-icons-png.flaticon.com/128/3643/3643914.png" alt="" height="30" />
 </Nav.Link>
+
         </Container>
  
       </Navbar>
@@ -120,17 +120,24 @@ ProfilePage
       {activeTab === 'home' && <Home />}
       {activeTab === 'aboutUs' && <AboutUs />}
       {activeTab === 'Men' && <Men />}
+       {activeTab === 'Register' && <Register />}
       {activeTab === 'Women' && <Women />}
+        
       {activeTab === 'AddForWomen' && <AddForWomen />}
+
+      {activeTab === 'AddForMen' && <Add />}
+    
+
       {activeTab === 'Register' && <Register />}
       {activeTab === 'proteins' && <Proteine />}
       {activeTab === 'accessoireSport' && <AccessoireSport />}
       
+
       {activeTab === 'loss weight' && <Lose />}
       {activeTab === 'gain Weight' && <Gain />}
       {activeTab === 'Contact' && <ContactForm />}
       {activeTab === 'Cart' && <CartList />}
-      {activeTab === 'AddForMen' && <Add />}
+   
 
       {/* {activeTab === 'User' && <Register />} */}
     </div>
