@@ -163,6 +163,10 @@ function Women() {
                     <h5 className="card-title">{exercise.ExerciseName}</h5>
                     <h2>{exercise.DurationInMinutes}min</h2>
                     <h2>{exercise.Repetitions} Repetitions</h2>
+                    <StarRating 
+          rating={exercise.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, exercise.place_id)} 
+        />
                   </div>
                 </div>
               </div>
