@@ -47,14 +47,14 @@ const Home = () => {
           <img className='p' src={image} alt="header" />
         </div>
       </header>
-
+<hr />
       <Splide
         options={{
-          type: 'fade', // Use fade effect
+          type: 'fade', 
           autoplay: true,
-          interval: 2500, // Interval between slides
-          pauseOnHover: true, // Pause autoplay on hover
-          rewind: true, // Rewind to first slide after the last one
+          interval: 1000, 
+          pauseOnHover: true, 
+          rewind: true, 
         }}
       >
         {images.map((url, index) => (
@@ -64,7 +64,7 @@ const Home = () => {
         ))}
       </Splide>
 
-
+<hr />
       <footer className="section__container footer__container">
         <span className="bg__blur"></span>
         <span className="bg__blur footer__blur"></span>
@@ -83,7 +83,7 @@ const Home = () => {
       
         <div className="footer__col">
           <h4>Contact</h4>
-          <a href="#">Contact Us</a>
+          <a href="#Contact">Contact </a>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms & Conditions</a>
         </div>
