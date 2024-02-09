@@ -5,18 +5,52 @@ import './AddLose.css'; // Import your CSS file
 function AddLose() {
   const [formData, setFormData] = useState({
     name: '',
-    age: '',
-    email: '',
+    type: '',
+    calories: '',
+    description: '',
+    image: null, // Updated to null as initial value
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleImageChange = (e) => {
+    setFormData({ ...formData, image: e.target.files[0] });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Your form submission logic here
-    console.log(formData);
+    const formDataCloudinary = new FormData();
+    formDataCloudinary.append('file', formData.image);
+    formDataCloudinary.append('upload_preset', 'hibahiba11');
+
+    try {
+      const responseCloudinary = await axios.post(
+        'https://api.cloudinary.com/v1_1/dsrcopz7v/upload',
+        formDataCloudinary
+      );
+      const imageUrl = responseCloudinary.data.secure_url;
+
+      await axios.post('http://localhost:5000/lose/add', {
+        Name: formData.name,
+        Type: formData.type,
+        Calories: formData.calories,
+        Description: formData.description,
+        Image: imageUrl
+      });
+
+      console.log('Form submitted successfully');
+      setFormData({
+        name: '',
+        type: '',
+        calories: '',
+        description: '',
+        image: null
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   return (
@@ -33,35 +67,61 @@ function AddLose() {
             value={formData.name}
             onChange={handleChange}
             className="dd"
-            placeholder="Enter your name"
+            placeholder="Enter name"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="age" className="form-label">
-            Age
+          <label htmlFor="type" className="form-label">
+            Type
           </label>
           <input
             type="text"
-            id="age"
-            name="age"
-            value={formData.age}
+            id="type"
+            name="type"
+            value={formData.type}
             onChange={handleChange}
             className="dd"
-            placeholder="Enter your age"
+            placeholder="Enter type"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email" className="form-label">
-            Email
+          <label htmlFor="calories" className="form-label">
+            Calories
           </label>
           <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
+            type="text"
+            id="calories"
+            name="calories"
+            value={formData.calories}
             onChange={handleChange}
             className="dd"
-            placeholder="Enter your email"
+            placeholder="Enter calories"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description" className="form-label">
+            Description
+          </label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            className="dd"
+            placeholder="Enter description"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="image" className="form-label">
+            Image
+          </label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            onChange={handleImageChange}
+            className="dd"
           />
         </div>
         <button type="submit" className="button-55">

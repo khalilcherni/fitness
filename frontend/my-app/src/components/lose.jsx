@@ -142,7 +142,7 @@ function Lose() {
       </div>
 
       {showAddForm ? (
-        <AddLose
+        <Lose
           setShowAddForm={setShowAddForm}
           setData={setData}
           data={data}
