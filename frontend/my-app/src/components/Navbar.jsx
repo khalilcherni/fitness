@@ -80,9 +80,7 @@ function BasicExample() {
                 <NavDropdown.Item href="#AccessoireSport" onClick={() => handleTabClick('accessoireSport')}>
                   Accessoire Sport
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#ProteinCalculator" onClick={() => handleTabClick('ProteinCalculator')}>
-                  Proteins you need
-                </NavDropdown.Item>
+               
               </NavDropdown>
               <NavDropdown title="Healthy" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#loss weight" onClick={() => handleTabClick('loss weight')}>
@@ -90,6 +88,9 @@ function BasicExample() {
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#gain Weight" onClick={() => handleTabClick('gain Weight')}>
                   Gain Weight
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#ProteinCalculator" onClick={() => handleTabClick('ProteinCalculator')}>
+                  Proteins you need
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#Radio" onClick={() => handleTabClick('Advices')}>
            Advices
