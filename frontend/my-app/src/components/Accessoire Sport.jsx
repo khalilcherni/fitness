@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './accessoiresport.css';
+import StarRating from './StarRating';
 
 function AccessoiresSport() {
   const [data, setData] = useState([]);
@@ -95,7 +96,9 @@ function AccessoiresSport() {
       [name]: value,
     }));
   };
-
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
   return (
     <div className="shop">
       {updateMode ? (
@@ -159,7 +162,6 @@ function AccessoiresSport() {
                       <p className="in">
                         <strong>{item.name}</strong> - {item.description}
                       </p>
-                      <p className="price">Price: {item.price}</p>
                       <button onClick={() => addToCart(item)}>Add to Cart</button>
                     </div>
                   </div>

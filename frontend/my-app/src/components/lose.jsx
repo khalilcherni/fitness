@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Lose.css'; // Import your CSS file
-
+import './AddLose.css'; // Import the new CSS file
+import StarRating from './StarRating';
 function Lose() {
   const [data, setData] = useState([]);
   const [updateData, setUpdateData] = useState({
@@ -12,15 +12,8 @@ function Lose() {
     type: '',
     image: '',
   });
-  const [newFood, setNewFood] = useState({
-    name: '',
-    calories: '',
-    description: '',
-    type: '',
-    image: '',
-  });
-  const [showAddForm, setShowAddForm] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showAddForm, setShowAddForm] = useState(false);
 
   useEffect(() => {
     axios
@@ -63,23 +56,6 @@ function Lose() {
       .catch((err) => console.log(err));
   };
 
-  const handleAddFood = () => {
-    axios
-      .post('http://localhost:5000/lose/add', newFood)
-      .then((res) => {
-        setData([...data, newFood]);
-        setNewFood({
-          name: '',
-          calories: '',
-          description: '',
-          type: '',
-          image: '',
-        });
-        setShowAddForm(false);
-      })
-      .catch((err) => console.log(err));
-  };
-
   const filteredData = data.filter((lose) => {
     return (
       (lose.name && lose.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
@@ -87,19 +63,19 @@ function Lose() {
       (lose.type && lose.type.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   });
-  
-
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
   return (
     <div className="container mt-5">
       <div className="search-bar">
-      <input
-  className=" gainsearch "
-  type="text"
-  placeholder="Search Food name"
-  value={searchTerm}
-  onChange={(e) => setSearchTerm(e.target.value)}
-/>
-
+        <input
+          className="gainsearch"
+          type="text"
+          placeholder="Search Food name"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
       <div className="row row-cols-1 row-cols-md-2 g-4">
@@ -112,6 +88,10 @@ function Lose() {
                 <p className="card-text">Type: {lose.type}</p>
                 <p className="card-text">Calories: {lose.calories}</p>
                 <p className="card-text">Description: {lose.description}</p>
+                <StarRating 
+          rating={lose.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, lose.place_id)} 
+        />
                 {updateData.id === lose.id ? (
                   <div className="update-form">
                     <input
@@ -168,41 +148,15 @@ function Lose() {
       </div>
 
       {showAddForm ? (
-        <div className="add-form">
-          <input
-            type="text"
-            placeholder="Name"
-            value={newFood.name}
-            onChange={(e) => setNewFood({ ...newFood, name: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Calories"
-            value={newFood.calories}
-            onChange={(e) => setNewFood({ ...newFood, calories: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            value={newFood.description}
-            onChange={(e) => setNewFood({ ...newFood, description: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Type"
-            value={newFood.type}
-            onChange={(e) => setNewFood({ ...newFood, type: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Image"
-            value={newFood.image}
-            onChange={(e) => setNewFood({ ...newFood, image: e.target.value })}
-          />
-          <button onClick={handleAddFood}>Add Food</button>
-        </div>
+        <AddLose
+          setShowAddForm={setShowAddForm}
+          setData={setData}
+          data={data}
+        />
       ) : (
-        <button className="add-food-btn" onClick={() => setShowAddForm(true)}>Add Food</button>
+        <button className="add-food-btn" onClick={() => setShowAddForm(true)}>
+          Add Food
+        </button>
       )}
     </div>
   );

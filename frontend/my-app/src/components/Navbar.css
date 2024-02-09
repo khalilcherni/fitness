@@ -89,3 +89,7 @@
 margin-left: 20px;
 margin-top: -9px;
 }
+/* styles.css */
+.khalil .dropdown-toggle {
+  color: black !important; /* Sets the color of the dropdown title to black */
+}

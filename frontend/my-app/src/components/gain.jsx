@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './gain.css'; // Import your CSS file
-
+import StarRating from './StarRating';
 function Gain() {
   const [data, setData] = useState([]);
   const [updateData, setUpdateData] = useState({
@@ -13,14 +13,6 @@ function Gain() {
     image: '',
   });
   const [searchTerm, setSearchTerm] = useState('');
-  const [addFormData, setAddFormData] = useState({
-    name: '',
-    calories: '',
-    description: '',
-    type: '',
-    image: '',
-  });
-  const [showAddForm, setShowAddForm] = useState(false);
 
   useEffect(() => {
     axios
@@ -46,27 +38,6 @@ function Gain() {
     setSearchTerm(e.target.value);
   };
 
-  const handleAddInputChange = (e) => {
-    setAddFormData({ ...addFormData, [e.target.name]: e.target.value });
-  };
-
-  const handleAddSubmit = () => {
-    axios
-      .post('http://localhost:5000/api/add', addFormData)
-      .then((res) => {
-        setData([...data, res.data]);
-        setAddFormData({
-          name: '',
-          calories: '',
-          description: '',
-          type: '',
-          image: '',
-        });
-        setShowAddForm(false);
-      })
-      .catch((err) => console.log(err));
-  };
-
   const handleUpdateSubmit = () => {
     axios
       .put(`http://localhost:5000/api/${updateData.id}`, updateData)
@@ -87,66 +58,31 @@ function Gain() {
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
   return (
-    <div className="container mt-5">
+    <div className="shop container"> {/* Applying class "shop" and "container" */}
       <input
         type="text"
         placeholder="Search by name"
         value={searchTerm}
         onChange={handleInputChange}
       />
-      <button onClick={() => setShowAddForm(!showAddForm)}>Add Food</button>
-      {showAddForm && (
-        <div className="add-form">
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            value={addFormData.name}
-            onChange={handleAddInputChange}
-          />
-          <input
-            type="text"
-            placeholder="Calories"
-            name="calories"
-            value={addFormData.calories}
-            onChange={handleAddInputChange}
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            name="description"
-            value={addFormData.description}
-            onChange={handleAddInputChange}
-          />
-          <input
-            type="text"
-            placeholder="Type"
-            name="type"
-            value={addFormData.type}
-            onChange={handleAddInputChange}
-          />
-          <input
-            type="text"
-            placeholder="Image"
-            name="image"
-            value={addFormData.image}
-            onChange={handleAddInputChange}
-          />
-          <button onClick={handleAddSubmit}>Submit</button>
-        </div>
-      )}
-      <div className="row row-cols-1 row-cols-md-2 g-4">
+      <div className="row">
         {filteredData.map((item) => (
-          <div key={item.id} className="col mb-4">
-            <div className="card h-100 men-card">
-              <img src={item.image} className="card-img-top" alt="item Weight" />
+          <div key={item.id} className="col">
+            <div className="card">
+              <img src={item.image} className="img" alt="item Weight" />
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text">Type: {item.type}</p>
                 <p className="card-text">Calories: {item.calories}</p>
                 <p className="card-text">Description: {item.description}</p>
+                <StarRating 
+          rating={item.rating}
+          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, item.place_id)} 
+        />
                 {updateData.id === item.id ? (
                   <div className="update-form">
                     <input
@@ -198,12 +134,8 @@ function Gain() {
                   </div>
                 ) : (
                   <div>
-                    <button className="btn btn-danger" onClick={() => handleDelete(item.id)}>
-                      Delete
-                    </button>
-                    <button className="btn btn-primary" onClick={() => handleUpdate(item)}>
-                      Update
-                    </button>
+                    <button className="btn btn-danger de" onClick={() => handleDelete(item.id)}>Delete</button>
+                    <button className="btn btn-primary in" onClick={() => handleUpdate(item)}>Update</button>
                   </div>
                 )}
               </div>

@@ -86,7 +86,9 @@ function Proteins() {
       [name]: value,
     }));
   };
-
+  const handleRatingClick = (clickedRating, placeId) => {
+    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+  };
   return (
     <div className="container mt-5">
       {updateMode ? (
