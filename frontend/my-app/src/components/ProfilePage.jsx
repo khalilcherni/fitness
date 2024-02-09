@@ -18,14 +18,33 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import "./ProfilePage.css"
+import axios from 'axios';
 
-
-export default function ProfilePage() {
+export default function ProfilePage({ userEmail }) {
   const [fullName, setFullName] = useState('John Doe');
   const [email, setEmail] = useState('johndoe@example.com');
   const [location, setLocation] = useState('Fitness Street, Gym City, CA');
   const [imageSrc, setImageSrc] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp');
+  const [newEmail, setNewEmail] = useState(userEmail);
+  const updateEmail = async () => {
+    try {
+      const response = await axios.put('http://localhost:5000/api/profile/update', {
+        newEmail: newEmail
+      });
 
+      if (response.status === 200) {
+        alert('Email updated successfully!');
+      } else {
+        alert('Failed to update email.');
+      }
+    } catch (error) {
+      console.error('Error updating email:', error);
+      alert('An error occurred while updating email. Please try again later.');
+    }
+  };
+  const handleEmailChange = (event) => {
+    setNewEmail(event.target.value);
+  }
   // Functions to handle changes in user information
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);
@@ -108,7 +127,8 @@ export default function ProfilePage() {
                     <MDBCardText  id='t' className="m">Email</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText  id='t' className="m">johndoe@example.com</MDBCardText>
+                     <MDBCardText id='t' className="m"> Kcherni411@gmail.com</MDBCardText>
+
                   </MDBCol>
                 </MDBRow>
                 <hr />
