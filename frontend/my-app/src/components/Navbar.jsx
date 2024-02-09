@@ -14,6 +14,8 @@ import CartList from './CartList';
 import Add from './AddForMen';
 import Women from './Women';
 import AddForWomen from './AddForWomen';
+import AddLose from './AddLose';
+import AddGain from './AddGain';
 function BasicExample() {
   const [activeTab, setActiveTab] = useState('home');
 
@@ -68,7 +70,7 @@ function BasicExample() {
                   Accessoire Sport
                 </NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title="3eljia" id="basic-nav-dropdown">
+              <NavDropdown title="Healthy" id="basic-nav-dropdown">
                 <NavDropdown.Item href="# loss weight" onClick={() => handleTabClick('loss weight')}>
                   Loss weight
                 </NavDropdown.Item>
@@ -79,11 +81,20 @@ function BasicExample() {
               <Nav.Link href="#Contact" onClick={() => handleTabClick('Contact')}>
                 Contact 
               </Nav.Link>
+
               <NavDropdown title="Add" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#Men" onClick={() => handleTabClick('AddForMen')}>
+              <NavDropdown className='khalil' title="Exercice">
+              <NavDropdown.Item href="#Men" onClick={() => handleTabClick('AddForMen')}>
                   Men
                 </NavDropdown.Item>
                 <NavDropdown.Item  onClick={() => handleTabClick('AddForWomen')} href="#Women">Women</NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown className='khalil' title="Healty">
+              <NavDropdown.Item href="#loss weight" onClick={() => handleTabClick('Add loss weight')}>
+              loss weight
+                </NavDropdown.Item>
+                <NavDropdown.Item  onClick={() => handleTabClick('Add gain Weight')} href="#gain Weight">gain Weight</NavDropdown.Item>
+              </NavDropdown>
               </NavDropdown>
 
               <Nav.Link href="#aboutUs" onClick={() => handleTabClick('aboutUs')}>
@@ -122,9 +133,10 @@ ProfilePage
         
       {activeTab === 'AddForWomen' && <AddForWomen />}
 
-      {activeTab === 'AddForMen' && <Add />}
+      {activeTab === 'Add loss weight' && <AddLose />}
+      {activeTab === 'Add gain Weight' && <AddGain />}
     
-
+      {activeTab === 'AddForMen' && <Add />}
       {activeTab === 'Register' && <Register />}
       {activeTab === 'proteins' && <Proteine />}
       {activeTab === 'accessoireSport' && <AccessoireSport />}
