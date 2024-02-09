@@ -8,21 +8,27 @@ function AddLose() {
     type: '',
     calories: '',
     description: '',
-    image: null, // Updated to null as initial value
   });
+  const [file, setFile] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleImageChange = (e) => {
-    setFormData({ ...formData, image: e.target.files[0] });
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const uploadImage = async () => {
+    if (!file) {
+      setError('Image is required.');
+      return;
+    }
+
     const formDataCloudinary = new FormData();
-    formDataCloudinary.append('file', formData.image);
+    formDataCloudinary.append('file', file);
     formDataCloudinary.append('upload_preset', 'hibahiba11');
 
     try {
@@ -30,31 +36,50 @@ function AddLose() {
         'https://api.cloudinary.com/v1_1/dsrcopz7v/upload',
         formDataCloudinary
       );
-      const imageUrl = responseCloudinary.data.secure_url;
 
-      await axios.post('http://localhost:5000/lose/add', {
+      setImageUrl(responseCloudinary.data.secure_url);
+      setFormData({ ...formData, image: responseCloudinary.data.secure_url });
+    } catch (error) {
+      setError('Error uploading image');
+      console.error('Error uploading image:', error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name.trim()) { 
+      setError('Name field is required.');
+      return;
+    }
+
+    if (!file) {
+      setError('Image is required.');
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:5000/lose/add', {
         Name: formData.name,
         Type: formData.type,
         Calories: formData.calories,
         Description: formData.description,
-        Image: imageUrl
+        Image: formData.image
       });
 
-      console.log('Form submitted successfully');
-      setFormData({
-        name: '',
-        type: '',
-        calories: '',
-        description: '',
-        image: null
-      });
+      console.log('Form submitted successfully', response.data);
+      setFormData({ name: '', type: '', calories: '', description: '', image: '' });
+      setImageUrl('');
+      setError('');
     } catch (error) {
+      setError('Error submitting form');
       console.error('Error submitting form:', error);
     }
   };
 
   return (
     <div className="form-container">
+      {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name" className="form-label">
@@ -120,10 +145,12 @@ function AddLose() {
             type="file"
             id="image"
             name="image"
-            onChange={handleImageChange}
+            onChange={handleFileChange}
             className="dd"
           />
+          <button type="button" onClick={uploadImage}>Upload Image</button>
         </div>
+        {imageUrl && <img src={imageUrl} alt="Uploaded" />}
         <button type="submit" className="button-55">
           Submit
         </button>

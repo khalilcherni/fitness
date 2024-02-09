@@ -140,18 +140,6 @@ function Lose() {
           </div>
         ))}
       </div>
-
-      {showAddForm ? (
-        <Lose
-          setShowAddForm={setShowAddForm}
-          setData={setData}
-          data={data}
-        />
-      ) : (
-        <button className="add-food-btn" onClick={() => setShowAddForm(true)}>
-          Add Food
-        </button>
-      )}
     </div>
   );
 }
