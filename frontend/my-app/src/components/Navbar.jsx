@@ -71,7 +71,7 @@ function BasicExample() {
                   Accessoire Sport
                 </NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title="3eljia" id="basic-nav-dropdown">
+              <NavDropdown title="Healthy" id="basic-nav-dropdown">
                 <NavDropdown.Item href="# loss weight" onClick={() => handleTabClick('loss weight')}>
                   Loss weight
                 </NavDropdown.Item>
