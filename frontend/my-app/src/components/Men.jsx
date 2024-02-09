@@ -1,4 +1,4 @@
-// Men.js
+// Men.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Men.css';
@@ -18,12 +18,22 @@ function Men() {
       .catch((err) => console.log(err));
   }, []);
 
+  const addToCart = (exercise) => {
+    // Implement your addToCart logic here
+    console.log('Added to cart:', exercise);
+  };
+
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   const filteredData = data.filter((exercise) =>
     exercise.ExerciseName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleImageClick = (exercise) => {
     setSelectedExercise(exercise);
+    setUpdateMode(false);
   };
 
   const handleBackToList = () => {
@@ -35,9 +45,7 @@ function Men() {
     if (!selectedExercise) {
       return;
     }
-    const handleRatingClick = (clickedRating, placeId) => {
-      setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
-    };
+
     axios
       .delete(`http://localhost:5000/api/delete/${selectedExercise.ID}`)
       .then((response) => {
@@ -88,8 +96,20 @@ function Men() {
       [name]: value,
     }));
   };
+
   const handleRatingClick = (clickedRating, placeId) => {
-    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+    axios
+      .put(`http://localhost:5000/api/put/${placeId}`, { rating: clickedRating })
+      .then((response) => {
+        console.log('Rating update response:', response.data);
+
+        setData((prevData) =>
+          prevData.map((exercise) =>
+            exercise.ID === placeId ? { ...exercise, rating: clickedRating } : exercise
+          )
+        );
+      })
+      .catch((err) => console.log('Rating update error:', err));
   };
 
   return (
@@ -129,6 +149,11 @@ function Men() {
             value={updatedExercise.Image}
             onChange={handleInputChange}
           />
+          <label>Rating:</label>
+          <StarRating
+            rating={updatedExercise.rating}
+            onRatingClick={(clickedRating) => handleRatingClick(clickedRating, updatedExercise.ID)}
+          />
           <button onClick={handleSaveUpdate}>Save Update</button>
           <button onClick={handleCancelUpdate}>Cancel</button>
         </div>
@@ -141,20 +166,27 @@ function Men() {
             alt="Exercise"
           />
           <p>{selectedExercise.Description}</p>
-          
+          <h2>{selectedExercise.DurationInMinutes}min</h2>
+          <h2>{selectedExercise.Repetitions} Repetitions</h2>
+          <StarRating
+            rating={selectedExercise.rating}
+            onRatingClick={(clickedRating) => handleRatingClick(clickedRating, selectedExercise.ID)}
+          />
           <button onClick={handleDelete}>Delete</button>
           <button onClick={handleUpdate}>Update</button>
           <button onClick={handleBackToList}>Back to List</button>
         </div>
       ) : (
         <>
-          <input
-            className="search-input"
-            type="text"
-            placeholder="Search by exercise name"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          <div className="search-container">
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search by exercise name"
+              value={searchTerm}
+              onChange={handleChange}
+            />
+          </div>
           <div className="row row-cols-1 row-cols-md-2 g-4">
             {filteredData.map((exercise) => (
               <div key={exercise.ID} className="col mb-4">
@@ -169,10 +201,13 @@ function Men() {
                     <h5 className="card-title">{exercise.ExerciseName}</h5>
                     <h2>{exercise.DurationInMinutes}min</h2>
                     <h2>{exercise.Repetitions} Repetitions</h2>
-                    <StarRating 
-          rating={exercise.rating}
-          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, exercise.place_id)} 
-        />
+                    <StarRating
+                      rating={exercise.rating}
+                      onRatingClick={(clickedRating) =>
+                        handleRatingClick(clickedRating, exercise.ID)
+                      }
+                    />
+                    <button onClick={() => addToCart(selectedExercise)}>Add to Cart</button>
                   </div>
                 </div>
               </div>

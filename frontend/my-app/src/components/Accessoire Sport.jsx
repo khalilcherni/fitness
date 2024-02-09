@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './accessoiresport.css';
+import StarRating from './StarRating';
 
-function AssesoiresSport() {
+function AccessoiresSport() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
@@ -25,13 +26,14 @@ function AssesoiresSport() {
     setSearchTerm(e.target.value);
   };
 
+  // Modify the filteredData variable to include the "price" field
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleImageClick = (item) => {
     setSelectedItem(item);
-    setUpdateMode(false); // Ensure update mode is set to false when clicking on a new image
+    setUpdateMode(false);
   };
 
   const handleBackToList = () => {
@@ -95,6 +97,21 @@ function AssesoiresSport() {
     }));
   };
 
+  const handleRatingClick = (clickedRating, itemId) => {
+    axios
+      .put(`http://localhost:5000/api/Products/${itemId}`, { rating: clickedRating })
+      .then((response) => {
+        console.log('Rating update response:', response.data);
+
+        setData((prevData) =>
+          prevData.map((item) =>
+            item.id === itemId ? { ...item, rating: clickedRating } : item
+          )
+        );
+      })
+      .catch((err) => console.log('Rating update error:', err));
+  };
+
   return (
     <div className="shop">
       {updateMode ? (
@@ -107,6 +124,13 @@ function AssesoiresSport() {
             onChange={handleInputChange}
           />
           {/* Add other fields as needed */}
+          <label>Price:</label>
+          <input
+            type="number"
+            name="price"
+            value={updatedItem.price}
+            onChange={handleInputChange}
+          />
           <button onClick={handleSaveUpdate}>Save Update</button>
           <button onClick={handleCancelUpdate}>Cancel</button>
         </div>
@@ -115,6 +139,13 @@ function AssesoiresSport() {
           <h1>{selectedItem.name}</h1>
           <img src={selectedItem.Image} className="img" alt="Item" />
           <p>{selectedItem.description}</p>
+          <p>Price: ${selectedItem.price}</p>
+          <StarRating
+            rating={selectedItem.rating}
+            onRatingClick={(clickedRating) =>
+              handleRatingClick(clickedRating, selectedItem.id)
+            }
+          />
           <div className="button-container">
             <button onClick={handleDelete}>Delete</button>
             <button onClick={handleUpdate}>Update</button>
@@ -150,6 +181,12 @@ function AssesoiresSport() {
                       <p className="in">
                         <strong>{item.name}</strong> - {item.description}
                       </p>
+                      <StarRating
+                        rating={item.rating}
+                        onRatingClick={(clickedRating) =>
+                          handleRatingClick(clickedRating, item.id)
+                        }
+                      />
                       <button onClick={() => addToCart(item)}>Add to Cart</button>
                     </div>
                   </div>
@@ -159,20 +196,8 @@ function AssesoiresSport() {
           </div>
         </div>
       )}
-      <div className="cart-container">
-        <h2>Shopping Cart</h2>
-        {cart.length === 0 ? (
-          <p>Your cart is empty.</p>
-        ) : (
-          <ul>
-            {cart.map((item, index) => (
-              <li key={index}>{item.name} - {item.description}</li>
-            ))}
-          </ul>
-        )}
-      </div>
     </div>
   );
 }
 
-export default AssesoiresSport;
+export default AccessoiresSport;

@@ -1,7 +1,9 @@
+// Women.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Men.css'; // Import your CSS file
+import './Men.css';
 import StarRating from './StarRating';
+
 function Women() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,12 +18,9 @@ function Women() {
       .catch((err) => console.log(err));
   }, []);
 
-  const filteredData = data.filter((e) =>
-    e.ExerciseName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   const handleImageClick = (exercise) => {
     setSelectedExercise(exercise);
+    setUpdateMode(false);
   };
 
   const handleBackToList = () => {
@@ -33,7 +32,6 @@ function Women() {
     if (!selectedExercise) {
       return;
     }
-
 
     axios
       .delete(`http://localhost:5000/api/women/${selectedExercise.ID}`)
@@ -85,9 +83,29 @@ function Women() {
       [name]: value,
     }));
   };
-  const handleRatingClick = (clickedRating, placeId) => {
-    setData(prevData => prevData.map(e => (e.place_id === placeId ? { ...e, rating: clickedRating } : e)));
+
+  const handleRatingClick = (clickedRating, exerciseId) => {
+    axios
+      .put(`http://localhost:5000/api/women/${exerciseId}`, { rating: clickedRating })
+      .then((response) => {
+        console.log('Rating update response:', response.data);
+
+        setData((prevData) =>
+          prevData.map((exercise) =>
+            exercise.ID === exerciseId ? { ...exercise, rating: clickedRating } : exercise
+          )
+        );
+      })
+      .catch((err) => console.log('Rating update error:', err));
   };
+
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredData = data.filter((exercise) =>
+    exercise.ExerciseName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="container mt-5">
@@ -127,6 +145,11 @@ function Women() {
             value={updatedExercise.Image}
             onChange={handleInputChange}
           />
+          <label>Rating:</label>
+          <StarRating
+            rating={updatedExercise.rating}
+            onRatingClick={(clickedRating) => handleRatingClick(clickedRating, updatedExercise.ID)}
+          />
           <button onClick={handleSaveUpdate}>Save Update</button>
           <button onClick={handleCancelUpdate}>Cancel</button>
         </div>
@@ -143,19 +166,25 @@ function Women() {
           <button onClick={handleDelete}>Delete</button>
           <button onClick={handleUpdate}>Update</button>
           <button onClick={handleBackToList}>Back to List</button>
+          <StarRating
+            rating={selectedExercise.rating}
+            onRatingClick={(clickedRating) => handleRatingClick(clickedRating, selectedExercise.ID)}
+          />
         </div>
       ) : (
         <>
-          <input
-            className="search-input"
-            type="text"
-            placeholder="Search by exercise name"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          <div className="search-container">
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search by exercise name"
+              value={searchTerm}
+              onChange={handleChange}
+            />
+          </div>
           <div className="row row-cols-1 row-cols-md-2 g-4">
             {filteredData.map((exercise) => (
-              <div key={exercise.id} className="col mb-4">
+              <div key={exercise.ID} className="col mb-4">
                 <div className="card h-100 men-card">
                   <img
                     src={exercise.Image}
@@ -167,10 +196,12 @@ function Women() {
                     <h5 className="card-title">{exercise.ExerciseName}</h5>
                     <h2>{exercise.DurationInMinutes}min</h2>
                     <h2>{exercise.Repetitions} Repetitions</h2>
-                    <StarRating 
-          rating={exercise.rating}
-          onRatingClick={(clickedRating) => handleRatingClick(clickedRating, exercise.place_id)} 
-        />
+                    <StarRating
+                      rating={exercise.rating}
+                      onRatingClick={(clickedRating) =>
+                        handleRatingClick(clickedRating, exercise.ID)
+                      }
+                    />
                   </div>
                 </div>
               </div>

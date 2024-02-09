@@ -12,7 +12,7 @@
   }
   
   .men-card {
-    border: 1px solid #ccc;
+    border: 1px solid #f5f1f1;
     border-radius: 10px;
     overflow: hidden;
   }
@@ -40,4 +40,7 @@
   }
   
   /* Add more styling as needed */
-  
+  .card-title,
+.card-text {
+  color: white;
+}
