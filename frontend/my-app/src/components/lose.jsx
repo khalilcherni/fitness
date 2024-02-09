@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AddLose.css'; // Import the new CSS file
 
-
 function Lose() {
   const [data, setData] = useState([]);
   const [updateData, setUpdateData] = useState({
