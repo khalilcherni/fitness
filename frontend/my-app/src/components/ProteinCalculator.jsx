@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./ProteinCalc.css"
 
 function ProteinCalculator() {
   const [height, setHeight] = useState('');
@@ -12,27 +13,29 @@ function ProteinCalculator() {
   };
 
   return (
-    <div>
+    <div className="protein-calculator-container">
       <h2>Protein Intake Calculator</h2>
       <div>
-        <label>Height (cm):</label>
+        <label className="form-label">Height (cm):</label>
         <input
+          className="form-input"
           type="number"
           value={height}
           onChange={(e) => setHeight(e.target.value)}
         />
       </div>
       <div>
-        <label>Weight (kg):</label>
+        <label className="form-label">Weight (kg):</label>
         <input
+          className="form-input"
           type="number"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
         />
       </div>
-      <button onClick={calculateProteinIntake}>Calculate Protein Intake</button>
+      <button className="button-calculate" onClick={calculateProteinIntake}>Calculate Protein Intake</button>
       {proteinIntake !== null && (
-        <div>
+        <div className="protein-result">
           <h3>Protein Intake:</h3>
           <p>{proteinIntake} grams per day</p>
         </div>
