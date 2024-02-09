@@ -1,18 +1,17 @@
 import Navbar from "./components/Navbar"
-// import Cloudinary from "./components/Cloudinary";
-
+import ReactDOM from 'react-dom';
+import { CartProvider } from './components/CartContext';
 
 
 
 function App() {
   return (
     <div>
-<Navbar/>
-{/* <Cloudinary/> */}
-
-
- </div>
-);
+      <CartProvider>
+        <Navbar />
+      </CartProvider>
+    </div>
+  );
 }
 
 export default App;

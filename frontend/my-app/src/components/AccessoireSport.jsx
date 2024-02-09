@@ -1,9 +1,13 @@
+// AccessoiresSport.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './accessoiresport.css';
 import StarRating from './StarRating';
+import CartList from './CartList';
+import { useCart } from './CartContext';
 
 function AccessoiresSport() {
+  const { addToCart } = useCart();
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
@@ -18,18 +22,18 @@ function AccessoiresSport() {
       .catch((err) => console.log(err));
   }, []);
 
-  const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
+  // const addToCart = (item) => {
+  //   setCart((prevCart) => [...prevCart, item]);
+  // };
+
+  const handleAddToCart = (accessory) => {
+    addToCart(accessory);
   };
+
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
   };
-
-  // Modify the filteredData variable to include the "price" field
-  const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   const handleImageClick = (item) => {
     setSelectedItem(item);
@@ -111,6 +115,10 @@ function AccessoiresSport() {
       })
       .catch((err) => console.log('Rating update error:', err));
   };
+
+  const filteredData = data.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="shop">
@@ -194,6 +202,7 @@ function AccessoiresSport() {
               ))
             )}
           </div>
+          <CartList cart={cart} />
         </div>
       )}
     </div>
