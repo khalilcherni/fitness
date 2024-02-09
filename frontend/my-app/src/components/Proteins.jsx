@@ -5,9 +5,21 @@ import './proteins.css'; // Assuming you have a Proteine.css file for styling
 function Proteine() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedProteine, setSelectedProteine] = useState(null);
+  const [selectedProteine, setSelectedProteine] = useState({
+    id: null,
+    name: '',
+    description: '',
+    Image: '',
+    price: 0,
+  });
   const [updateMode, setUpdateMode] = useState(false);
-  const [updatedProteine, setUpdatedProteine] = useState({});
+  const [updatedProteine, setUpdatedProteine] = useState({
+    id: null,
+    name: '',
+    description: '',
+    Image: '',
+    price: 0,
+  });
 
   useEffect(() => {
     axios
@@ -35,12 +47,12 @@ function Proteine() {
     }
 
     axios
-      .delete(`http://localhost:5000/api/protein/${selectedProteine.ID}`)
+      .delete(`http://localhost:5000/api/protein/${selectedProteine.id}`)
       .then((response) => {
         console.log('Delete response:', response.data);
 
         axios
-          .get('http://localhost:5000/api/Protein')
+          .get('http://localhost:5000/api/protein')
           .then((res) => setData(res.data))
           .catch((err) => console.log(err));
 
@@ -62,12 +74,12 @@ function Proteine() {
 
   const handleSaveUpdate = () => {
     axios
-      .put(`http://localhost:5000/api/Protein/${updatedProteine.ID}`, updatedProteine)
+      .put(`http://localhost:5000/api/protein/${updatedProteine.id}`, updatedProteine)
       .then((response) => {
         console.log('Update response:', response.data);
 
         axios
-          .get('http://localhost:5000/api/Protein')
+          .get('http://localhost:5000/api/protein')
           .then((res) => setData(res.data))
           .catch((err) => console.log(err));
 
@@ -108,6 +120,13 @@ function Proteine() {
             value={updatedProteine.Image}
             onChange={handleInputChange}
           />
+          <label>Price:</label>
+          <input
+            type="number"
+            name="price"
+            value={updatedProteine.price}
+            onChange={handleInputChange}
+          />
           <button onClick={handleSaveUpdate}>Save Update</button>
           <button onClick={handleCancelUpdate}>Cancel</button>
         </div>
@@ -120,6 +139,7 @@ function Proteine() {
             alt="Proteine"
           />
           <p>{selectedProteine.description}</p>
+          <p>Price: ${selectedProteine.price}</p>
           <button onClick={handleDelete}>Delete</button>
           <button onClick={handleUpdate}>Update</button>
           <button onClick={handleBackToList}>Back to List</button>
@@ -146,6 +166,7 @@ function Proteine() {
                   <div className="card-body">
                     <h5 className="card-title">{proteine.name}</h5>
                     {proteine.description && <p>{proteine.description}</p>}
+                    <p>Price: {proteine.price}</p>
                   </div>
                 </div>
               </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './accessoiresport.css';
 
-function AssesoiresSport() {
+function AccessoiresSport() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
@@ -25,6 +25,7 @@ function AssesoiresSport() {
     setSearchTerm(e.target.value);
   };
 
+  // Modify the filteredData variable to include the "price" field
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -107,6 +108,13 @@ function AssesoiresSport() {
             onChange={handleInputChange}
           />
           {/* Add other fields as needed */}
+          <label>Price:</label>
+          <input
+            type="number"
+            name="price"
+            value={updatedItem.price}
+            onChange={handleInputChange}
+          />
           <button onClick={handleSaveUpdate}>Save Update</button>
           <button onClick={handleCancelUpdate}>Cancel</button>
         </div>
@@ -115,6 +123,7 @@ function AssesoiresSport() {
           <h1>{selectedItem.name}</h1>
           <img src={selectedItem.Image} className="img" alt="Item" />
           <p>{selectedItem.description}</p>
+          <p>Price: ${selectedItem.price}</p>
           <div className="button-container">
             <button onClick={handleDelete}>Delete</button>
             <button onClick={handleUpdate}>Update</button>
@@ -150,6 +159,7 @@ function AssesoiresSport() {
                       <p className="in">
                         <strong>{item.name}</strong> - {item.description}
                       </p>
+                      <p className="price">Price: {item.price}</p>
                       <button onClick={() => addToCart(item)}>Add to Cart</button>
                     </div>
                   </div>
@@ -166,7 +176,9 @@ function AssesoiresSport() {
         ) : (
           <ul>
             {cart.map((item, index) => (
-              <li key={index}>{item.name} - {item.description}</li>
+              <li key={index}>
+                {item.name} - {item.description} - ${item.price}
+              </li>
             ))}
           </ul>
         )}
@@ -175,4 +187,4 @@ function AssesoiresSport() {
   );
 }
 
-export default AssesoiresSport;
+export default AccessoiresSport;
