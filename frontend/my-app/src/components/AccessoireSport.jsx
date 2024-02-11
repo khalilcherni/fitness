@@ -202,7 +202,7 @@ function AccessoiresSport() {
               ))
             )}
           </div>
-          <CartList cart={cart} />
+         
         </div>
       )}
     </div>
