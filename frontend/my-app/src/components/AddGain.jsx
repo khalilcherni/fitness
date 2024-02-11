@@ -20,24 +20,6 @@ function AddGain() {
     setFile(e.target.files[0]);
   };
 
-  const uploadImage = async () => {
-    const formDataCloudinary = new FormData();
-    formDataCloudinary.append('file', file);
-    formDataCloudinary.append('upload_preset', 'hibahiba11');
-
-    try {
-      const responseCloudinary = await axios.post(
-        'https://api.cloudinary.com/v1_1/dsrcopz7v/upload',
-        formDataCloudinary
-      );
-
-      setImageUrl(responseCloudinary.data.secure_url);
-      setFormData({ ...formData, image: responseCloudinary.data.secure_url });
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -76,6 +58,7 @@ function AddGain() {
       console.log('Gain added successfully:', response.data);
       setFormData({ name: '', type: '', calories: '', description: '', image: '' });
       setImageUrl('');
+      alert('Food added successfully!'); 
     } catch (error) {
       console.error('Error adding gain:', error);
     }
@@ -151,7 +134,6 @@ function AddGain() {
             onChange={handleFileChange}
             className="dd"
           />
-          <button type="button" onClick={uploadImage}>Upload Image</button>
         </div>
         <button type="submit" className="button-55">
           Submit

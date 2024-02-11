@@ -1,23 +1,25 @@
 .search-input {
-    padding: 8px 10px; /* Adjust padding as needed */
-    border: 2px solid #4caf50; /* Change border thickness and color */
-    border-radius: 4px; /* Keep border radius */
-    outline: none;
-    width: 100%; /* Make input expand to full width */
-    font-size: 16px; /* Adjust font size */
+  padding: 7px;
+  width: 24%;
+  box-sizing: border-box;
+  font-size: 15px;
+  border: 0px solid #ccc;
+  border-radius: 39px; /* Adjust font size */
   }
   
   .search-input::placeholder {
     color: #aaa; /* Adjust placeholder color */
   }
-.gainsearch {
-    padding: 8px 10px; /* Adjust padding as needed */
-    border: 2px solid #4caf50; /* Change border thickness and color */
-    border-radius: 4px; /* Keep border radius */
-    outline: none;
-    width: 100%; /* Make input expand to full width */
-    font-size: 16px; /* Adjust font size */
-  }
+  .search{
+    padding: 7px;
+    width: 24%;
+    box-sizing: border-box;
+    font-size: 15px;
+    border: 0px solid #ccc;
+    border-radius: 39px;
+}
+
+
   
   .search-input::placeholder {
     color: #aaa; 
