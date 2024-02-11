@@ -1,65 +1,70 @@
-.cartitems{
-    margin: 100px 170px;
-}
-.cartitems hr{
-    height: 5px;
-    background: #000000;
-    border: 0;
-}
-.cartitems-format-main{
-    display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
-    align-items: center;
-    gap: 75px;
-    padding: 20px 0px;
-    color: #000000;
-    font-size: 18px;
+/* CartList.css */
+
+.cart__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+  }
+  
+  .cart__header {
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
     font-weight: 600;
-}
-.cartitems-format{
-    font-size: 17px;
-    font-weight: 500;
-}
-.carticon-product-icon{
-    height: 62px;
-}
-.cartitems-remove-icon{
-    width: 15px;
-    margin: 0px 40px;
-    cursor: pointer;
-}
-.cartitems-quantity{
-    width: 64px;
-    height: 50px;
-    border: 2px solid#ebebeb;
-    background: #fff;
-}
-.cartitems-down{
-    display: flex;
-    margin: 100px 0px;
-}
-.cartitems-total{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-right: 200px;
-    gap: 40px;
-}
-.cartitems-total-item{
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 0px;
-}
-.cartitems-total button{
-    width: 262px;
-    height: 58px;
+    text-align: center;
+    color: var(--white);
+  }
+  
+  .cart__form {
+    margin-bottom: 1rem;
+  }
+  
+  .cart__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+  }
+  
+  .cart__input {
+    padding: 0.5rem;
+    border: 1px solid var(--text-light);
+    border-radius: 3px;
+    width: 100%;
+  }
+  
+  .cart__textarea {
+    padding: 0.5rem;
+    border: 1px solid var(--text-light);
+    border-radius: 3px;
+    width: 100%;
+  }
+  
+  .cart__button {
+    padding: 1rem 2rem;
     outline: none;
     border: none;
-    background: #ff0000;
-    color: #000000;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--secondary-color);
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 10%;
-    margin-left: 40%;
+    transition: 0.3s;
+  }
+  
+  .cart__button:hover {
+    background-color: var(--secondary-color-dark);
+  }
+  
+  .cart__success-message {
+    margin-top: 1rem;
+    color: var(--secondary-color);
+  }
+  
+  /* Add more styles as needed for the rest of your cart content */
+  *, ::after, ::before {
+    box-sizing: border-box;
+    color: white;
+}
+.h2, h2 {
+    font-size: 2rem;
+    color: white;
 }

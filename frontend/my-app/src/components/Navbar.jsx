@@ -20,7 +20,8 @@ import AddGain from './AddGain';
 import PrivateCoach from './PrivateCoach';
 import Advices from './Advices';
 import ProteinCalculator from './ProteinCalculator';
-
+import AddProtein from './AddProtein';
+import AddAccessories from './Addaccessoiresport';
 function NavbarComponent() {
   const [cart, setCart] = useState([]);
   const [activeTab, setActiveTab] = useState('home');
@@ -121,8 +122,18 @@ function NavbarComponent() {
                 <NavDropdown.Item onClick={() => handleTabClick('Add gain Weight')} href="#gain Weight">
                   gain Weight
                 </NavDropdown.Item>
+               
               </NavDropdown>
+              <NavDropdown className="khalil" title="Shop">
+                <NavDropdown.Item onClick={() => handleTabClick('AddProtein')} href="#AddProtein">
+              Add Protein
+            </NavDropdown.Item>
+            <NavDropdown.Item onClick={() => handleTabClick('AddAccessories')} href="#AddAccessories">
+            Add accessoiresport
+            </NavDropdown.Item>
             </NavDropdown>
+            </NavDropdown>
+            
             <Nav.Link href="#Private Coach" onClick={() => handleTabClick('Private Coach')}>
               private_Coach
             </Nav.Link>
@@ -158,6 +169,8 @@ function NavbarComponent() {
       {activeTab === 'Private Coach' && <PrivateCoach />}
       {activeTab === 'Advices' && <Advices />}
       {activeTab === 'ProteinCalculator' && <ProteinCalculator />}
+      {activeTab === 'AddProtein' && <AddProtein />}
+      {activeTab === ' AddAccessoires' && <AddAccessories />}
     </div>
   );
 }
