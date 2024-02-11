@@ -8,41 +8,12 @@ function AddLose() {
     type: '',
     calories: '',
     description: '',
+    image: '' // Added image state directly in formData
   });
-  const [file, setFile] = useState(null);
-  const [imageUrl, setImageUrl] = useState('');
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
-  const uploadImage = async () => {
-    if (!file) {
-      setError('Image is required.');
-      return;
-    }
-
-    const formDataCloudinary = new FormData();
-    formDataCloudinary.append('file', file);
-    formDataCloudinary.append('upload_preset', 'hibahiba11');
-
-    try {
-      const responseCloudinary = await axios.post(
-        'https://api.cloudinary.com/v1_1/dsrcopz7v/upload',
-        formDataCloudinary
-      );
-
-      setImageUrl(responseCloudinary.data.secure_url);
-      setFormData({ ...formData, image: responseCloudinary.data.secure_url });
-    } catch (error) {
-      setError('Error uploading image');
-      console.error('Error uploading image:', error);
-    }
   };
 
   const handleSubmit = async (e) => {
@@ -53,23 +24,11 @@ function AddLose() {
       return;
     }
 
-    if (!file) {
-      setError('Image is required.');
-      return;
-    }
-
     try {
-      const response = await axios.post('http://localhost:5000/lose/add', {
-        Name: formData.name,
-        Type: formData.type,
-        Calories: formData.calories,
-        Description: formData.description,
-        Image: formData.image
-      });
+      const response = await axios.post('http://localhost:5000/lose/add', formData);
 
       console.log('Form submitted successfully', response.data);
       setFormData({ name: '', type: '', calories: '', description: '', image: '' });
-      setImageUrl('');
       setError('');
     } catch (error) {
       setError('Error submitting form');
@@ -137,20 +96,6 @@ function AddLose() {
             placeholder="Enter description"
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="image" className="form-label">
-            Image
-          </label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            onChange={handleFileChange}
-            className="dd"
-          />
-          <button type="button" onClick={uploadImage}>Upload Image</button>
-        </div>
-        {imageUrl && <img src={imageUrl} alt="Uploaded" />}
         <button type="submit" className="button-55">
           Submit
         </button>
