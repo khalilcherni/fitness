@@ -58,6 +58,7 @@ function AddGain() {
       console.log('Gain added successfully:', response.data);
       setFormData({ name: '', type: '', calories: '', description: '', image: '' });
       setImageUrl('');
+      alert('Food added successfully!'); 
     } catch (error) {
       console.error('Error adding gain:', error);
     }
