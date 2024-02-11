@@ -16,7 +16,7 @@
   .row {
     display: flex;
     flex-wrap: wrap;
-    margin: -10px; /* Negative margin to counteract padding on columns */
+    margin: -10px; 
   }
   
   .col {

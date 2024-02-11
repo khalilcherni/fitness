@@ -147,7 +147,7 @@ function Gain() {
       ) : (
         <>
           <input
-            className="gainsearch"
+            className="search"
             type="text"
             placeholder="Search Food name"
             value={searchTerm}
